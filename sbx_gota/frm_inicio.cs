@@ -142,8 +142,8 @@ namespace sbx_gota
                     string rutaDestino = Path.Combine(destino, nombreArchivo);
                     try
                     {
-                        // copiar el archivo
-                        File.Copy(archivo, rutaDestino);
+                        // mover el archivo
+                        File.Move(archivo, rutaDestino);
                     }
                     catch (IOException ex)
                     {

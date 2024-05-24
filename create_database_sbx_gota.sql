@@ -97,9 +97,18 @@ FechaRegistro datetime,
 foreign key(Id_colaborador) references tbl_colaborador(Id)
 )
 GO
+CREATE TABLE tbl_parametro(
+Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+Nombre varchar(30),
+Valor varchar(max),
+Descripcion varchar(100) 
+)
+GO
 Insert into tbl_rol(Nombre, Descripcion) values('Administrador','Control Total')
 GO
 insert into tbl_usuario(Usuario,contraseña,IdRol) values('admin',ENCRYPTBYPASSPHRASE('password','admin'),1) 
+GO
+insert into tbl_parametro(Nombre,Valor,Descripcion) values('RutaBackup','','ruta en donde se guardara la copia de seguridad')
 GO
 CREATE PROC sp_consultar_cliente
 	@v_buscar VARCHAR(300)
@@ -236,3 +245,10 @@ BEGIN
 	order by FechaCuota asc;	
 END
 GO
+create PROC sp_consultar_parametros
+AS
+BEGIN
+	SELECT *
+	FROM tbl_parametro
+	order by Id asc	
+END

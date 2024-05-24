@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_inicio));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_pendiente_pago = new System.Windows.Forms.Button();
             this.btn_colaborador = new System.Windows.Forms.Button();
             this.btn_reporte = new System.Windows.Forms.Button();
             this.btn_abonos = new System.Windows.Forms.Button();
             this.btn_cliente = new System.Windows.Forms.Button();
             this.btn_cuenta_cobro = new System.Windows.Forms.Button();
             this.pnl_centro = new System.Windows.Forms.Panel();
-            this.btn_pendiente_pago = new System.Windows.Forms.Button();
+            this.btn_ajustes = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btn_ajustes);
             this.panel1.Controls.Add(this.btn_pendiente_pago);
             this.panel1.Controls.Add(this.btn_colaborador);
             this.panel1.Controls.Add(this.btn_reporte);
@@ -55,6 +57,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(134, 609);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_pendiente_pago
+            // 
+            this.btn_pendiente_pago.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_pendiente_pago.FlatAppearance.BorderSize = 0;
+            this.btn_pendiente_pago.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_pendiente_pago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btn_pendiente_pago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pendiente_pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pendiente_pago.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_pendiente_pago.Image = ((System.Drawing.Image)(resources.GetObject("btn_pendiente_pago.Image")));
+            this.btn_pendiente_pago.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_pendiente_pago.Location = new System.Drawing.Point(0, 285);
+            this.btn_pendiente_pago.Name = "btn_pendiente_pago";
+            this.btn_pendiente_pago.Size = new System.Drawing.Size(132, 57);
+            this.btn_pendiente_pago.TabIndex = 7;
+            this.btn_pendiente_pago.Text = "Pendiente pago";
+            this.btn_pendiente_pago.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_pendiente_pago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_pendiente_pago.UseVisualStyleBackColor = true;
+            this.btn_pendiente_pago.Click += new System.EventHandler(this.btn_pendiente_pago_Click);
             // 
             // btn_colaborador
             // 
@@ -169,26 +192,26 @@
             this.pnl_centro.Size = new System.Drawing.Size(876, 609);
             this.pnl_centro.TabIndex = 1;
             // 
-            // btn_pendiente_pago
+            // btn_ajustes
             // 
-            this.btn_pendiente_pago.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_pendiente_pago.FlatAppearance.BorderSize = 0;
-            this.btn_pendiente_pago.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
-            this.btn_pendiente_pago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btn_pendiente_pago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pendiente_pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_pendiente_pago.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_pendiente_pago.Image = ((System.Drawing.Image)(resources.GetObject("btn_pendiente_pago.Image")));
-            this.btn_pendiente_pago.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_pendiente_pago.Location = new System.Drawing.Point(0, 285);
-            this.btn_pendiente_pago.Name = "btn_pendiente_pago";
-            this.btn_pendiente_pago.Size = new System.Drawing.Size(132, 57);
-            this.btn_pendiente_pago.TabIndex = 7;
-            this.btn_pendiente_pago.Text = "Pendiente pago";
-            this.btn_pendiente_pago.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_pendiente_pago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_pendiente_pago.UseVisualStyleBackColor = true;
-            this.btn_pendiente_pago.Click += new System.EventHandler(this.btn_pendiente_pago_Click);
+            this.btn_ajustes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ajustes.FlatAppearance.BorderSize = 0;
+            this.btn_ajustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_ajustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btn_ajustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ajustes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajustes.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_ajustes.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajustes.Image")));
+            this.btn_ajustes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_ajustes.Location = new System.Drawing.Point(0, 342);
+            this.btn_ajustes.Name = "btn_ajustes";
+            this.btn_ajustes.Size = new System.Drawing.Size(132, 57);
+            this.btn_ajustes.TabIndex = 8;
+            this.btn_ajustes.Text = "Ajustes";
+            this.btn_ajustes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_ajustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_ajustes.UseVisualStyleBackColor = true;
+            this.btn_ajustes.Click += new System.EventHandler(this.btn_ajustes_Click);
             // 
             // frm_inicio
             // 
@@ -217,5 +240,6 @@
         public System.Windows.Forms.Button btn_reporte;
         public System.Windows.Forms.Button btn_colaborador;
         public System.Windows.Forms.Button btn_pendiente_pago;
+        public System.Windows.Forms.Button btn_ajustes;
     }
 }

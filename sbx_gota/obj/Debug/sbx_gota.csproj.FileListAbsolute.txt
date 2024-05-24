@@ -19,3 +19,4 @@ C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_abono_cuota.res
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_colaborador.resources
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_agregar_pago_colaborador.resources
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_cobro_pendiente.resources
+C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_ajustes.resources

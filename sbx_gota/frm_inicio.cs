@@ -1,8 +1,11 @@
-﻿using System;
+﻿using sbx_gota.MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,7 +68,11 @@ namespace sbx_gota
             if (Boton != "btn_pendiente_pago")
             {
                 btn_pendiente_pago.BackColor = Color.Gray;
-            } 
+            }
+            if (Boton != "btn_ajustes")
+            {
+                btn_ajustes.BackColor = Color.Gray;
+            }
         }
 
         private void btn_cuenta_cobro_Click(object sender, EventArgs e)
@@ -94,22 +101,67 @@ namespace sbx_gota
             AbrirFormularioEnPanel(frm_Abonos);
             btn_abonos.BackColor = Color.DarkSeaGreen;
         }
-
+        DataTable v_dt;
         private void frm_inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea salir?", "", MessageBoxButtons.OKCancel);
-            //if (dialogResult == DialogResult.OK)
-            //{
-            //    //Iniciar Formulario de login
-            //    frm_login frm_Login = new frm_login();
-            //    frm_Login.Show();
-            //    this.Hide();
-            //}
+            v_dt = new DataTable();
+            //consultar ruta a guardar
+            cls_parametros cls_Parametros = new cls_parametros();
+            v_dt = cls_Parametros.mtd_consultar_parametros();
+            string ruta = "";
+            foreach (DataRow item in v_dt.Rows)
+            {
+                if (item["Nombre"].ToString() == "RutaBackup")
+                {
+                    ruta = item["Valor"].ToString();
+                }
+            }
+            string NombreCopiaSeguridad = DateTime.Today.Year.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Day.ToString() + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second + " SBX_GOTA.bak";
+            string ComandoConsulta = "BACKUP DATABASE [SBX_GOTA] TO  DISK = N'" + ruta + "" + NombreCopiaSeguridad + "' WITH NOFORMAT, NOINIT,  NAME = N'SBX_GOTA-Completa Base de datos Copia de seguridad', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+            sbx_gota.DB.cls_conexion cls_Conexion = new DB.cls_conexion();
+            if (cls_Conexion.Cadenacn.State == ConnectionState.Open)
+            {
+                cls_Conexion.Cadenacn.Close();
+            }
+            SqlCommand cmd = new SqlCommand(ComandoConsulta, cls_Conexion.Cadenacn);
+            try
+            {
+                cls_Conexion.Cadenacn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Se genero copia de seguidad Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Ruta de la carpeta origen y destino
+                string origen = @"C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Backup";
+                string destino = @"C:\Users\Ruben\Dropbox\sbx_gota";
+                // Lista de archivos a mover
+                string[] archivos = Directory.GetFiles(origen);
+                foreach (string archivo in archivos)
+                {
+                    // Obtener el nombre del archivo
+                    string nombreArchivo = Path.GetFileName(archivo);
+                    // Construir la ruta de destino
+                    string rutaDestino = Path.Combine(destino, nombreArchivo);
+                    try
+                    {
+                        // copiar el archivo
+                        File.Copy(archivo, rutaDestino);
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show($"Error al mover {nombreArchivo}: {ex.Message}");
+                    }
+                }
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar generar copia de seguidad: " + ex.Message.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             //Iniciar Formulario de login
-                frm_login frm_Login = new frm_login();
-                frm_Login.Show();
-                this.Hide();
+            frm_login frm_Login = new frm_login();
+            frm_Login.Show();
+            this.Hide();
         }
 
         private void btn_colaborador_Click(object sender, EventArgs e)
@@ -128,6 +180,15 @@ namespace sbx_gota
             ColoresBotones("btn_pendiente_pago");
             AbrirFormularioEnPanel(frm_Cobro_Pendiente);
             btn_pendiente_pago.BackColor = Color.DarkSeaGreen;
+        }
+
+        private void btn_ajustes_Click(object sender, EventArgs e)
+        {
+            formul.Dispose();
+            frm_ajustes frm_Ajustes = new frm_ajustes();
+            ColoresBotones("btn_ajustes");
+            AbrirFormularioEnPanel(frm_Ajustes);
+            btn_ajustes.BackColor = Color.DarkSeaGreen;
         }
     }
 }

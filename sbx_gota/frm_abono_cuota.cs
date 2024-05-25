@@ -98,5 +98,18 @@ namespace sbx_gota
                 }
             }
         }
+
+        private void txt_valor_abono_KeyUp(object sender, KeyEventArgs e)
+        {
+            double vlr = 0;
+            string vF = "";
+            if (txt_valor_abono.Text != "")
+            {
+                vlr = Convert.ToDouble(txt_valor_abono.Text);
+                vF = vlr.ToString("N0");
+                txt_valor_abono.Text = vF;
+                txt_valor_abono.SelectionStart = txt_valor_abono.Text.Length;
+            }
+        }
     }
 }

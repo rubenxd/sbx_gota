@@ -60,6 +60,7 @@ namespace sbx_gota
             v_dt = cls_Cliente.mtd_consultar_cliente_exacto();
             DataRow row = v_dt.Rows[0];
             txt_cliente.Text = row["NumeroIdentificacion"].ToString();
+            txt_nombres.Text = row["Nombres"].ToString() + " " + row["Apellidos"].ToString();
             lbl_id_cliente.Text = row["Id"].ToString();
         }
 
@@ -118,7 +119,6 @@ namespace sbx_gota
                 errorProvider.SetError(txt_num_cuotas, "Ingrese numero de cuotas");
                 v_validado++;
             }
-
 
             if (v_validado == 0)
             {
@@ -412,22 +412,23 @@ namespace sbx_gota
             txt_valor_cuota.Text = "";
             lbl_id_cliente.Text = "0";
             lbl_id_cuenta_cobro.Text = "0";
+            txt_nombres.Text = "";
         }
         private void mtd_Cargar_cuenta_cobro()
         {
             cls_Cuenta_Cobro.v_buscar = "";
             v_dt = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro();
             dtg_cuenta_cobro.DataSource = null;
-            double MontoPrestamo = 0;
-            double vlr_interes = 0;
-            for (int i = 0; i < v_dt.Rows.Count; i++)
-            {
-                DataRow fila = v_dt.Rows[i];
-                MontoPrestamo = Convert.ToDouble(fila["MontoPrestamo"]);
-                fila["MontoPrestamo"] = MontoPrestamo.ToString();
-                vlr_interes = Convert.ToDouble(fila["ValorInteres"]);
-                fila["ValorInteres"] = vlr_interes.ToString();
-            }
+            //double MontoPrestamo = 0;
+            //double vlr_interes = 0;
+            //for (int i = 0; i < v_dt.Rows.Count; i++)
+            //{
+            //    DataRow fila = v_dt.Rows[i];
+            //    MontoPrestamo = Convert.ToDouble(fila["MontoPrestamo"]);
+            //    fila["MontoPrestamo"] = MontoPrestamo.ToString();
+            //    vlr_interes = Convert.ToDouble(fila["ValorInteres"]);
+            //    fila["ValorInteres"] = vlr_interes.ToString();
+            //}
             dtg_cuenta_cobro.DataSource = v_dt;
         }
 
@@ -464,10 +465,11 @@ namespace sbx_gota
                             lbl_id_cuenta_cobro.Text = row.Cells["IdCuentaCobro"].Value.ToString();
                             lbl_id_cliente.Text = row.Cells["Id_cliente"].Value.ToString();
                             txt_cliente.Text = row.Cells["NumeroIdentificacion"].Value.ToString();
+                            txt_nombres.Text = row.Cells["Cliente"].Value.ToString();
                             MontoPrestamo = Convert.ToDouble(row.Cells["MontoPrestamo"].Value);
-                            txt_vlr_prestamo.Text = MontoPrestamo.ToString();
+                            txt_vlr_prestamo.Text = MontoPrestamo.ToString("N0");
                             vlr_interes = Convert.ToDouble(row.Cells["ValorInteres"].Value);
-                            txt_vlr_interes.Text = vlr_interes.ToString();
+                            txt_vlr_interes.Text = vlr_interes.ToString("N0");
                             txt_porcentaje_interes.Text = row.Cells["PorcentajeInteres"].Value.ToString();
                             txt_num_cuotas.Text = row.Cells["NumeroCuotas"].Value.ToString();
                             cbx_modo_pago.Text = row.Cells["ModoPago"].Value.ToString();
@@ -476,10 +478,10 @@ namespace sbx_gota
                             txt_nota.Text = row.Cells["Nota"].Value.ToString();
 
                             double valorTotal = Convert.ToDouble(txt_vlr_prestamo.Text) + Convert.ToDouble(txt_vlr_interes.Text);
-                            txt_valor_total.Text = valorTotal.ToString();
+                            txt_valor_total.Text = valorTotal.ToString("N0");
 
                             double valorCuota = Convert.ToDouble(txt_valor_total.Text) / Convert.ToInt32(txt_num_cuotas.Text);
-                            txt_valor_cuota.Text = valorCuota.ToString();
+                            txt_valor_cuota.Text = valorCuota.ToString("N0");
                         }
                     }
                     else
@@ -565,10 +567,19 @@ namespace sbx_gota
             double valorTotal = 0;
             if (v_validado == 0)
             {
+                double vlr = 0;
+                string vF = "";
+                if (txt_vlr_interes.Text != "")
+                {
+                    vlr = Convert.ToDouble(txt_vlr_interes.Text);
+                    vF = vlr.ToString("N0");
+                    txt_vlr_interes.Text = vF;
+                    txt_vlr_interes.SelectionStart = txt_vlr_interes.Text.Length;
+                }
                 Margen = (Convert.ToDouble(txt_vlr_interes.Text) / Convert.ToDouble(txt_vlr_prestamo.Text)) * 100;
-                txt_porcentaje_interes.Text = Margen.ToString();
+                txt_porcentaje_interes.Text = Margen.ToString("N0");
                 valorTotal = Convert.ToDouble(txt_vlr_prestamo.Text) + Convert.ToDouble(txt_vlr_interes.Text);
-                txt_valor_total.Text = valorTotal.ToString();
+                txt_valor_total.Text = valorTotal.ToString("N0");
             }
             else
             {
@@ -595,11 +606,21 @@ namespace sbx_gota
             double valorTotal = 0;
             if (v_validado == 0)
             {
+                double vlr = 0;
+                string vF = "";
+                if (txt_porcentaje_interes.Text != "")
+                {
+                    vlr = Convert.ToDouble(txt_porcentaje_interes.Text);
+                    vF = vlr.ToString("N0");
+                    txt_porcentaje_interes.Text = vF;
+                    txt_porcentaje_interes.SelectionStart = txt_porcentaje_interes.Text.Length;
+                }
+
                 porcentaje = (Convert.ToDouble(txt_porcentaje_interes.Text) / 100);
                 valorfinal = porcentaje * Convert.ToDouble(txt_vlr_prestamo.Text);
-                txt_vlr_interes.Text = valorfinal.ToString();
+                txt_vlr_interes.Text = valorfinal.ToString("N0");
                 valorTotal = Convert.ToDouble(txt_vlr_prestamo.Text) + Convert.ToDouble(txt_vlr_interes.Text);
-                txt_valor_total.Text = valorTotal.ToString();
+                txt_valor_total.Text = valorTotal.ToString("N0");
             }
             else
             {
@@ -646,7 +667,7 @@ namespace sbx_gota
             if (v_validado == 0)
             {
                 valorCuota = Convert.ToDouble(txt_valor_total.Text) / Convert.ToInt32(txt_num_cuotas.Text);
-                txt_valor_cuota.Text = valorCuota.ToString();
+                txt_valor_cuota.Text = valorCuota.ToString("N0");
             }
             else
             {
@@ -707,16 +728,16 @@ namespace sbx_gota
             cls_Cuenta_Cobro.v_buscar = txt_buscar.Text;
             v_dt = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro();
             dtg_cuenta_cobro.DataSource = null;
-            double MontoPrestamo = 0;
-            double vlr_interes = 0;
-            for (int i = 0; i < v_dt.Rows.Count; i++)
-            {
-                DataRow fila = v_dt.Rows[i];
-                MontoPrestamo = Convert.ToDouble(fila["MontoPrestamo"]);
-                fila["MontoPrestamo"] = MontoPrestamo.ToString();
-                vlr_interes = Convert.ToDouble(fila["ValorInteres"]);
-                fila["ValorInteres"] = vlr_interes.ToString();
-            }
+            //double MontoPrestamo = 0;
+            //double vlr_interes = 0;
+            //for (int i = 0; i < v_dt.Rows.Count; i++)
+            //{
+            //    DataRow fila = v_dt.Rows[i];
+            //    MontoPrestamo = Convert.ToDouble(fila["MontoPrestamo"]);
+            //    fila["MontoPrestamo"] = MontoPrestamo.ToString();
+            //    vlr_interes = Convert.ToDouble(fila["ValorInteres"]);
+            //    fila["ValorInteres"] = vlr_interes.ToString();
+            //}
             dtg_cuenta_cobro.DataSource = v_dt;
         }
 
@@ -725,17 +746,30 @@ namespace sbx_gota
             cls_Cuenta_Cobro.v_buscar = txt_buscar.Text;
             v_dt = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro();
             dtg_cuenta_cobro.DataSource = null;
-            double MontoPrestamo = 0;
-            double vlr_interes = 0;
-            for (int i = 0; i < v_dt.Rows.Count; i++)
-            {
-                DataRow fila = v_dt.Rows[i];
-                MontoPrestamo = Convert.ToDouble(fila["MontoPrestamo"]);
-                fila["MontoPrestamo"] = MontoPrestamo.ToString();
-                vlr_interes = Convert.ToDouble(fila["ValorInteres"]);
-                fila["ValorInteres"] = vlr_interes.ToString();
-            }
+            //double MontoPrestamo = 0;
+            //double vlr_interes = 0;
+            //for (int i = 0; i < v_dt.Rows.Count; i++)
+            //{
+            //    DataRow fila = v_dt.Rows[i];
+            //    MontoPrestamo = Convert.ToDouble(fila["MontoPrestamo"]);
+            //    fila["MontoPrestamo"] = MontoPrestamo.ToString();
+            //    vlr_interes = Convert.ToDouble(fila["ValorInteres"]);
+            //    fila["ValorInteres"] = vlr_interes.ToString();
+            //}
             dtg_cuenta_cobro.DataSource = v_dt;
+        }
+
+        private void txt_vlr_prestamo_KeyUp(object sender, KeyEventArgs e)
+        {
+            double vlr = 0;
+            string vF = "";
+            if (txt_vlr_prestamo.Text != "")
+            {
+                vlr = Convert.ToDouble(txt_vlr_prestamo.Text);
+                vF = vlr.ToString("N0");
+                txt_vlr_prestamo.Text = vF;
+                txt_vlr_prestamo.SelectionStart = txt_vlr_prestamo.Text.Length;
+            }
         }
     }
 }

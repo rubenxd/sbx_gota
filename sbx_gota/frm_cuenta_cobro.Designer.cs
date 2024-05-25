@@ -34,6 +34,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_nombres = new System.Windows.Forms.TextBox();
             this.dtt_fecha_primer_pago = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -100,6 +102,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.txt_nombres);
             this.panel2.Controls.Add(this.dtt_fecha_primer_pago);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
@@ -131,8 +135,29 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 26);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 226);
+            this.panel2.Size = new System.Drawing.Size(800, 230);
             this.panel2.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(48, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 15);
+            this.label14.TabIndex = 89;
+            this.label14.Text = "Nombres *";
+            // 
+            // txt_nombres
+            // 
+            this.txt_nombres.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_nombres.Enabled = false;
+            this.txt_nombres.Location = new System.Drawing.Point(120, 37);
+            this.txt_nombres.MaxLength = 200;
+            this.txt_nombres.Name = "txt_nombres";
+            this.txt_nombres.Size = new System.Drawing.Size(279, 20);
+            this.txt_nombres.TabIndex = 88;
             // 
             // dtt_fecha_primer_pago
             // 
@@ -180,7 +205,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(114, 120);
+            this.label11.Location = new System.Drawing.Point(64, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 15);
             this.label11.TabIndex = 83;
@@ -190,10 +215,10 @@
             // 
             this.txt_valor_total.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_valor_total.Enabled = false;
-            this.txt_valor_total.Location = new System.Drawing.Point(170, 118);
+            this.txt_valor_total.Location = new System.Drawing.Point(120, 141);
             this.txt_valor_total.MaxLength = 200;
             this.txt_valor_total.Name = "txt_valor_total";
-            this.txt_valor_total.Size = new System.Drawing.Size(219, 20);
+            this.txt_valor_total.Size = new System.Drawing.Size(279, 20);
             this.txt_valor_total.TabIndex = 82;
             // 
             // lbl_id_cuenta_cobro
@@ -227,7 +252,7 @@
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Location = new System.Drawing.Point(170, 180);
+            this.btn_guardar.Location = new System.Drawing.Point(120, 193);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(126, 31);
             this.btn_guardar.TabIndex = 79;
@@ -346,7 +371,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(85, 146);
+            this.label6.Location = new System.Drawing.Point(35, 169);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 15);
             this.label6.TabIndex = 70;
@@ -355,10 +380,10 @@
             // txt_num_cuotas
             // 
             this.txt_num_cuotas.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_num_cuotas.Location = new System.Drawing.Point(170, 144);
+            this.txt_num_cuotas.Location = new System.Drawing.Point(120, 167);
             this.txt_num_cuotas.MaxLength = 200;
             this.txt_num_cuotas.Name = "txt_num_cuotas";
-            this.txt_num_cuotas.Size = new System.Drawing.Size(219, 20);
+            this.txt_num_cuotas.Size = new System.Drawing.Size(279, 20);
             this.txt_num_cuotas.TabIndex = 69;
             this.txt_num_cuotas.TextChanged += new System.EventHandler(this.txt_num_cuotas_TextChanged);
             this.txt_num_cuotas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_num_cuotas_KeyUp);
@@ -368,7 +393,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(97, 94);
+            this.label5.Location = new System.Drawing.Point(47, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 68;
@@ -377,10 +402,11 @@
             // txt_porcentaje_interes
             // 
             this.txt_porcentaje_interes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_porcentaje_interes.Location = new System.Drawing.Point(170, 92);
+            this.txt_porcentaje_interes.Enabled = false;
+            this.txt_porcentaje_interes.Location = new System.Drawing.Point(120, 115);
             this.txt_porcentaje_interes.MaxLength = 200;
             this.txt_porcentaje_interes.Name = "txt_porcentaje_interes";
-            this.txt_porcentaje_interes.Size = new System.Drawing.Size(219, 20);
+            this.txt_porcentaje_interes.Size = new System.Drawing.Size(279, 20);
             this.txt_porcentaje_interes.TabIndex = 67;
             this.txt_porcentaje_interes.TextChanged += new System.EventHandler(this.txt_porcentaje_interes_TextChanged);
             this.txt_porcentaje_interes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_porcentaje_interes_KeyUp);
@@ -390,7 +416,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(94, 68);
+            this.label4.Location = new System.Drawing.Point(44, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 15);
             this.label4.TabIndex = 66;
@@ -399,10 +425,10 @@
             // txt_vlr_interes
             // 
             this.txt_vlr_interes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_vlr_interes.Location = new System.Drawing.Point(170, 66);
+            this.txt_vlr_interes.Location = new System.Drawing.Point(120, 89);
             this.txt_vlr_interes.MaxLength = 200;
             this.txt_vlr_interes.Name = "txt_vlr_interes";
-            this.txt_vlr_interes.Size = new System.Drawing.Size(219, 20);
+            this.txt_vlr_interes.Size = new System.Drawing.Size(279, 20);
             this.txt_vlr_interes.TabIndex = 65;
             this.txt_vlr_interes.TextChanged += new System.EventHandler(this.txt_vlr_interes_TextChanged);
             this.txt_vlr_interes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_vlr_interes_KeyUp);
@@ -412,7 +438,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(79, 40);
+            this.label3.Location = new System.Drawing.Point(29, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 15);
             this.label3.TabIndex = 64;
@@ -421,19 +447,20 @@
             // txt_vlr_prestamo
             // 
             this.txt_vlr_prestamo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_vlr_prestamo.Location = new System.Drawing.Point(170, 40);
+            this.txt_vlr_prestamo.Location = new System.Drawing.Point(120, 63);
             this.txt_vlr_prestamo.MaxLength = 200;
             this.txt_vlr_prestamo.Name = "txt_vlr_prestamo";
-            this.txt_vlr_prestamo.Size = new System.Drawing.Size(219, 20);
+            this.txt_vlr_prestamo.Size = new System.Drawing.Size(279, 20);
             this.txt_vlr_prestamo.TabIndex = 63;
             this.txt_vlr_prestamo.TextChanged += new System.EventHandler(this.txt_vlr_prestamo_TextChanged);
+            this.txt_vlr_prestamo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_vlr_prestamo_KeyUp);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(110, 16);
+            this.label2.Location = new System.Drawing.Point(60, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 15);
             this.label2.TabIndex = 62;
@@ -448,7 +475,7 @@
             this.btn_buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar.Image")));
-            this.btn_buscar.Location = new System.Drawing.Point(407, 11);
+            this.btn_buscar.Location = new System.Drawing.Point(416, 12);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(22, 22);
             this.btn_buscar.TabIndex = 61;
@@ -459,10 +486,10 @@
             // 
             this.txt_cliente.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_cliente.Enabled = false;
-            this.txt_cliente.Location = new System.Drawing.Point(170, 14);
+            this.txt_cliente.Location = new System.Drawing.Point(120, 14);
             this.txt_cliente.MaxLength = 200;
             this.txt_cliente.Name = "txt_cliente";
-            this.txt_cliente.Size = new System.Drawing.Size(219, 20);
+            this.txt_cliente.Size = new System.Drawing.Size(279, 20);
             this.txt_cliente.TabIndex = 60;
             // 
             // errorProvider
@@ -477,7 +504,7 @@
             this.panel4.Controls.Add(this.btn_eliminar);
             this.panel4.Controls.Add(this.txt_buscar);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 252);
+            this.panel4.Location = new System.Drawing.Point(0, 256);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 39);
             this.panel4.TabIndex = 70;
@@ -554,11 +581,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg_cuenta_cobro.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_cuenta_cobro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_cuenta_cobro.Location = new System.Drawing.Point(0, 291);
+            this.dtg_cuenta_cobro.Location = new System.Drawing.Point(0, 295);
             this.dtg_cuenta_cobro.Name = "dtg_cuenta_cobro";
             this.dtg_cuenta_cobro.ReadOnly = true;
             this.dtg_cuenta_cobro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_cuenta_cobro.Size = new System.Drawing.Size(800, 374);
+            this.dtg_cuenta_cobro.Size = new System.Drawing.Size(800, 370);
             this.dtg_cuenta_cobro.TabIndex = 71;
             // 
             // frm_cuenta_cobro
@@ -626,5 +653,7 @@
         private System.Windows.Forms.TextBox txt_valor_cuota;
         private System.Windows.Forms.DateTimePicker dtt_fecha_primer_pago;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt_nombres;
     }
 }

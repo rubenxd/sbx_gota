@@ -113,7 +113,7 @@ namespace sbx_gota
             {
                 if (item["Nombre"].ToString() == "RutaBackup")
                 {
-                    ruta = item["Valor"].ToString();
+                    //ruta = item["Valor"].ToString();
                 }
             }
             string NombreCopiaSeguridad = DateTime.Today.Year.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Day.ToString() + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second + " SBX_GOTA.bak";
@@ -130,8 +130,23 @@ namespace sbx_gota
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Se genero copia de seguidad Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Ruta de la carpeta origen y destino
-                string origen = @"C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Backup";
-                string destino = @"C:\Users\Ruben\Dropbox\sbx_gota";
+                string origen = @"";
+                string destino = @"";
+                DataTable dt;
+                dt = new DataTable();
+                cls_Parametros = new cls_parametros();
+                dt = cls_Parametros.mtd_consultar_parametros();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr["Nombre"].ToString() == "RutaBackup")
+                    {
+                        origen = dr["Valor"].ToString();
+                    }
+                    else if (dr["Nombre"].ToString() == "RutaDestino")
+                    {
+                        destino = dr["Valor"].ToString();
+                    }
+                }
                 // Lista de archivos a mover
                 string[] archivos = Directory.GetFiles(origen);
                 foreach (string archivo in archivos)

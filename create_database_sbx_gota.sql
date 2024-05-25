@@ -110,6 +110,8 @@ insert into tbl_usuario(Usuario,contraseña,IdRol) values('admin',ENCRYPTBYPASSPH
 GO
 insert into tbl_parametro(Nombre,Valor,Descripcion) values('RutaBackup','','ruta en donde se guardara la copia de seguridad')
 GO
+insert into tbl_parametro(Nombre,Valor,Descripcion) values('RutaDestino','','ruta a donde se movera la copia de seguridad')
+GO
 CREATE PROC sp_consultar_cliente
 	@v_buscar VARCHAR(300)
 AS
@@ -119,23 +121,24 @@ BEGIN
 	WHERE (NumeroIdentificacion LIKE @v_buscar+'%' OR c.Nombres LIKE @v_buscar+'%' OR c.Apellidos LIKE @v_buscar+'%')		
 END
 GO
-CREATE PROC sp_consultar_cuenta_cobro
+create PROC sp_consultar_cuenta_cobro
 	@v_buscar VARCHAR(300)
 AS
 BEGIN
-	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente, c.MontoPrestamo, 
-	c.ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente
+	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente, REPLACE(FORMAT(c.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo, 
+	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente
 	FROM tbl_cuenta_cobro c 
 	INNER JOIN tbl_cliente cl on c.Id_cliente = cl.Id
-	WHERE (cl.NumeroIdentificacion LIKE @v_buscar+'%' OR cl.Nombres +' '+ cl.Apellidos LIKE @v_buscar+'%')			
+	WHERE (cl.NumeroIdentificacion LIKE @v_buscar+'%' OR cl.Nombres +' '+ cl.Apellidos LIKE @v_buscar+'%')
+	order by c.Id desc;			
 END
 GO
-CREATE PROC sp_consultar_cuenta_cobro_exacto
+create PROC sp_consultar_cuenta_cobro_exacto
 	@v_buscar int
 AS
 BEGIN
-	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente, c.MontoPrestamo, 
-	c.ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente
+	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente,REPLACE(FORMAT(c.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo, 
+	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente
 	FROM tbl_cuenta_cobro c 
 	INNER JOIN tbl_cliente cl on c.Id_cliente = cl.Id
 	WHERE c.Id = @v_buscar		
@@ -145,19 +148,19 @@ create PROC sp_consultar_plan_pagos
 	@v_buscar int
 AS
 BEGIN
-	SELECT pp.id,pp.Id_cuentaCobro,pp.NumeroCuota,pp.VlrCuota,pp.FechaCuota,pp.Estado,
-	isnull((select SUM(ta.ValorAbono) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id),0) ValorAbono,
-	isnull(pp.VlrCuota - ((select isnull(SUM(ta.ValorAbono),0) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id)),0) Saldo
+	SELECT pp.id,pp.Id_cuentaCobro,pp.NumeroCuota,REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota,pp.FechaCuota,pp.Estado,
+	REPLACE(FORMAT(isnull((select SUM(ta.ValorAbono) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id),0), '#,##0'), ',', '.') ValorAbono,
+	REPLACE(FORMAT(isnull(pp.VlrCuota - ((select isnull(SUM(ta.ValorAbono),0) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id)),0), '#,##0'), ',', '.') Saldo
 	--,pp.FechaRegistro
 	FROM tbl_plan_pagos pp 
 	WHERE Id_cuentaCobro = @v_buscar
 END
 GO
-CREATE PROC sp_consultar_Abonos
+create PROC sp_consultar_Abonos
 	@v_buscar VARCHAR(300)
 AS
 BEGIN
-	SELECT ta.Id IdAbono,ta.ValorAbono,ta.FechaRegistro,pp.Id_cuentaCobro,pp.Id IdPago, tc.NumeroIdentificacion, tc.Nombres, tc.Apellidos 
+	SELECT ta.Id IdAbono,REPLACE(FORMAT(ta.ValorAbono, '#,##0'), ',', '.') ValorAbono,ta.FechaRegistro,pp.Id_cuentaCobro,pp.Id IdPago, tc.NumeroIdentificacion, tc.Nombres, tc.Apellidos 
 	FROM tbl_abonos ta 
 	INNER JOIN tbl_plan_pagos pp ON ta.Id_plan_pagos = pp.Id
 	INNER JOIN tbl_cuenta_cobro cc ON cc.Id = pp.Id_cuentaCobro
@@ -233,15 +236,18 @@ BEGIN
 END
 GO
 create PROC sp_consultar_pagos_pendientes
-	@v_buscar VARCHAR(300)
+	@v_buscar VARCHAR(300),
+	@FechaIni AS DATE,
+	@FechaFin AS DATE
 AS
 BEGIN
-	select c.NumeroIdentificacion,c.Nombres + ' '+ c.Apellidos Cliente,c.Celular,cc.id IdCuentaCobro, pp.NumeroCuota,pp.VlrCuota,pp.FechaCuota,pp.Estado 
+	select c.NumeroIdentificacion,c.Nombres + ' '+ c.Apellidos Cliente,c.Celular,cc.id IdCuentaCobro, pp.NumeroCuota,REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota,pp.FechaCuota,pp.Estado 
 	from tbl_plan_pagos pp
 	inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
 	inner join tbl_cliente c on c.Id = cc.Id_cliente
 	where pp.Estado != 'Pago' and
-	(NumeroIdentificacion LIKE @v_buscar+'%' OR c.Nombres + ' ' + c.Apellidos LIKE @v_buscar+'%') 
+	(NumeroIdentificacion LIKE @v_buscar+'%' OR c.Nombres + ' ' + c.Apellidos LIKE @v_buscar+'%') and
+	CONVERT(date,pp.FechaCuota) between @FechaIni and @FechaFin
 	order by FechaCuota asc;	
 END
 GO

@@ -34,6 +34,9 @@
             this.txt_ruta_backup = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lbl_id_ruta_backup = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_ruta_destino = new System.Windows.Forms.TextBox();
+            this.lbl_ruta_destino = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,9 +68,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(172, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 15);
+            this.label2.Size = new System.Drawing.Size(71, 15);
             this.label2.TabIndex = 62;
-            this.label2.Text = "Ruta backup";
+            this.label2.Text = "Ruta origen";
             // 
             // txt_ruta_backup
             // 
@@ -89,7 +92,7 @@
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
-            this.btnIngresar.Location = new System.Drawing.Point(254, 58);
+            this.btnIngresar.Location = new System.Drawing.Point(254, 84);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(126, 31);
             this.btnIngresar.TabIndex = 63;
@@ -108,11 +111,45 @@
             this.lbl_id_ruta_backup.TabIndex = 64;
             this.lbl_id_ruta_backup.Text = "0";
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(172, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 15);
+            this.label3.TabIndex = 66;
+            this.label3.Text = "Ruta destino";
+            // 
+            // txt_ruta_destino
+            // 
+            this.txt_ruta_destino.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_ruta_destino.Location = new System.Drawing.Point(254, 58);
+            this.txt_ruta_destino.MaxLength = 200;
+            this.txt_ruta_destino.Name = "txt_ruta_destino";
+            this.txt_ruta_destino.Size = new System.Drawing.Size(316, 20);
+            this.txt_ruta_destino.TabIndex = 65;
+            // 
+            // lbl_ruta_destino
+            // 
+            this.lbl_ruta_destino.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_ruta_destino.AutoSize = true;
+            this.lbl_ruta_destino.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ruta_destino.Location = new System.Drawing.Point(12, 63);
+            this.lbl_ruta_destino.Name = "lbl_ruta_destino";
+            this.lbl_ruta_destino.Size = new System.Drawing.Size(14, 15);
+            this.lbl_ruta_destino.TabIndex = 67;
+            this.lbl_ruta_destino.Text = "0";
+            // 
             // frm_ajustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_ruta_destino);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txt_ruta_destino);
             this.Controls.Add(this.lbl_id_ruta_backup);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.label2);
@@ -137,5 +174,8 @@
         private System.Windows.Forms.TextBox txt_ruta_backup;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lbl_id_ruta_backup;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_ruta_destino;
+        private System.Windows.Forms.Label lbl_ruta_destino;
     }
 }

@@ -33,9 +33,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_acciones = new System.Windows.Forms.Panel();
+            this.dtp_fecha_ini = new System.Windows.Forms.DateTimePicker();
+            this.cbx_dia_semana = new System.Windows.Forms.ComboBox();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dtg_cobro_pendiente = new System.Windows.Forms.DataGridView();
+            this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
+            this.Ffin = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnl_acciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_cobro_pendiente)).BeginInit();
@@ -65,6 +70,11 @@
             // pnl_acciones
             // 
             this.pnl_acciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_acciones.Controls.Add(this.label2);
+            this.pnl_acciones.Controls.Add(this.Ffin);
+            this.pnl_acciones.Controls.Add(this.dtp_fecha_fin);
+            this.pnl_acciones.Controls.Add(this.dtp_fecha_ini);
+            this.pnl_acciones.Controls.Add(this.cbx_dia_semana);
             this.pnl_acciones.Controls.Add(this.btn_buscar);
             this.pnl_acciones.Controls.Add(this.txt_buscar);
             this.pnl_acciones.Dock = System.Windows.Forms.DockStyle.Top;
@@ -72,6 +82,38 @@
             this.pnl_acciones.Name = "pnl_acciones";
             this.pnl_acciones.Size = new System.Drawing.Size(800, 39);
             this.pnl_acciones.TabIndex = 11;
+            // 
+            // dtp_fecha_ini
+            // 
+            this.dtp_fecha_ini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_fecha_ini.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fecha_ini.Location = new System.Drawing.Point(237, 9);
+            this.dtp_fecha_ini.Name = "dtp_fecha_ini";
+            this.dtp_fecha_ini.Size = new System.Drawing.Size(129, 20);
+            this.dtp_fecha_ini.TabIndex = 10;
+            // 
+            // cbx_dia_semana
+            // 
+            this.cbx_dia_semana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_dia_semana.AutoCompleteCustomSource.AddRange(new string[] {
+            "Cedula",
+            "Cedula Extranjera",
+            "Tarjeta de identidad"});
+            this.cbx_dia_semana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_dia_semana.FormattingEnabled = true;
+            this.cbx_dia_semana.Items.AddRange(new object[] {
+            "Todos",
+            "Lunes",
+            "Martes",
+            "Miercoles",
+            "Jueves",
+            "Viernes",
+            "Sabado",
+            "Domingo"});
+            this.cbx_dia_semana.Location = new System.Drawing.Point(21, 7);
+            this.cbx_dia_semana.Name = "cbx_dia_semana";
+            this.cbx_dia_semana.Size = new System.Drawing.Size(172, 21);
+            this.cbx_dia_semana.TabIndex = 9;
             // 
             // btn_buscar
             // 
@@ -120,6 +162,35 @@
             this.dtg_cobro_pendiente.Size = new System.Drawing.Size(800, 385);
             this.dtg_cobro_pendiente.TabIndex = 12;
             // 
+            // dtp_fecha_fin
+            // 
+            this.dtp_fecha_fin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_fecha_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fecha_fin.Location = new System.Drawing.Point(407, 9);
+            this.dtp_fecha_fin.Name = "dtp_fecha_fin";
+            this.dtp_fecha_fin.Size = new System.Drawing.Size(129, 20);
+            this.dtp_fecha_fin.TabIndex = 11;
+            // 
+            // Ffin
+            // 
+            this.Ffin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Ffin.AutoSize = true;
+            this.Ffin.Location = new System.Drawing.Point(373, 12);
+            this.Ffin.Name = "Ffin";
+            this.Ffin.Size = new System.Drawing.Size(30, 13);
+            this.Ffin.TabIndex = 12;
+            this.Ffin.Text = "F.Fin";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(206, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "F.Ini";
+            // 
             // frm_cobro_pendiente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +203,7 @@
             this.Name = "frm_cobro_pendiente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_cobro_pendiente";
+            this.Load += new System.EventHandler(this.frm_cobro_pendiente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnl_acciones.ResumeLayout(false);
@@ -149,5 +221,10 @@
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.DataGridView dtg_cobro_pendiente;
+        private System.Windows.Forms.ComboBox cbx_dia_semana;
+        private System.Windows.Forms.DateTimePicker dtp_fecha_ini;
+        private System.Windows.Forms.DateTimePicker dtp_fecha_fin;
+        private System.Windows.Forms.Label Ffin;
+        private System.Windows.Forms.Label label2;
     }
 }

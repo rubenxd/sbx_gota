@@ -41,8 +41,6 @@ namespace sbx_gota
 
         private void mtd_dato_venta(string Item)
         {
-            double MontoPrestamo = 0;
-            double vlr_interes = 0;
             cls_Cuenta_Cobro.v_buscar = Item;
             v_dt = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro_exacto();
             DataRow row = v_dt.Rows[0];
@@ -50,17 +48,13 @@ namespace sbx_gota
             txt_id_cuenta_cobro.Text = row["IdCuentaCobro"].ToString();
             txt_identificacion.Text = row["NumeroIdentificacion"].ToString();
             txt_nombres.Text = row["Cliente"].ToString();
-            vlr_interes = Convert.ToDouble(row["ValorInteres"]);
-            row["ValorInteres"] = vlr_interes.ToString();
             txt_vlr_interes.Text = row["ValorInteres"].ToString();
-            MontoPrestamo = Convert.ToDouble(row["MontoPrestamo"]);
-            row["MontoPrestamo"] = MontoPrestamo.ToString();
             txt_vlr_prestamo.Text = row["MontoPrestamo"].ToString();
             txt_num_cuotas.Text = row["NumeroCuotas"].ToString();
             double valorTotal = Convert.ToDouble(txt_vlr_prestamo.Text) + Convert.ToDouble(txt_vlr_interes.Text);
-            txt_valor_total.Text = valorTotal.ToString();
+            txt_valor_total.Text = valorTotal.ToString("N0");
             double valorCuota = Convert.ToDouble(txt_valor_total.Text) / Convert.ToInt32(txt_num_cuotas.Text);
-            txt_valor_cuota.Text = valorCuota.ToString();
+            txt_valor_cuota.Text = valorCuota.ToString("N0");
             cbx_dia_pago.Text = row["DiaPago"].ToString();
             cbx_modo_pago.Text = row["ModoPago"].ToString();
             txt_dia_fecha_pago.Text = row["DiasFechaPago"].ToString();
@@ -69,29 +63,35 @@ namespace sbx_gota
 
             //carga plan de pagos
             dtg_plan_pagos.DataSource = null;
-            double VlrCuota = 0;
-            double VlrAbono = 0;
-            double vlrSaldo = 0;
+            //double VlrCuota = 0;
+            //double VlrAbono = 0;
+            //double vlrSaldo = 0;
             cls_Plan_Pagos.v_buscar = txt_id_cuenta_cobro.Text;
             v_dt2 = cls_Plan_Pagos.mtd_consultar_planPagos();
-            for (int i = 0; i < v_dt2.Rows.Count; i++)
-            {
-                DataRow fila = v_dt2.Rows[i];
-                VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
-                fila["VlrCuota"] = VlrCuota.ToString();
-                VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
-                fila["ValorAbono"] = VlrAbono.ToString();
-                vlrSaldo = Convert.ToDouble(fila["Saldo"]);
-                fila["Saldo"] = vlrSaldo.ToString();
-            }
+            //for (int i = 0; i < v_dt2.Rows.Count; i++)
+            //{
+            //    DataRow fila = v_dt2.Rows[i];
+            //    VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
+            //    fila["VlrCuota"] = VlrCuota.ToString();
+            //    VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
+            //    fila["ValorAbono"] = VlrAbono.ToString();
+            //    vlrSaldo = Convert.ToDouble(fila["Saldo"]);
+            //    fila["Saldo"] = vlrSaldo.ToString();
+            //}
             dtg_plan_pagos.DataSource = v_dt2;
             double PagoTotal = 0;
+            int pagoPendientes = 0;
             foreach (DataGridViewRow rows in dtg_plan_pagos.Rows)
             {
                 PagoTotal += Convert.ToDouble(rows.Cells["Saldo"].Value);
+                if (rows.Cells["Estado"].Value.ToString() == "Pendiente")
+                {
+                    pagoPendientes++;
+                }
             }
-            lbl_pago_total.Text = PagoTotal.ToString();
-            if (PagoTotal > 0)
+            lbl_pago_total.Text = PagoTotal.ToString("N0");
+
+            if (pagoPendientes > 0)
             {
                 btn_pago_total.Enabled = true;
             }
@@ -167,21 +167,21 @@ namespace sbx_gota
         {
             //carga plan de pagos
             dtg_plan_pagos.DataSource = null;
-            double VlrCuota = 0;
-            double VlrAbono = 0;
-            double vlrSaldo = 0;
+            //double VlrCuota = 0;
+            //double VlrAbono = 0;
+            //double vlrSaldo = 0;
             cls_Plan_Pagos.v_buscar = txt_id_cuenta_cobro.Text;
             v_dt2 = cls_Plan_Pagos.mtd_consultar_planPagos();
-            for (int i = 0; i < v_dt2.Rows.Count; i++)
-            {
-                DataRow fila = v_dt2.Rows[i];
-                VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
-                fila["VlrCuota"] = VlrCuota.ToString();
-                VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
-                fila["ValorAbono"] = VlrAbono.ToString();
-                vlrSaldo = Convert.ToDouble(fila["Saldo"]);
-                fila["Saldo"] = vlrSaldo.ToString();
-            }
+            //for (int i = 0; i < v_dt2.Rows.Count; i++)
+            //{
+            //    DataRow fila = v_dt2.Rows[i];
+            //    VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
+            //    fila["VlrCuota"] = VlrCuota.ToString();
+            //    VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
+            //    fila["ValorAbono"] = VlrAbono.ToString();
+            //    vlrSaldo = Convert.ToDouble(fila["Saldo"]);
+            //    fila["Saldo"] = vlrSaldo.ToString();
+            //}
 
             dtg_plan_pagos.DataSource = v_dt2;
         }
@@ -236,21 +236,21 @@ namespace sbx_gota
                     }
                     //carga plan de pagos
                     dtg_plan_pagos.DataSource = null;
-                    double VlrCuota = 0;
-                    double VlrAbono = 0;
-                    double vlrSaldo = 0;
+                    //double VlrCuota = 0;
+                    //double VlrAbono = 0;
+                    //double vlrSaldo = 0;
                     cls_Plan_Pagos.v_buscar = txt_id_cuenta_cobro.Text;
                     v_dt2 = cls_Plan_Pagos.mtd_consultar_planPagos();
-                    for (int i = 0; i < v_dt2.Rows.Count; i++)
-                    {
-                        DataRow fila = v_dt2.Rows[i];
-                        VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
-                        fila["VlrCuota"] = VlrCuota.ToString();
-                        VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
-                        fila["ValorAbono"] = VlrAbono.ToString();
-                        vlrSaldo = Convert.ToDouble(fila["Saldo"]);
-                        fila["Saldo"] = vlrSaldo.ToString();
-                    }
+                    //for (int i = 0; i < v_dt2.Rows.Count; i++)
+                    //{
+                    //    DataRow fila = v_dt2.Rows[i];
+                    //    VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
+                    //    fila["VlrCuota"] = VlrCuota.ToString();
+                    //    VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
+                    //    fila["ValorAbono"] = VlrAbono.ToString();
+                    //    vlrSaldo = Convert.ToDouble(fila["Saldo"]);
+                    //    fila["Saldo"] = vlrSaldo.ToString();
+                    //}
 
                     dtg_plan_pagos.DataSource = v_dt2;
                 }

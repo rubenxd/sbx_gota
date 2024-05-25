@@ -32,13 +32,13 @@ namespace sbx_gota
             cls_Abonos.v_buscar = txt_buscar.Text;
             v_dt = cls_Abonos.mtd_consultar_Abonos();
             dtg_abonos.DataSource = null;
-            double VlrAbono = 0;
-            for (int i = 0; i < v_dt.Rows.Count; i++)
-            {
-                DataRow fila = v_dt.Rows[i];
-                VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
-                fila["ValorAbono"] = VlrAbono.ToString();
-            }
+            //double VlrAbono = 0;
+            //for (int i = 0; i < v_dt.Rows.Count; i++)
+            //{
+            //    DataRow fila = v_dt.Rows[i];
+            //    VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
+            //    fila["ValorAbono"] = VlrAbono.ToString();
+            //}
             dtg_abonos.DataSource = v_dt;
         }
 
@@ -47,13 +47,13 @@ namespace sbx_gota
             cls_Abonos.v_buscar = txt_buscar.Text;
             v_dt = cls_Abonos.mtd_consultar_Abonos();
             dtg_abonos.DataSource = null;
-            double VlrAbono = 0;
-            for (int i = 0; i < v_dt.Rows.Count; i++)
-            {
-                DataRow fila = v_dt.Rows[i];
-                VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
-                fila["ValorAbono"] = VlrAbono.ToString();
-            }
+            //double VlrAbono = 0;
+            //for (int i = 0; i < v_dt.Rows.Count; i++)
+            //{
+            //    DataRow fila = v_dt.Rows[i];
+            //    VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
+            //    fila["ValorAbono"] = VlrAbono.ToString();
+            //}
             dtg_abonos.DataSource = v_dt;
         }
 

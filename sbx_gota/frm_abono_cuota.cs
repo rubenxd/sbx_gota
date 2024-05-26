@@ -43,45 +43,111 @@ namespace sbx_gota
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             v_validado = 0;
+            int error = 0;
+            int correcto = 0;
             errorProvider.Clear();
             if (txt_valor_abono.Text.Trim() == "")
             {
                 errorProvider.SetError(txt_valor_abono, "Ingrese Abono");
                 v_validado++;
             }
-
+           
             if (v_validado == 0)
             {
-                if (Convert.ToDouble(txt_valor_abono.Text) > Convert.ToDouble(txt_valor_cuota.Text))
-                {
-                    MessageBox.Show("Abono NO puede ser mayor al valor de cuota");
-                    v_validado++;
-                }
                 if (Convert.ToDouble(txt_valor_abono.Text) <= 0)
                 {
                     MessageBox.Show("Abono NO puede ser menor o igual a cero");
                     v_validado++;
                 }
+                DataTable v_dt4 = new DataTable();
+                double valorTotalEnCuotas = 0;
                 if (v_validado == 0)
                 {
-                    cls_Abonos.Id_plan_pagos =  Convert.ToInt32(txt_id_cuota.Text);
-                    cls_Abonos.ValorAbono = txt_valor_abono.Text;
-                    cls_Abonos.Nota = txt_nota.Text;
-                    cls_Abonos.FechaRegistro = DateTime.Now.ToString();
-                    v_ok = cls_Abonos.mtd_registrar();
-                    if (v_ok)
+                    cls_Plan_Pagos.Id = Convert.ToInt32(txt_id_cuota.Text);
+                    v_dt4 = cls_Plan_Pagos.mtd_consultar_planPagos_verif_cuotas();
+                    
+                    foreach (DataRow item in v_dt4.Rows)
                     {
-                        cls_Plan_Pagos.Id = Convert.ToInt32(txt_id_cuota.Text);
-                        if (Convert.ToDouble(txt_valor_abono.Text) == Convert.ToDouble(txt_valor_cuota.Text))
+                        valorTotalEnCuotas += Convert.ToDouble(item["ValorFaltante"]);
+                    }
+                    if (valorTotalEnCuotas < Convert.ToDouble(txt_valor_abono.Text))
+                    {
+                        MessageBox.Show("Abono NO puede ser mayor al valor total en cuotas pendientes, Valor total en cuotas pendientes: " + valorTotalEnCuotas.ToString("N0"));
+                        v_validado++;
+                    }
+                }
+               
+                if (v_validado == 0)
+                {
+                    double vlrAbono = 0;
+                    if (Convert.ToDouble(txt_valor_abono.Text) > Convert.ToDouble(txt_valor_cuota.Text))
+                    {
+                        vlrAbono = Convert.ToDouble(txt_valor_abono.Text);
+                        foreach (DataRow item in v_dt4.Rows)
                         {
-                            cls_Plan_Pagos.Estado = "Pago";
-                        }else if (Convert.ToDouble(txt_valor_abono.Text) < Convert.ToDouble(txt_valor_cuota.Text)) {
-                            cls_Plan_Pagos.Estado = "Pago parcial";
-                        }                     
-                        cls_Plan_Pagos.mtd_Editar_estado();
-                        MessageBox.Show("Abono registrado correctamente");
+                            if (vlrAbono > 0)
+                            {
+                                cls_Abonos.Id_plan_pagos = Convert.ToInt32(item["Id"]);
+                                if (vlrAbono >= Convert.ToDouble(item["ValorFaltante"]))
+                                {
+                                    cls_Abonos.ValorAbono = item["ValorFaltante"].ToString();
+                                }
+                                else
+                                {
+                                    cls_Abonos.ValorAbono = vlrAbono.ToString();
+                                }
+                                
+                                cls_Abonos.Nota = "abono automatico";
+                                cls_Abonos.FechaRegistro = DateTime.Now.ToString();
+                                v_ok = v_ok = cls_Abonos.mtd_registrar();
+                                if (v_ok)
+                                {
+                                    cls_Plan_Pagos.Id = Convert.ToInt32(item["Id"]);
+                                    if (vlrAbono >= Convert.ToDouble(Convert.ToDouble(item["ValorFaltante"])))
+                                    {
+                                        cls_Plan_Pagos.Estado = "Pago";
+                                    }
+                                    else if (vlrAbono < Convert.ToDouble(Convert.ToDouble(item["ValorFaltante"])))
+                                    {
+                                        cls_Plan_Pagos.Estado = "Pago parcial";
+                                    }
+                                    correcto++;
+                                    vlrAbono = vlrAbono - Convert.ToDouble(item["ValorFaltante"]);
+                                    cls_Plan_Pagos.mtd_Editar_estado();
+                                }
+                                else
+                                {
+                                    error++;
+                                }
+                            }
+                        }
+                        MessageBox.Show("Abono registrado correctamente, correcto: "+correcto+", error: "+error);
                         Enviainfo("AbonoAplicado");
                         this.Dispose();
+                    }
+                    else
+                    {
+                        cls_Abonos.Id_plan_pagos = Convert.ToInt32(txt_id_cuota.Text);
+                        cls_Abonos.ValorAbono = txt_valor_abono.Text;
+                        cls_Abonos.Nota = txt_nota.Text;
+                        cls_Abonos.FechaRegistro = DateTime.Now.ToString();
+                        v_ok = cls_Abonos.mtd_registrar();
+                        if (v_ok)
+                        {
+                            cls_Plan_Pagos.Id = Convert.ToInt32(txt_id_cuota.Text);
+                            if (Convert.ToDouble(txt_valor_abono.Text) == Convert.ToDouble(txt_valor_cuota.Text))
+                            {
+                                cls_Plan_Pagos.Estado = "Pago";
+                            }
+                            else if (Convert.ToDouble(txt_valor_abono.Text) < Convert.ToDouble(txt_valor_cuota.Text))
+                            {
+                                cls_Plan_Pagos.Estado = "Pago parcial";
+                            }
+                            cls_Plan_Pagos.mtd_Editar_estado();
+                            MessageBox.Show("Abono registrado correctamente");
+                            Enviainfo("AbonoAplicado");
+                            this.Dispose();
+                        }
                     }
                 }
             }

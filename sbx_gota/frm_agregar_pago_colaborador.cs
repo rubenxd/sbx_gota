@@ -152,13 +152,13 @@ namespace sbx_gota
             DataTable dt3 = new DataTable();
             dt3 = cls_Pagos_Colaborador.mtd_consultar_Pagos_colaborador();
             dtg_clientes.DataSource = null;
-            double ValorPago = 0;
-            for (int i = 0; i < dt3.Rows.Count; i++)
-            {
-                DataRow fila = dt3.Rows[i];
-                ValorPago = Convert.ToDouble(fila["ValorPago"]);
-                fila["ValorPago"] = ValorPago.ToString();
-            }
+            //double ValorPago = 0;
+            //for (int i = 0; i < dt3.Rows.Count; i++)
+            //{
+            //    DataRow fila = dt3.Rows[i];
+            //    ValorPago = Convert.ToDouble(fila["ValorPago"]);
+            //    fila["ValorPago"] = ValorPago.ToString();
+            //}
             dtg_clientes.DataSource = dt3;
         }
 
@@ -259,6 +259,19 @@ namespace sbx_gota
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             mtd_eliminar();
+        }
+
+        private void txt_vlr_pagar_KeyUp(object sender, KeyEventArgs e)
+        {
+            double vlr = 0;
+            string vF = "";
+            if (txt_vlr_pagar.Text != "")
+            {
+                vlr = Convert.ToDouble(txt_vlr_pagar.Text);
+                vF = vlr.ToString("N0");
+                txt_vlr_pagar.Text = vF;
+                txt_vlr_pagar.SelectionStart = txt_vlr_pagar.Text.Length;
+            }
         }
     }
 }

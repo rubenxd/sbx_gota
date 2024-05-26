@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_agregar_pago_colaborador));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_nombres = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_id_pago = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_nota = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.dtg_clientes = new System.Windows.Forms.DataGridView();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lbl_id_pago = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_clientes)).BeginInit();
@@ -172,6 +172,16 @@
             this.panel1.Size = new System.Drawing.Size(800, 257);
             this.panel1.TabIndex = 120;
             // 
+            // lbl_id_pago
+            // 
+            this.lbl_id_pago.AutoSize = true;
+            this.lbl_id_pago.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_id_pago.Location = new System.Drawing.Point(12, 9);
+            this.lbl_id_pago.Name = "lbl_id_pago";
+            this.lbl_id_pago.Size = new System.Drawing.Size(14, 15);
+            this.lbl_id_pago.TabIndex = 129;
+            this.lbl_id_pago.Text = "0";
+            // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -212,6 +222,7 @@
             this.txt_vlr_pagar.Size = new System.Drawing.Size(219, 20);
             this.txt_vlr_pagar.TabIndex = 125;
             this.txt_vlr_pagar.TextChanged += new System.EventHandler(this.txt_vlr_pagar_TextChanged);
+            this.txt_vlr_pagar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_vlr_pagar_KeyUp);
             // 
             // label5
             // 
@@ -339,14 +350,14 @@
             this.dtg_clientes.AllowUserToAddRows = false;
             this.dtg_clientes.AllowUserToDeleteRows = false;
             this.dtg_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_clientes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_clientes.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_clientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_clientes.Location = new System.Drawing.Point(0, 295);
             this.dtg_clientes.Name = "dtg_clientes";
@@ -358,16 +369,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // lbl_id_pago
-            // 
-            this.lbl_id_pago.AutoSize = true;
-            this.lbl_id_pago.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_id_pago.Location = new System.Drawing.Point(12, 9);
-            this.lbl_id_pago.Name = "lbl_id_pago";
-            this.lbl_id_pago.Size = new System.Drawing.Size(14, 15);
-            this.lbl_id_pago.TabIndex = 129;
-            this.lbl_id_pago.Text = "0";
             // 
             // frm_agregar_pago_colaborador
             // 

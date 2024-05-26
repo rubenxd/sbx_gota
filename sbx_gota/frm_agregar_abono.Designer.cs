@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_agregar_abono));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_cuentaCobro = new System.Windows.Forms.TextBox();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -138,7 +138,7 @@
             this.groupBox1.Controls.Add(this.txt_identificacion);
             this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(849, 223);
+            this.groupBox1.Size = new System.Drawing.Size(849, 229);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info Cuenta cobro";
@@ -190,7 +190,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(123, 155);
+            this.label12.Location = new System.Drawing.Point(123, 203);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 15);
             this.label12.TabIndex = 107;
@@ -200,7 +200,7 @@
             // 
             this.txt_valor_cuota.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_valor_cuota.Enabled = false;
-            this.txt_valor_cuota.Location = new System.Drawing.Point(186, 152);
+            this.txt_valor_cuota.Location = new System.Drawing.Point(186, 200);
             this.txt_valor_cuota.MaxLength = 200;
             this.txt_valor_cuota.Name = "txt_valor_cuota";
             this.txt_valor_cuota.Size = new System.Drawing.Size(219, 20);
@@ -211,7 +211,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(130, 128);
+            this.label11.Location = new System.Drawing.Point(130, 150);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 15);
             this.label11.TabIndex = 105;
@@ -221,7 +221,7 @@
             // 
             this.txt_valor_total.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_valor_total.Enabled = false;
-            this.txt_valor_total.Location = new System.Drawing.Point(186, 126);
+            this.txt_valor_total.Location = new System.Drawing.Point(186, 148);
             this.txt_valor_total.MaxLength = 200;
             this.txt_valor_total.Name = "txt_valor_total";
             this.txt_valor_total.Size = new System.Drawing.Size(219, 20);
@@ -232,7 +232,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(502, 153);
+            this.label10.Location = new System.Drawing.Point(502, 125);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 15);
             this.label10.TabIndex = 103;
@@ -242,7 +242,7 @@
             // 
             this.txt_nota.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_nota.Enabled = false;
-            this.txt_nota.Location = new System.Drawing.Point(541, 151);
+            this.txt_nota.Location = new System.Drawing.Point(541, 123);
             this.txt_nota.MaxLength = 200;
             this.txt_nota.Name = "txt_nota";
             this.txt_nota.Size = new System.Drawing.Size(219, 20);
@@ -253,7 +253,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(438, 127);
+            this.label9.Location = new System.Drawing.Point(438, 99);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 15);
             this.label9.TabIndex = 101;
@@ -263,7 +263,7 @@
             // 
             this.txt_dia_fecha_pago.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_dia_fecha_pago.Enabled = false;
-            this.txt_dia_fecha_pago.Location = new System.Drawing.Point(541, 125);
+            this.txt_dia_fecha_pago.Location = new System.Drawing.Point(541, 97);
             this.txt_dia_fecha_pago.MaxLength = 200;
             this.txt_dia_fecha_pago.Name = "txt_dia_fecha_pago";
             this.txt_dia_fecha_pago.Size = new System.Drawing.Size(219, 20);
@@ -274,7 +274,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(123, 180);
+            this.label8.Location = new System.Drawing.Point(478, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 15);
             this.label8.TabIndex = 99;
@@ -299,7 +299,7 @@
             "Viernes",
             "Sabado",
             "Domingo"});
-            this.cbx_dia_pago.Location = new System.Drawing.Point(186, 178);
+            this.cbx_dia_pago.Location = new System.Drawing.Point(541, 43);
             this.cbx_dia_pago.Name = "cbx_dia_pago";
             this.cbx_dia_pago.Size = new System.Drawing.Size(219, 21);
             this.cbx_dia_pago.TabIndex = 98;
@@ -309,7 +309,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(467, 100);
+            this.label7.Location = new System.Drawing.Point(467, 72);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 15);
             this.label7.TabIndex = 97;
@@ -333,7 +333,7 @@
             "Mensual",
             "Semestral",
             "Anual"});
-            this.cbx_modo_pago.Location = new System.Drawing.Point(541, 98);
+            this.cbx_modo_pago.Location = new System.Drawing.Point(541, 70);
             this.cbx_modo_pago.Name = "cbx_modo_pago";
             this.cbx_modo_pago.Size = new System.Drawing.Size(219, 21);
             this.cbx_modo_pago.TabIndex = 96;
@@ -343,7 +343,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(461, 74);
+            this.label6.Location = new System.Drawing.Point(106, 176);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 15);
             this.label6.TabIndex = 95;
@@ -353,7 +353,7 @@
             // 
             this.txt_num_cuotas.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_num_cuotas.Enabled = false;
-            this.txt_num_cuotas.Location = new System.Drawing.Point(541, 72);
+            this.txt_num_cuotas.Location = new System.Drawing.Point(186, 174);
             this.txt_num_cuotas.MaxLength = 200;
             this.txt_num_cuotas.Name = "txt_num_cuotas";
             this.txt_num_cuotas.Size = new System.Drawing.Size(219, 20);
@@ -364,7 +364,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(473, 48);
+            this.label5.Location = new System.Drawing.Point(473, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 15);
             this.label5.TabIndex = 93;
@@ -374,7 +374,7 @@
             // 
             this.txt_porcentaje_interes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_porcentaje_interes.Enabled = false;
-            this.txt_porcentaje_interes.Location = new System.Drawing.Point(541, 46);
+            this.txt_porcentaje_interes.Location = new System.Drawing.Point(541, 17);
             this.txt_porcentaje_interes.MaxLength = 200;
             this.txt_porcentaje_interes.Name = "txt_porcentaje_interes";
             this.txt_porcentaje_interes.Size = new System.Drawing.Size(219, 20);
@@ -385,7 +385,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(115, 102);
+            this.label4.Location = new System.Drawing.Point(115, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 15);
             this.label4.TabIndex = 91;
@@ -395,7 +395,7 @@
             // 
             this.txt_vlr_interes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_vlr_interes.Enabled = false;
-            this.txt_vlr_interes.Location = new System.Drawing.Point(186, 100);
+            this.txt_vlr_interes.Location = new System.Drawing.Point(186, 122);
             this.txt_vlr_interes.MaxLength = 200;
             this.txt_vlr_interes.Name = "txt_vlr_interes";
             this.txt_vlr_interes.Size = new System.Drawing.Size(219, 20);
@@ -406,7 +406,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(458, 22);
+            this.label3.Location = new System.Drawing.Point(103, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 15);
             this.label3.TabIndex = 89;
@@ -416,7 +416,7 @@
             // 
             this.txt_vlr_prestamo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_vlr_prestamo.Enabled = false;
-            this.txt_vlr_prestamo.Location = new System.Drawing.Point(541, 20);
+            this.txt_vlr_prestamo.Location = new System.Drawing.Point(186, 96);
             this.txt_vlr_prestamo.MaxLength = 200;
             this.txt_vlr_prestamo.Name = "txt_vlr_prestamo";
             this.txt_vlr_prestamo.Size = new System.Drawing.Size(219, 20);
@@ -448,9 +448,9 @@
             this.groupBox2.Controls.Add(this.panel1);
             this.groupBox2.Controls.Add(this.btn_pago_total);
             this.groupBox2.Controls.Add(this.dtg_plan_pagos);
-            this.groupBox2.Location = new System.Drawing.Point(12, 276);
+            this.groupBox2.Location = new System.Drawing.Point(12, 281);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(849, 305);
+            this.groupBox2.Size = new System.Drawing.Size(849, 308);
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Plan de pagos";
@@ -501,14 +501,14 @@
             this.dtg_plan_pagos.AllowUserToAddRows = false;
             this.dtg_plan_pagos.AllowUserToDeleteRows = false;
             this.dtg_plan_pagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_plan_pagos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_plan_pagos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_plan_pagos.Location = new System.Drawing.Point(6, 19);
             this.dtg_plan_pagos.Name = "dtg_plan_pagos";
             this.dtg_plan_pagos.ReadOnly = true;
@@ -521,7 +521,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(867, 586);
+            this.ClientSize = new System.Drawing.Size(867, 598);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);

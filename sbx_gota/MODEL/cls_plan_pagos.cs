@@ -45,6 +45,19 @@ namespace sbx_gota.MODEL
             return v_dt;
         }
 
+        public DataTable mtd_consultar_planPagos_verif_cuotas()
+        {
+            v_query = " select pp.*, isnull((select sum(ValorAbono) from tbl_abonos where Id_plan_pagos = pp.Id),0) ValorAbono, "
+                + "pp.VlrCuota - isnull((select sum(ValorAbono) from tbl_abonos where Id_plan_pagos = pp.Id),0) ValorFaltante "
+                        + "from tbl_plan_pagos pp "
+                        + "where pp.Id_cuentaCobro = "
+                        +"(select cc.Id from tbl_cuenta_cobro cc "
+                        +"where cc.Id = (select ppp.Id_cuentaCobro from tbl_plan_pagos ppp where ppp.Id = "+Id+")) "
+                        +"and(pp.Estado = 'Pendiente' or pp.Estado = 'Pago parcial') ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
         private void mtd_asignaParametros()
         {
             Parametros = new SqlParameter[6];

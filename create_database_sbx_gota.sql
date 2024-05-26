@@ -230,7 +230,7 @@ GO
 create PROC sp_consultar_pago_colaborador
 AS
 BEGIN
-	SELECT *
+	SELECT Id, Id_colaborador, REPLACE(FORMAT(ValorPago, '#,##0'), ',', '.') ValorPago, Nota, FechaRegistro
 	FROM tbl_pago_colaborador c 
 	order by Id desc	
 END

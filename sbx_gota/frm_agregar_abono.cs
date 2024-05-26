@@ -133,27 +133,55 @@ namespace sbx_gota
                         numCotaParcial = cuotaApagarParcial.Min();
                     }
 
-                    if (Convert.ToInt32(dtg_plan_pagos[2, v_filas].Value) == numCota || Convert.ToInt32(dtg_plan_pagos[2, v_filas].Value) == numCotaParcial)
+                    if (numCotaParcial > 0)
                     {
-                        if (frm_Abono_Cuota == null || frm_Abono_Cuota.IsDisposed)
+                        if (Convert.ToInt32(dtg_plan_pagos[2, v_filas].Value) == numCotaParcial)
                         {
-                            frm_Abono_Cuota = new frm_abono_cuota();
-                            frm_Abono_Cuota.IdPlanPagos = Convert.ToInt32(dtg_plan_pagos[0, v_filas].Value);
-                            frm_Abono_Cuota.ValorCuota = dtg_plan_pagos[7, v_filas].Value.ToString();
-                            frm_Abono_Cuota.FechaCuota = dtg_plan_pagos[4, v_filas].Value.ToString();
-                            frm_Abono_Cuota.NumCuota = Convert.ToInt32(dtg_plan_pagos[2, v_filas].Value);
-                            frm_Abono_Cuota.Enviainfo += new frm_abono_cuota.EnviarInfo(mtd_confirmacion);
-                            frm_Abono_Cuota.Show();
+                            if (frm_Abono_Cuota == null || frm_Abono_Cuota.IsDisposed)
+                            {
+                                frm_Abono_Cuota = new frm_abono_cuota();
+                                frm_Abono_Cuota.IdPlanPagos = Convert.ToInt32(dtg_plan_pagos[0, v_filas].Value);
+                                frm_Abono_Cuota.ValorCuota = dtg_plan_pagos[7, v_filas].Value.ToString();
+                                frm_Abono_Cuota.FechaCuota = dtg_plan_pagos[4, v_filas].Value.ToString();
+                                frm_Abono_Cuota.NumCuota = Convert.ToInt32(dtg_plan_pagos[2, v_filas].Value);
+                                frm_Abono_Cuota.Enviainfo += new frm_abono_cuota.EnviarInfo(mtd_confirmacion);
+                                frm_Abono_Cuota.Show();
+                            }
+                            else
+                            {
+                                frm_Ayuda.BringToFront();
+                                frm_Ayuda.WindowState = FormWindowState.Normal;
+                            }
                         }
                         else
                         {
-                            frm_Ayuda.BringToFront();
-                            frm_Ayuda.WindowState = FormWindowState.Normal;
+                            MessageBox.Show("Cuota no se puede pagar");
                         }
                     }
-                    else
+                    else if (numCota > 0)
                     {
-                        MessageBox.Show("Cuota no se puede pagar");
+                        if (Convert.ToInt32(dtg_plan_pagos[2, v_filas].Value) == numCota)
+                        {
+                            if (frm_Abono_Cuota == null || frm_Abono_Cuota.IsDisposed)
+                            {
+                                frm_Abono_Cuota = new frm_abono_cuota();
+                                frm_Abono_Cuota.IdPlanPagos = Convert.ToInt32(dtg_plan_pagos[0, v_filas].Value);
+                                frm_Abono_Cuota.ValorCuota = dtg_plan_pagos[7, v_filas].Value.ToString();
+                                frm_Abono_Cuota.FechaCuota = dtg_plan_pagos[4, v_filas].Value.ToString();
+                                frm_Abono_Cuota.NumCuota = Convert.ToInt32(dtg_plan_pagos[2, v_filas].Value);
+                                frm_Abono_Cuota.Enviainfo += new frm_abono_cuota.EnviarInfo(mtd_confirmacion);
+                                frm_Abono_Cuota.Show();
+                            }
+                            else
+                            {
+                                frm_Ayuda.BringToFront();
+                                frm_Ayuda.WindowState = FormWindowState.Normal;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cuota no se puede pagar");
+                        }
                     }
                 }
                 else
@@ -184,6 +212,22 @@ namespace sbx_gota
             //}
 
             dtg_plan_pagos.DataSource = v_dt2;
+            double PagoTotal = 0;
+            int pagoPendientes = 0;
+            foreach (DataGridViewRow rows in dtg_plan_pagos.Rows)
+            {
+                PagoTotal += Convert.ToDouble(rows.Cells["Saldo"].Value);
+                if (rows.Cells["Estado"].Value.ToString() == "Pendiente")
+                {
+                    pagoPendientes++;
+                }
+            }
+            lbl_pago_total.Text = PagoTotal.ToString("N0");
+
+            if (pagoPendientes > 0)
+            {
+                btn_pago_total.Enabled = true;
+            }
         }
 
         private void btn_pago_total_Click(object sender, EventArgs e)

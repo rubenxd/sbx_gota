@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_agregar_abono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_agregar_abono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_agregar_abono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_agregar_abono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\model\\cls_pagos_pendientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:model\\cls_pagos_pendientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_abono_cuota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_abono_cuota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_abono_cuota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_abono_cuota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\model\\cls_plan_pagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:model\\cls_plan_pagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,40 +34,65 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "cls_pagos_pendientes.cs",
-              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\MODEL\\cls_pagos_pendientes.cs",
-              "RelativeDocumentMoniker": "MODEL\\cls_pagos_pendientes.cs",
-              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\MODEL\\cls_pagos_pendientes.cs",
-              "RelativeToolTip": "MODEL\\cls_pagos_pendientes.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAiwB8AAAAqAAAA",
+              "DocumentIndex": 4,
+              "Title": "cls_plan_pagos.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\MODEL\\cls_plan_pagos.cs",
+              "RelativeDocumentMoniker": "MODEL\\cls_plan_pagos.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\MODEL\\cls_plan_pagos.cs",
+              "RelativeToolTip": "MODEL\\cls_plan_pagos.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAiwCwAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:06:32.296Z",
+              "WhenOpened": "2024-05-25T22:35:16.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frm_cobro_pendiente.cs",
-              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs",
-              "RelativeDocumentMoniker": "frm_cobro_pendiente.cs",
-              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs",
-              "RelativeToolTip": "frm_cobro_pendiente.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "Title": "frm_agregar_abono.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_agregar_abono.cs",
+              "RelativeDocumentMoniker": "frm_agregar_abono.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_agregar_abono.cs",
+              "RelativeToolTip": "frm_agregar_abono.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:06:28.117Z",
+              "WhenOpened": "2024-05-25T22:14:48.035Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frm_cobro_pendiente.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs",
-              "RelativeDocumentMoniker": "frm_cobro_pendiente.cs",
-              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs [Dise\u00F1o]",
-              "RelativeToolTip": "frm_cobro_pendiente.cs [Dise\u00F1o]",
+              "DocumentIndex": 2,
+              "Title": "frm_abono_cuota.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_abono_cuota.cs",
+              "RelativeDocumentMoniker": "frm_abono_cuota.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_abono_cuota.cs",
+              "RelativeToolTip": "frm_abono_cuota.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAiwH0AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:06:25.36Z",
+              "WhenOpened": "2024-05-25T21:48:31.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frm_abono_cuota.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_abono_cuota.cs",
+              "RelativeDocumentMoniker": "frm_abono_cuota.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_abono_cuota.cs [Dise\u00F1o]",
+              "RelativeToolTip": "frm_abono_cuota.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T21:48:29.048Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frm_agregar_abono.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_agregar_abono.cs",
+              "RelativeDocumentMoniker": "frm_agregar_abono.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_agregar_abono.cs [Dise\u00F1o]",
+              "RelativeToolTip": "frm_agregar_abono.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T21:48:22.865Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cobro_pendiente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_acciones = new System.Windows.Forms.Panel();
+            this.cbx_con_mora = new System.Windows.Forms.ComboBox();
             this.cbx_tipo_filtro = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Ffin = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dtg_cobro_pendiente = new System.Windows.Forms.DataGridView();
-            this.cbx_con_mora = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.pnl_acciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_cobro_pendiente)).BeginInit();
@@ -86,6 +86,24 @@
             this.pnl_acciones.Name = "pnl_acciones";
             this.pnl_acciones.Size = new System.Drawing.Size(844, 39);
             this.pnl_acciones.TabIndex = 11;
+            // 
+            // cbx_con_mora
+            // 
+            this.cbx_con_mora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_con_mora.AutoCompleteCustomSource.AddRange(new string[] {
+            "Cedula",
+            "Cedula Extranjera",
+            "Tarjeta de identidad"});
+            this.cbx_con_mora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_con_mora.FormattingEnabled = true;
+            this.cbx_con_mora.Items.AddRange(new object[] {
+            "En mora",
+            "Sin mora",
+            "Todos"});
+            this.cbx_con_mora.Location = new System.Drawing.Point(189, 8);
+            this.cbx_con_mora.Name = "cbx_con_mora";
+            this.cbx_con_mora.Size = new System.Drawing.Size(108, 21);
+            this.cbx_con_mora.TabIndex = 15;
             // 
             // cbx_tipo_filtro
             // 
@@ -199,14 +217,14 @@
             this.dtg_cobro_pendiente.AllowUserToAddRows = false;
             this.dtg_cobro_pendiente.AllowUserToDeleteRows = false;
             this.dtg_cobro_pendiente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_cobro_pendiente.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_cobro_pendiente.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_cobro_pendiente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_cobro_pendiente.Location = new System.Drawing.Point(0, 65);
             this.dtg_cobro_pendiente.Name = "dtg_cobro_pendiente";
@@ -214,24 +232,7 @@
             this.dtg_cobro_pendiente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_cobro_pendiente.Size = new System.Drawing.Size(844, 385);
             this.dtg_cobro_pendiente.TabIndex = 12;
-            // 
-            // cbx_con_mora
-            // 
-            this.cbx_con_mora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_con_mora.AutoCompleteCustomSource.AddRange(new string[] {
-            "Cedula",
-            "Cedula Extranjera",
-            "Tarjeta de identidad"});
-            this.cbx_con_mora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_con_mora.FormattingEnabled = true;
-            this.cbx_con_mora.Items.AddRange(new object[] {
-            "En mora",
-            "Sin mora",
-            "Todos"});
-            this.cbx_con_mora.Location = new System.Drawing.Point(189, 8);
-            this.cbx_con_mora.Name = "cbx_con_mora";
-            this.cbx_con_mora.Size = new System.Drawing.Size(108, 21);
-            this.cbx_con_mora.TabIndex = 15;
+            this.dtg_cobro_pendiente.DoubleClick += new System.EventHandler(this.dtg_cobro_pendiente_DoubleClick);
             // 
             // frm_cobro_pendiente
             // 

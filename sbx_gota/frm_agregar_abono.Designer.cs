@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_agregar_abono));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_cuentaCobro = new System.Windows.Forms.TextBox();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -501,14 +501,14 @@
             this.dtg_plan_pagos.AllowUserToAddRows = false;
             this.dtg_plan_pagos.AllowUserToDeleteRows = false;
             this.dtg_plan_pagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_plan_pagos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_plan_pagos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_plan_pagos.Location = new System.Drawing.Point(6, 19);
             this.dtg_plan_pagos.Name = "dtg_plan_pagos";
             this.dtg_plan_pagos.ReadOnly = true;
@@ -544,41 +544,40 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txt_cuentaCobro;
-        private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txt_valor_cuota;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txt_valor_total;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txt_nota;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_dia_fecha_pago;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbx_dia_pago;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbx_modo_pago;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_num_cuotas;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_porcentaje_interes;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_vlr_interes;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_vlr_prestamo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_identificacion;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txt_id_cuenta_cobro;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dtg_plan_pagos;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txt_nombres;
-        private System.Windows.Forms.Button btn_pago_total;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbl_pago_total;
+        public System.Windows.Forms.TextBox txt_id_cuenta_cobro;
+        public System.Windows.Forms.TextBox txt_valor_cuota;
+        public System.Windows.Forms.TextBox txt_valor_total;
+        public System.Windows.Forms.TextBox txt_nota;
+        public System.Windows.Forms.TextBox txt_dia_fecha_pago;
+        public System.Windows.Forms.ComboBox cbx_dia_pago;
+        public System.Windows.Forms.ComboBox cbx_modo_pago;
+        public System.Windows.Forms.TextBox txt_num_cuotas;
+        public System.Windows.Forms.TextBox txt_porcentaje_interes;
+        public System.Windows.Forms.TextBox txt_vlr_interes;
+        public System.Windows.Forms.TextBox txt_vlr_prestamo;
+        public System.Windows.Forms.TextBox txt_identificacion;
+        public System.Windows.Forms.DataGridView dtg_plan_pagos;
+        public System.Windows.Forms.TextBox txt_nombres;
+        public System.Windows.Forms.Button btn_pago_total;
+        public System.Windows.Forms.Label lbl_pago_total;
+        public System.Windows.Forms.TextBox txt_cuentaCobro;
+        public System.Windows.Forms.Button btn_buscar;
     }
 }

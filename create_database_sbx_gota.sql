@@ -264,11 +264,11 @@ CREATE PROC sp_consultar_pagos_pendientes_2
 	@FechaFin AS DATE
 	AS
 BEGIN
-select pp.Id idPlanPagos, pp.Id_cuentaCobro,c.NumeroIdentificacion,c.Nombres + ' ' + c.Apellidos Cliente, pp.NumeroCuota, 
+select cc.ModoPago,cc.DiaPago,cc.DiasFechaPago,c.Nombres + ' ' + c.Apellidos Cliente, pp.NumeroCuota, 
 REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota, 
 CAST(pp.FechaCuota as date) FechaCuota, pp.Estado,
 CASE WHEN DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) < 0 THEN 0 ELSE DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) END AS DiasMora,
-cc.ModoPago,cc.DiaPago,cc.DiasFechaPago
+pp.Id idPlanPagos, pp.Id_cuentaCobro,c.NumeroIdentificacion
 from tbl_plan_pagos pp
 inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
 inner join tbl_cliente c on c.Id = cc.Id_cliente
@@ -282,11 +282,11 @@ CREATE PROC sp_consultar_pagos_pendientes_3
 	@v_buscar VARCHAR(300)
 	AS
 BEGIN
-select pp.Id idPlanPagos, pp.Id_cuentaCobro,c.NumeroIdentificacion,c.Nombres + ' ' + c.Apellidos Cliente, pp.NumeroCuota, 
+select cc.ModoPago,cc.DiaPago,cc.DiasFechaPago,c.Nombres + ' ' + c.Apellidos Cliente, pp.NumeroCuota, 
 REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota, 
 CAST(pp.FechaCuota as date) FechaCuota, pp.Estado,
 CASE WHEN DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) < 0 THEN 0 ELSE DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) END AS DiasMora,
-cc.ModoPago,cc.DiaPago,cc.DiasFechaPago
+pp.Id idPlanPagos, pp.Id_cuentaCobro,c.NumeroIdentificacion
 from tbl_plan_pagos pp
 inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
 inner join tbl_cliente c on c.Id = cc.Id_cliente

@@ -38,5 +38,19 @@ namespace sbx_gota.MODEL
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
+
+        public DataTable mtd_consultar_pagos_pendientes2()
+        {
+            v_query = " EXECUTE sp_consultar_pagos_pendientes_2  '" + v_buscar + "', '" + FechaFin.ToString("yyyyMMdd") + "' ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_pagos_pendientes3()
+        {
+            v_query = " EXECUTE sp_consultar_pagos_pendientes_3  '" + v_buscar + "' ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
     }
 }

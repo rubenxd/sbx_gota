@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_inicio));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_ajustes = new System.Windows.Forms.Button();
             this.btn_pendiente_pago = new System.Windows.Forms.Button();
             this.btn_colaborador = new System.Windows.Forms.Button();
             this.btn_reporte = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.btn_cliente = new System.Windows.Forms.Button();
             this.btn_cuenta_cobro = new System.Windows.Forms.Button();
             this.pnl_centro = new System.Windows.Forms.Panel();
-            this.btn_ajustes = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(134, 609);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_ajustes
+            // 
+            this.btn_ajustes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ajustes.FlatAppearance.BorderSize = 0;
+            this.btn_ajustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_ajustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btn_ajustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ajustes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajustes.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_ajustes.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajustes.Image")));
+            this.btn_ajustes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_ajustes.Location = new System.Drawing.Point(0, 342);
+            this.btn_ajustes.Name = "btn_ajustes";
+            this.btn_ajustes.Size = new System.Drawing.Size(132, 57);
+            this.btn_ajustes.TabIndex = 8;
+            this.btn_ajustes.Text = "Ajustes";
+            this.btn_ajustes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_ajustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_ajustes.UseVisualStyleBackColor = true;
+            this.btn_ajustes.Click += new System.EventHandler(this.btn_ajustes_Click);
             // 
             // btn_pendiente_pago
             // 
@@ -189,38 +210,17 @@
             this.pnl_centro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centro.Location = new System.Drawing.Point(134, 0);
             this.pnl_centro.Name = "pnl_centro";
-            this.pnl_centro.Size = new System.Drawing.Size(876, 609);
+            this.pnl_centro.Size = new System.Drawing.Size(1032, 609);
             this.pnl_centro.TabIndex = 1;
-            // 
-            // btn_ajustes
-            // 
-            this.btn_ajustes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ajustes.FlatAppearance.BorderSize = 0;
-            this.btn_ajustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
-            this.btn_ajustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btn_ajustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ajustes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ajustes.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_ajustes.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajustes.Image")));
-            this.btn_ajustes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_ajustes.Location = new System.Drawing.Point(0, 342);
-            this.btn_ajustes.Name = "btn_ajustes";
-            this.btn_ajustes.Size = new System.Drawing.Size(132, 57);
-            this.btn_ajustes.TabIndex = 8;
-            this.btn_ajustes.Text = "Ajustes";
-            this.btn_ajustes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_ajustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_ajustes.UseVisualStyleBackColor = true;
-            this.btn_ajustes.Click += new System.EventHandler(this.btn_ajustes_Click);
             // 
             // frm_inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 609);
+            this.ClientSize = new System.Drawing.Size(1166, 609);
             this.Controls.Add(this.pnl_centro);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(1026, 648);
+            this.MinimumSize = new System.Drawing.Size(1182, 648);
             this.Name = "frm_inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_inicio";

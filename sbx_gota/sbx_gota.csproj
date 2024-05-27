@@ -120,6 +120,12 @@
     <Compile Include="frm_login.Designer.cs">
       <DependentUpon>frm_login.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_pagos_pendientes_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_pagos_pendientes_2.Designer.cs">
+      <DependentUpon>frm_pagos_pendientes_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_reporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_pagos_pendientes_2.resx">
+      <DependentUpon>frm_pagos_pendientes_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_reporte.resx">
       <DependentUpon>frm_reporte.cs</DependentUpon>

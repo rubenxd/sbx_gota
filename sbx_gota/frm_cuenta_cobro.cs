@@ -67,13 +67,13 @@ namespace sbx_gota
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             if (v_registro == true)
-              {
-                 mtd_guardar();
-              }
-             else
-              {
-                 mtd_editar();
-              } 
+            {
+                mtd_guardar();
+            }
+            else
+            {
+                mtd_editar();
+            }
         }
         private void mtd_guardar()
         {
@@ -147,6 +147,9 @@ namespace sbx_gota
                     int exitosas = 0;
                     int errores = 0;
                     bool v_ok2 = false;
+                    int year = DateTime.Now.Year;
+                    int month = DateTime.Now.Month;
+                    int dias = ContarDiasDelMes(year, month);
                     for (int i = 1; i <= Convert.ToInt32(txt_num_cuotas.Text); i++)
                     {
                         cls_Plan_Pagos.Id_cuentaCobro = Convert.ToInt32(data["Id"]);
@@ -169,8 +172,20 @@ namespace sbx_gota
                                 FechaPago = dtt_fecha_primer_pago.Value;
                                 if (i > 1)
                                 {
-                                    FechaPago = FechaPago.AddDays(7 * (i-1));
-                                }                      
+                                    FechaPago = FechaPago.AddDays(7 * (i - 1));
+                                    if (dias == 31)
+                                    {
+                                        FechaPago = FechaPago.AddDays(1);
+                                    }
+                                    else if (dias == 29)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-1);
+                                    }
+                                    else if (dias == 28)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-2);
+                                    }
+                                }
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
                             case "Quincenal":
@@ -179,6 +194,18 @@ namespace sbx_gota
                                 if (i > 1)
                                 {
                                     FechaPago = FechaPago.AddDays(15 * (i - 1));
+                                    if (dias == 31)
+                                    {
+                                        FechaPago = FechaPago.AddDays(1);
+                                    }
+                                    else if (dias == 29)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-1);
+                                    }
+                                    else if (dias == 28)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-2);
+                                    }
                                 }
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
@@ -188,6 +215,18 @@ namespace sbx_gota
                                 if (i > 1)
                                 {
                                     FechaPago = FechaPago.AddDays(30 * (i - 1));
+                                    if (dias == 31)
+                                    {
+                                        FechaPago = FechaPago.AddDays(1);
+                                    }
+                                    else if (dias == 29)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-1);
+                                    }
+                                    else if (dias == 28)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-2);
+                                    }
                                 }
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
@@ -197,6 +236,18 @@ namespace sbx_gota
                                 if (i > 1)
                                 {
                                     FechaPago = FechaPago.AddDays(180 * (i - 1));
+                                    if (dias == 31)
+                                    {
+                                        FechaPago = FechaPago.AddDays(1);
+                                    }
+                                    else if (dias == 29)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-1);
+                                    }
+                                    else if (dias == 28)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-2);
+                                    }
                                 }
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
@@ -206,6 +257,18 @@ namespace sbx_gota
                                 if (i > 1)
                                 {
                                     FechaPago = FechaPago.AddDays(365 * (i - 1));
+                                    if (dias == 31)
+                                    {
+                                        FechaPago = FechaPago.AddDays(1);
+                                    }
+                                    else if (dias == 29)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-1);
+                                    }
+                                    else if (dias == 28)
+                                    {
+                                        FechaPago = FechaPago.AddDays(-2);
+                                    }
                                 }
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
@@ -224,7 +287,7 @@ namespace sbx_gota
                             errores++;
                         }
                     }
-                    MessageBox.Show("Plan de pagos registrado correctamente: Exitoso: "+exitosas+" , Errores: "+errores+"");
+                    MessageBox.Show("Plan de pagos registrado correctamente: Exitoso: " + exitosas + " , Errores: " + errores + "");
                     mtd_limpiar();
                     mtd_Cargar_cuenta_cobro();
                     v_registro = true;
@@ -300,6 +363,9 @@ namespace sbx_gota
                 {
                     MessageBox.Show("Cuenta cobro Editada correctamente");
                     bool v_ok2 = false;
+                    int year = DateTime.Now.Year;
+                    int month = DateTime.Now.Month;
+                    int dias = ContarDiasDelMes(year, month);
                     cls_Plan_Pagos.Id_cuentaCobro = Convert.ToInt32(lbl_id_cuenta_cobro.Text);
                     v_ok2 = cls_Plan_Pagos.mtd_eliminar_cuentaCobro();
                     if (v_ok2 == true)
@@ -330,6 +396,18 @@ namespace sbx_gota
                                     if (i > 1)
                                     {
                                         FechaPago = FechaPago.AddDays(7 * (i - 1));
+                                        if (dias == 31)
+                                        {
+                                            FechaPago = FechaPago.AddDays(1);
+                                        }
+                                        else if (dias == 29)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-1);
+                                        }
+                                        else if (dias == 28)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-2);
+                                        }
                                     }
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
@@ -339,6 +417,18 @@ namespace sbx_gota
                                     if (i > 1)
                                     {
                                         FechaPago = FechaPago.AddDays(15 * (i - 1));
+                                        if (dias == 31)
+                                        {
+                                            FechaPago = FechaPago.AddDays(1);
+                                        }
+                                        else if (dias == 29)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-1);
+                                        }
+                                        else if (dias == 28)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-2);
+                                        }
                                     }
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
@@ -348,6 +438,18 @@ namespace sbx_gota
                                     if (i > 1)
                                     {
                                         FechaPago = FechaPago.AddDays(30 * (i - 1));
+                                        if (dias == 31)
+                                        {
+                                            FechaPago = FechaPago.AddDays(1);
+                                        }
+                                        else if (dias == 29)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-1);
+                                        }
+                                        else if (dias == 28)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-2);
+                                        }
                                     }
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
@@ -357,6 +459,18 @@ namespace sbx_gota
                                     if (i > 1)
                                     {
                                         FechaPago = FechaPago.AddDays(180 * (i - 1));
+                                        if (dias == 31)
+                                        {
+                                            FechaPago = FechaPago.AddDays(1);
+                                        }
+                                        else if (dias == 29)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-1);
+                                        }
+                                        else if (dias == 28)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-2);
+                                        }
                                     }
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
@@ -366,6 +480,18 @@ namespace sbx_gota
                                     if (i > 1)
                                     {
                                         FechaPago = FechaPago.AddDays(365 * (i - 1));
+                                        if (dias == 31)
+                                        {
+                                            FechaPago = FechaPago.AddDays(1);
+                                        }
+                                        else if (dias == 29)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-1);
+                                        }
+                                        else if (dias == 28)
+                                        {
+                                            FechaPago = FechaPago.AddDays(-2);
+                                        }
                                     }
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
@@ -487,40 +613,47 @@ namespace sbx_gota
                     else
                     {
                         MessageBox.Show("Cuenta de cobro no se puede editar, por que ya tiene abonos");
-                    } 
+                    }
                 }
             }
         }
         private void mtd_eliminar()
         {
-            int validado = 0;
-            DataTable dt_cuentas_cobro = new DataTable();
-            if (dtg_cuenta_cobro.Rows.Count > 0)
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar la cuenta de cobro?, tenga en cuenta que se eliminaran todos los abonos que se hallan realizado", "", MessageBoxButtons.OKCancel);
+            if (dialogResult == DialogResult.OK)
             {
-                if (dtg_cuenta_cobro.SelectedRows.Count > 0)
+                DataTable dt_plan_pagos = new DataTable();
+                cls_abonos cls_Abonos = new cls_abonos();
+                Error = 0;
+                Eliminados = 0;
+                if (dtg_cuenta_cobro.Rows.Count > 0)
                 {
-                    foreach (DataGridViewRow rows in dtg_cuenta_cobro.SelectedRows)
+                    if (dtg_cuenta_cobro.SelectedRows.Count > 0)
                     {
-                        cls_Cuenta_Cobro.v_buscar = rows.Cells["IdCuentaCobro"].Value.ToString();
-                        dt_cuentas_cobro = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro_en_plan_pagos();
-                    }
-
-                    foreach (DataRow item in dt_cuentas_cobro.Rows)
-                    {
-                        if (item["Estado"].ToString() == "Pago")
+                        foreach (DataGridViewRow rows in dtg_cuenta_cobro.SelectedRows)
                         {
-                            validado++;
+                            cls_Cuenta_Cobro.v_buscar = rows.Cells["IdCuentaCobro"].Value.ToString();
+                            dt_plan_pagos = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro_en_plan_pagos();
                         }
-                    }
-                    if (validado == 0)
-                    {
-                        Eliminados = 0;
-                        Error = 0;
-                        v_contador = dtg_cuenta_cobro.SelectedRows.Count;
-                        DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea Eliminar " + v_contador + "  cuentas de cobro?", "", MessageBoxButtons.OKCancel);
-
-                        if (dialogResult == DialogResult.OK)
+                        //Elimina los abonos
+                        foreach (DataRow item in dt_plan_pagos.Rows)
                         {
+                            cls_Abonos.Id_plan_pagos = Convert.ToInt32(item["Id"]);
+                            v_ok = cls_Abonos.mtd_eliminarDesdeCuentaCobro();
+                            if (v_ok)
+                            {
+                                Eliminados++;
+                            }
+                            else
+                            {
+                                Error++;
+                            }
+                        }
+                        if (Error == 0)
+                        {
+                            Eliminados = 0;
+                            Error = 0;
+                            //elimina los planes de pago y la cuenta de cobro
                             foreach (DataGridViewRow rows in dtg_cuenta_cobro.SelectedRows)
                             {
                                 cls_Cuenta_Cobro.Id = Convert.ToInt32(rows.Cells["IdCuentaCobro"].Value);
@@ -537,10 +670,10 @@ namespace sbx_gota
                             MessageBox.Show("Eliminados: " + Eliminados + ", Errores: " + Error);
                             mtd_Cargar_cuenta_cobro();
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cuenta de cobro no se puede eliminar, por que ya tiene abonos");
+                        else
+                        {
+                            MessageBox.Show("Eliminados: " + Eliminados + ", Errores: " + Error);
+                        }
                     }
                 }
             }
@@ -584,7 +717,7 @@ namespace sbx_gota
             else
             {
                 txt_porcentaje_interes.Text = "";
-            }        
+            }
         }
 
         private void txt_porcentaje_interes_KeyUp(object sender, KeyEventArgs e)
@@ -759,6 +892,11 @@ namespace sbx_gota
             dtg_cuenta_cobro.DataSource = v_dt;
         }
 
+        static int ContarDiasDelMes(int año, int mes)
+        {
+            return DateTime.DaysInMonth(año, mes);
+        }
+
         private void txt_vlr_prestamo_KeyUp(object sender, KeyEventArgs e)
         {
             double vlr = 0;
@@ -769,6 +907,76 @@ namespace sbx_gota
                 vF = vlr.ToString("N0");
                 txt_vlr_prestamo.Text = vF;
                 txt_vlr_prestamo.SelectionStart = txt_vlr_prestamo.Text.Length;
+            }
+        }
+
+        private void dtg_cuenta_cobro_DoubleClick(object sender, EventArgs e)
+        {
+            int v_filas = 0;
+            string v_dato = "";
+            DataTable v_dt2 = new DataTable();
+            cls_cuenta_cobro cls_Cuenta_Cobro = new cls_cuenta_cobro();
+            frm_agregar_abono frm_Agregar_Abono = new frm_agregar_abono();
+            cls_plan_pagos cls_Plan_Pagos = new cls_plan_pagos();
+            if (dtg_cuenta_cobro.Rows.Count > 0)
+            {
+                v_filas = dtg_cuenta_cobro.CurrentRow.Index;
+                v_dato = dtg_cuenta_cobro[0, v_filas].Value.ToString();
+                cls_Cuenta_Cobro.v_buscar = v_dato;
+                v_dt = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro_exacto();
+                DataRow row = v_dt.Rows[0];
+                frm_Agregar_Abono.txt_cuentaCobro.Text = row["IdCuentaCobro"].ToString();
+                frm_Agregar_Abono.txt_id_cuenta_cobro.Text = row["IdCuentaCobro"].ToString();
+                frm_Agregar_Abono.txt_identificacion.Text = row["NumeroIdentificacion"].ToString();
+                frm_Agregar_Abono.txt_nombres.Text = row["Cliente"].ToString();
+                frm_Agregar_Abono.txt_vlr_interes.Text = row["ValorInteres"].ToString();
+                frm_Agregar_Abono.txt_vlr_prestamo.Text = row["MontoPrestamo"].ToString();
+                frm_Agregar_Abono.txt_num_cuotas.Text = row["NumeroCuotas"].ToString();
+                double valorTotal = Convert.ToDouble(frm_Agregar_Abono.txt_vlr_prestamo.Text) + Convert.ToDouble(frm_Agregar_Abono.txt_vlr_interes.Text);
+                frm_Agregar_Abono.txt_valor_total.Text = valorTotal.ToString("N0");
+                double valorCuota = Convert.ToDouble(frm_Agregar_Abono.txt_valor_total.Text) / Convert.ToInt32(frm_Agregar_Abono.txt_num_cuotas.Text);
+                frm_Agregar_Abono.txt_valor_cuota.Text = valorCuota.ToString("N0");
+                frm_Agregar_Abono.cbx_dia_pago.Text = row["DiaPago"].ToString();
+                frm_Agregar_Abono.cbx_modo_pago.Text = row["ModoPago"].ToString();
+                frm_Agregar_Abono.txt_dia_fecha_pago.Text = row["DiasFechaPago"].ToString();
+                frm_Agregar_Abono.txt_nota.Text = row["Nota"].ToString();
+                frm_Agregar_Abono.txt_porcentaje_interes.Text = row["PorcentajeInteres"].ToString();
+
+                //carga plan de pagos
+                frm_Agregar_Abono.dtg_plan_pagos.DataSource = null;
+                //double VlrCuota = 0;
+                //double VlrAbono = 0;
+                //double vlrSaldo = 0;
+                cls_Plan_Pagos.v_buscar = frm_Agregar_Abono.txt_id_cuenta_cobro.Text;
+                v_dt2 = cls_Plan_Pagos.mtd_consultar_planPagos();
+                //for (int i = 0; i < v_dt2.Rows.Count; i++)
+                //{
+                //    DataRow fila = v_dt2.Rows[i];
+                //    VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
+                //    fila["VlrCuota"] = VlrCuota.ToString();
+                //    VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
+                //    fila["ValorAbono"] = VlrAbono.ToString();
+                //    vlrSaldo = Convert.ToDouble(fila["Saldo"]);
+                //    fila["Saldo"] = vlrSaldo.ToString();
+                //}
+                frm_Agregar_Abono.dtg_plan_pagos.DataSource = v_dt2;
+                double PagoTotal = 0;
+                int pagoPendientes = 0;
+                foreach (DataGridViewRow rows in frm_Agregar_Abono.dtg_plan_pagos.Rows)
+                {
+                    PagoTotal += Convert.ToDouble(rows.Cells["Saldo"].Value);
+                    if (rows.Cells["Estado"].Value.ToString() == "Pendiente")
+                    {
+                        pagoPendientes++;
+                    }
+                }
+                frm_Agregar_Abono.lbl_pago_total.Text = PagoTotal.ToString("N0");
+
+                if (pagoPendientes > 0)
+                {
+                    frm_Agregar_Abono.btn_pago_total.Enabled = true;
+                }
+                frm_Agregar_Abono.ShowDialog();
             }
         }
     }

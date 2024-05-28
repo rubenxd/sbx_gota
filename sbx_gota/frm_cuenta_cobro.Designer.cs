@@ -587,6 +587,7 @@
             this.dtg_cuenta_cobro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_cuenta_cobro.Size = new System.Drawing.Size(800, 370);
             this.dtg_cuenta_cobro.TabIndex = 71;
+            this.dtg_cuenta_cobro.DoubleClick += new System.EventHandler(this.dtg_cuenta_cobro_DoubleClick);
             // 
             // frm_cuenta_cobro
             // 

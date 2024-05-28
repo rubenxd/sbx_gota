@@ -21,3 +21,4 @@ C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_agregar_pago_co
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_cobro_pendiente.resources
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_ajustes.resources
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_pagos_pendientes_2.resources
+C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_editar_abonos.resources

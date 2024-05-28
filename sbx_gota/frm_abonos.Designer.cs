@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
@@ -66,6 +67,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.btn_eliminar);
             this.panel4.Controls.Add(this.btn_agregar);
             this.panel4.Controls.Add(this.btn_buscar);
             this.panel4.Controls.Add(this.txt_buscar);
@@ -74,6 +76,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 39);
             this.panel4.TabIndex = 70;
+            // 
+            // btn_eliminar
+            // 
+            this.btn_eliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_eliminar.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.Image")));
+            this.btn_eliminar.Location = new System.Drawing.Point(39, 9);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(20, 20);
+            this.btn_eliminar.TabIndex = 9;
+            this.btn_eliminar.UseVisualStyleBackColor = false;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_agregar
             // 
@@ -137,6 +155,7 @@
             this.dtg_abonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_abonos.Size = new System.Drawing.Size(800, 385);
             this.dtg_abonos.TabIndex = 71;
+            this.dtg_abonos.DoubleClick += new System.EventHandler(this.dtg_abonos_DoubleClick);
             // 
             // frm_abonos
             // 
@@ -169,5 +188,6 @@
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.DataGridView dtg_abonos;
         private System.Windows.Forms.Button btn_agregar;
+        private System.Windows.Forms.Button btn_eliminar;
     }
 }

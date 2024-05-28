@@ -117,36 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3QAAAN0AEQbD0HAAAAB3RJ
-        TUUH4wEZFRQhNF9UuQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAC9SURBVDhP
-        ldDNCgFRGMbxSVlSSvkodpYWWHMXdi6BG3AvrsQtKLKepWLtY2OB/1NndGbOh/HUr9O87/OWJFaGmBhr
-        vC36znbq5dKEXf5F/W8a2P5B/VxamJegnpMZfD+xaAonY/jKRSM4GUDLI/p4oGreHjTXXj0nXWi5QxtX
-        KHr1rbn2HTipo8xxDU4qeCF2rL163twRO75pEMoFseOzBqGkOGGFJxbmXUJz7YM5QH9KyB7BbOA7ymhv
-        kiQfVL1oPXY0JfAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btn_agregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABrSURBVDhPY8AD
-        5ID4FhTLggRIBZlA/B+KQWySQR4QwwwAsUkGQ8gAUGinAHEaGt4AxDADQGx0eZAekF5wNMEUkopvAjGY
-        wCZJDL4BxOBEQq4X8CYw+sUCLjDwBlCcmUCJBBTFoKjCEdoMDAB9/k62Z5yjbwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btn_buscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA68AAAOvAGVvHJJAAAAB3RJ
-        TUUH4wEZFCgO7b96KAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADmSURBVDhP
-        lZNLDkFBEEUxYGouFiTESrAJU9+JEYuwCb8JO/Gdc473JDzdXtzkJK266nZ1tVd4UwV6sIFbiusuuPdT
-        NTjAHdYwStHA2B7MCUp3i4/QMJBRE06gSbAT2/aUUPFLLTCn8/yV0RZsO0/RvCsMkuVPDeGSLD+lgZt5
-        cqhBA1tz2nnaQfAKvrMDctoxtSE6RJ/GJ/KpnHZWFp/BnCqU4Ev+SUzwFK/kfcdg28bcq8MSFhA0KYMt
-        ek8HK6s05skWayZzCJrEVIQZvAwk2klMJlv0bjKBv5Q1cbh/S5Mp8LkX+g8cd0PII66WkgAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
 </root>

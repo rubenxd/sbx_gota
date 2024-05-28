@@ -160,7 +160,8 @@ create PROC sp_consultar_Abonos
 	@v_buscar VARCHAR(300)
 AS
 BEGIN
-	SELECT ta.Id IdAbono,REPLACE(FORMAT(ta.ValorAbono, '#,##0'), ',', '.') ValorAbono,ta.FechaRegistro,pp.Id_cuentaCobro,pp.Id IdPago, tc.NumeroIdentificacion, tc.Nombres, tc.Apellidos 
+	SELECT ta.Id IdAbono,REPLACE(FORMAT(ta.ValorAbono, '#,##0'), ',', '.') ValorAbono,pp.NumeroCuota,ta.FechaRegistro,pp.Id_cuentaCobro,pp.Id IdPago, tc.NumeroIdentificacion, tc.Nombres, tc.Apellidos,
+	ta.Nota,pp.Id Id_plan_pagos 
 	FROM tbl_abonos ta 
 	INNER JOIN tbl_plan_pagos pp ON ta.Id_plan_pagos = pp.Id
 	INNER JOIN tbl_cuenta_cobro cc ON cc.Id = pp.Id_cuentaCobro
@@ -293,3 +294,5 @@ inner join tbl_cliente c on c.Id = cc.Id_cliente
 where pp.Estado = 'Pendiente' and (c.Nombres + ' ' + c.Apellidos LIKE @v_buscar+'%' or c.NumeroIdentificacion LIKE @v_buscar+'%') 
 order by pp.Id_cuentaCobro, pp.NumeroCuota
 END
+GO
+

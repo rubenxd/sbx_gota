@@ -155,8 +155,13 @@ namespace sbx_gota.MODEL
         }
         public Boolean mtd_eliminar()
         {
-            v_query = "DELETE FROM tbl_cuenta_cobro WHERE Id = '" + Id + "'";
+            v_query = "DELETE FROM tbl_plan_pagos WHERE Id_cuentaCobro =" + Id;
             v_ok = cls_datos.mtd_eliminar(v_query);
+            if (v_ok)
+            {
+                v_query = "DELETE FROM tbl_cuenta_cobro WHERE Id = " + Id;
+                v_ok = cls_datos.mtd_eliminar(v_query);
+            }
             return v_ok;
         }
     }

@@ -67,6 +67,26 @@ namespace sbx_gota.MODEL
             Parametros[3].SqlDbType = SqlDbType.DateTime;
             Parametros[3].SqlValue = FechaRegistro;
         }
+        private void mtd_asignaParametros2()
+        {
+            Parametros = new SqlParameter[3];
+
+            Parametros[0] = new SqlParameter();
+            Parametros[0].ParameterName = "@ValorAbono";
+            Parametros[0].SqlDbType = SqlDbType.Money;
+            Parametros[0].SqlValue = ValorAbono;
+
+            Parametros[1] = new SqlParameter();
+            Parametros[1].ParameterName = "@Nota";
+            Parametros[1].SqlDbType = SqlDbType.VarChar;
+            Parametros[1].SqlValue = Nota;
+
+            Parametros[2] = new SqlParameter();
+            Parametros[2].ParameterName = "@FechaRegistro";
+            Parametros[2].SqlDbType = SqlDbType.DateTime;
+            Parametros[2].SqlValue = FechaRegistro;
+        }
+
         public Boolean mtd_registrar()
         {
             v_query = " INSERT INTO tbl_abonos (Id_plan_pagos,ValorAbono,Nota,FechaRegistro)" +
@@ -78,14 +98,45 @@ namespace sbx_gota.MODEL
         }
         public Boolean mtd_Editar()
         {
-            v_query = " UPDATE tbl_abonos SET Id_plan_pagos = @Id_plan_pagos,ValorAbono = @ValorAbono,Nota = @Nota,FechaRegistro = @FechaRegistro " +
+            v_query = " UPDATE tbl_abonos SET ValorAbono = @ValorAbono,Nota = @Nota,FechaRegistro = @FechaRegistro " +
                       " WHERE Id = " + Id;
 
-            mtd_asignaParametros();
+            mtd_asignaParametros2();
             v_ok = cls_datos.mtd_editar(Parametros, v_query);
             return v_ok;
         }
         public Boolean mtd_eliminar_cuentaCobro()
+        {
+            v_query = "DELETE FROM tbl_abonos WHERE Id_plan_pagos = '" + Id_plan_pagos + "'";
+            v_ok = cls_datos.mtd_eliminar(v_query);
+            return v_ok;
+        }
+        public Boolean mtd_eliminar()
+        {
+            v_query = "DELETE FROM tbl_abonos WHERE Id = " + Id + "";
+            v_ok = cls_datos.mtd_eliminar(v_query);
+            if (v_ok)
+            {
+                v_query = " select count(*) CantidadAbonos,isnull(SUM(ValorAbono),0) totalAbonos,(select VlrCuota from tbl_plan_pagos where Id = 58) valorcuota  from tbl_abonos "+
+                          " where Id_plan_pagos = "+ Id_plan_pagos;
+                v_dt = cls_datos.mtd_consultar(v_query);
+                foreach (DataRow item in v_dt.Rows)
+                {
+                    if (Convert.ToInt32(item["CantidadAbonos"]) == 0 && Convert.ToDouble(item["totalAbonos"]) == 0)
+                    {
+                        v_query = "update tbl_plan_pagos set Estado = 'Pendiente' where Id = " + Id_plan_pagos;
+                    }
+                    else
+                    {
+                        v_query = "update tbl_plan_pagos set Estado = 'Pago parcial' where Id = " + Id_plan_pagos;
+                    }
+                }
+
+                v_ok = cls_datos.mtd_ejecutar(v_query);
+            }
+            return v_ok;
+        }
+        public Boolean mtd_eliminarDesdeCuentaCobro()
         {
             v_query = "DELETE FROM tbl_abonos WHERE Id_plan_pagos = '" + Id_plan_pagos + "'";
             v_ok = cls_datos.mtd_eliminar(v_query);

@@ -175,24 +175,25 @@ create PROC sp_consultar_resultados
 AS
 BEGIN
 	select
+	cc.id IdCuentaCobro,
 	c.NumeroIdentificacion,
 	c.Nombres + ' ' + c.Apellidos Cliente, 
-	cc.id IdCuentaCobro,
-	cc.MontoPrestamo,
-	(select sum(tcc.MontoPrestamo) from tbl_cuenta_cobro tcc ) MontoPrestamoReal,
-	cc.ValorInteres,
-	(select sum(tcc2.ValorInteres) from tbl_cuenta_cobro tcc2 ) ValorInteresesReal,
-	cc.NumeroCuotas,
-	pp.VlrCuota,
-	ab.ValorAbono,
-	ab.ValorAbono - (ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota) ValorRecuperado,
-	(ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota) Ganancia,
-	(ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota)/ 2 GananciaXPersona,
-	(Select sum(Saldo) Saldo from (
+	REPLACE(FORMAT(cc.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo,
+	REPLACE(FORMAT((select sum(tcc.MontoPrestamo) from tbl_cuenta_cobro tcc ), '#,##0'), ',', '.') MontoPrestamoReal,
+	REPLACE(FORMAT(cc.ValorInteres, '#,##0'), ',', '.') ValorInteres,
+	REPLACE(FORMAT((select sum(tcc2.ValorInteres) from tbl_cuenta_cobro tcc2 ), '#,##0'), ',', '.') ValorInteresesReal,
+	pp.NumeroCuota,
+	REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota,
+	REPLACE(FORMAT(ab.ValorAbono, '#,##0'), ',', '.') ValorAbono,
+	REPLACE(FORMAT(ab.ValorAbono - (ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota), '#,##0'), ',', '.') ValorRecuperado,
+	REPLACE(FORMAT((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota), '#,##0'), ',', '.') Ganancia,
+	REPLACE(FORMAT((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota)/ 2, '#,##0'), ',', '.') GananciaXPersona,
+	REPLACE(FORMAT((Select sum(SaldoT) Saldo from (
 		SELECT 
-			isnull(pp.VlrCuota - ((select isnull(SUM(ta.ValorAbono),0) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id)),0)  Saldo
+			isnull(pp.VlrCuota - ((select isnull(SUM(ta.ValorAbono),0) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id)),0)  SaldoT
 		FROM tbl_plan_pagos pp 
-	)t) Saldo
+	)t), '#,##0'), ',', '.') Saldo,
+	REPLACE(FORMAT(pp.VlrCuota - ab.ValorAbono, '#,##0'), ',', '.') saldo
 	from tbl_abonos ab
 	inner join tbl_plan_pagos pp on pp.Id = ab.Id_plan_pagos
 	inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
@@ -200,6 +201,22 @@ BEGIN
 	WHERE 
 	(c.NumeroIdentificacion LIKE @v_buscar+'%' OR c.Nombres +' '+ c.Apellidos LIKE @v_buscar+'%')	 
 	order by cc.id
+END
+GO
+create PROC sp_consultar_resultados2
+	@v_buscar VARCHAR(300)
+AS
+BEGIN
+	select cc.Id,pp.NumeroCuota, (c.Nombres + ' ' + c.Apellidos) Cliente,
+	pp.VlrCuota, isnull(ab.ValorAbono,0) ValorAbono,(pp.VlrCuota - isnull(ab.ValorAbono,0)) Saldo,
+	REPLACE(FORMAT(isnull(ab.ValorAbono - (ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota),0), '#,##0'), ',', '.') ValorRecuperado,
+	REPLACE(FORMAT(isnull((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota),0), '#,##0'), ',', '.') Ganancia,
+	REPLACE(FORMAT(isnull((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota)/ 2,0), '#,##0'), ',', '.') GananciaXPersona,
+	REPLACE(FORMAT(isnull(cc.MontoPrestamo,0), '#,##0'), ',', '.') MontoPrestamo,REPLACE(FORMAT(isnull(cc.ValorInteres,0), '#,##0'), ',', '.') ValorInteres
+	from tbl_cuenta_cobro cc
+	inner join tbl_plan_pagos pp on cc.Id = pp.Id_cuentaCobro
+	inner join tbl_cliente c on c.Id = cc.Id_cliente
+	left join tbl_abonos ab on ab.Id_plan_pagos = pp.Id
 END
 GO
 CREATE PROCEDURE  sp_verificar_login

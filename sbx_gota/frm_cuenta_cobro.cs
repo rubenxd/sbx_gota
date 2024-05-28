@@ -149,7 +149,7 @@ namespace sbx_gota
                     bool v_ok2 = false;
                     int year = DateTime.Now.Year;
                     int month = DateTime.Now.Month;
-                    int dias = ContarDiasDelMes(year, month);
+                    int dias = ContarDiasDelMes(year, dtt_fecha_primer_pago.Value.Month);
                     for (int i = 1; i <= Convert.ToInt32(txt_num_cuotas.Text); i++)
                     {
                         cls_Plan_Pagos.Id_cuentaCobro = Convert.ToInt32(data["Id"]);

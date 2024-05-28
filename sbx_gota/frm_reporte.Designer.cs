@@ -369,7 +369,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(0, 26);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(800, 416);
+            this.panel14.Size = new System.Drawing.Size(800, 238);
             this.panel14.TabIndex = 94;
             // 
             // panel15
@@ -378,11 +378,10 @@
             this.panel15.Controls.Add(this.btn_consultar);
             this.panel15.Controls.Add(this.txt_buscar);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 442);
+            this.panel15.Location = new System.Drawing.Point(0, 264);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(800, 39);
+            this.panel15.Size = new System.Drawing.Size(800, 36);
             this.panel15.TabIndex = 95;
-            this.panel15.Visible = false;
             // 
             // btn_consultar
             // 
@@ -393,7 +392,7 @@
             this.btn_consultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_consultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_consultar.Image = ((System.Drawing.Image)(resources.GetObject("btn_consultar.Image")));
-            this.btn_consultar.Location = new System.Drawing.Point(764, 7);
+            this.btn_consultar.Location = new System.Drawing.Point(764, 4);
             this.btn_consultar.Name = "btn_consultar";
             this.btn_consultar.Size = new System.Drawing.Size(22, 22);
             this.btn_consultar.TabIndex = 6;
@@ -404,7 +403,7 @@
             // 
             this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
-            this.txt_buscar.Location = new System.Drawing.Point(561, 9);
+            this.txt_buscar.Location = new System.Drawing.Point(561, 6);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(197, 20);
             this.txt_buscar.TabIndex = 5;
@@ -424,13 +423,12 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg_reportes.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_reportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_reportes.Location = new System.Drawing.Point(0, 481);
+            this.dtg_reportes.Location = new System.Drawing.Point(0, 300);
             this.dtg_reportes.Name = "dtg_reportes";
             this.dtg_reportes.ReadOnly = true;
             this.dtg_reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_reportes.Size = new System.Drawing.Size(800, 68);
+            this.dtg_reportes.Size = new System.Drawing.Size(800, 249);
             this.dtg_reportes.TabIndex = 96;
-            this.dtg_reportes.Visible = false;
             // 
             // frm_reporte
             // 

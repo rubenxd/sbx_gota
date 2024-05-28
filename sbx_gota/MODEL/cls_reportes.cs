@@ -38,5 +38,11 @@ namespace sbx_gota.MODEL
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
+        public DataTable mtd_consultar_reporte2()
+        {
+            v_query = " EXECUTE sp_consultar_resultados2 '" + v_buscar + "' ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
     }
 }

@@ -90,6 +90,7 @@ namespace sbx_gota
             int idCuentaCobro = 0;
             double TotalPrestamos = 0;
             double TotalAbonos = 0;
+            double TotalRecuperado = 0;
             double TotalGanancias = 0;
             double TotalGananciasxPersona = 0;
             double TotalIntereses = 0;
@@ -111,13 +112,18 @@ namespace sbx_gota
                 }
               
                 TotalAbonos += Convert.ToDouble(rows["ValorAbono"]);
+                TotalRecuperado += Convert.ToDouble(rows["ValorRecuperado"]);
                 TotalGanancias += Convert.ToDouble(rows["Ganancia"]);
                 TotalGananciasxPersona += Convert.ToDouble(rows["GananciaXPersona"]);
             }
             TotalSaldoPendiente = (TotalPrestamos + TotalIntereses) - TotalAbonos;
+            double tpmasti = 0;
+            tpmasti = TotalPrestamos + TotalIntereses;
             lbl_t_p.Text = TotalPrestamos.ToString("N0");
             lbl_t_in.Text = TotalIntereses.ToString("N0");
+            lbl_tpmasti.Text = tpmasti.ToString("N0");
             lbl_t_ab.Text = TotalAbonos.ToString("N0");
+            lbl_total_recuperado.Text = TotalRecuperado.ToString("N0");
             lbl_tga.Text = TotalGanancias.ToString("N0");
             lbl_tgxp.Text = TotalGananciasxPersona.ToString("N0");
             lbl_t_s_p.Text = TotalSaldoPendiente.ToString("N0");
@@ -217,6 +223,7 @@ namespace sbx_gota
             int idCuentaCobro = 0;
             double TotalPrestamos = 0;
             double TotalAbonos = 0;
+            double TotalRecuperado = 0;
             double TotalGanancias = 0;
             double TotalGananciasxPersona = 0;
             double TotalIntereses = 0;
@@ -238,13 +245,18 @@ namespace sbx_gota
                 }
 
                 TotalAbonos += Convert.ToDouble(rows["ValorAbono"]);
+                TotalRecuperado += Convert.ToDouble(rows["ValorRecuperado"]);
                 TotalGanancias += Convert.ToDouble(rows["Ganancia"]);
                 TotalGananciasxPersona += Convert.ToDouble(rows["GananciaXPersona"]);
             }
             TotalSaldoPendiente = (TotalPrestamos + TotalIntereses) - TotalAbonos;
+            double tpmasti = 0;
+            tpmasti = TotalPrestamos + TotalIntereses;
             lbl_t_p.Text = TotalPrestamos.ToString("N0");
             lbl_t_in.Text = TotalIntereses.ToString("N0");
+            lbl_tpmasti.Text = tpmasti.ToString("N0");
             lbl_t_ab.Text = TotalAbonos.ToString("N0");
+            lbl_total_recuperado.Text = TotalRecuperado.ToString("N0");
             lbl_tga.Text = TotalGanancias.ToString("N0");
             lbl_tgxp.Text = TotalGananciasxPersona.ToString("N0");
             lbl_t_s_p.Text = TotalSaldoPendiente.ToString("N0");

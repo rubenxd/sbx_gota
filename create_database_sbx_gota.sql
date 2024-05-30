@@ -221,6 +221,8 @@ BEGIN
 	inner join tbl_plan_pagos pp on cc.Id = pp.Id_cuentaCobro
 	inner join tbl_cliente c on c.Id = cc.Id_cliente
 	left join tbl_abonos ab on ab.Id_plan_pagos = pp.Id
+	where (c.Nombres + ' ' + c.Apellidos) like @v_buscar+'%'
+	order by Id desc
 END
 GO
 CREATE PROCEDURE  sp_verificar_login

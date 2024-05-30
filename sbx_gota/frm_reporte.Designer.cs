@@ -61,6 +61,14 @@
             this.btn_consultar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dtg_reportes = new System.Windows.Forms.DataGridView();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.lbl_tpmasti = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.lbl_total_recuperado = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,6 +85,10 @@
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reportes)).BeginInit();
+            this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -104,9 +116,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.lbl_total_prestamo);
-            this.panel2.Location = new System.Drawing.Point(205, 6);
+            this.panel2.Location = new System.Drawing.Point(204, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(155, 32);
+            this.panel2.Size = new System.Drawing.Size(196, 32);
             this.panel2.TabIndex = 82;
             // 
             // lbl_total_prestamo
@@ -125,9 +137,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel3.Controls.Add(this.lbl_total_ganancias);
-            this.panel3.Location = new System.Drawing.Point(205, 120);
+            this.panel3.Location = new System.Drawing.Point(204, 196);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(155, 32);
+            this.panel3.Size = new System.Drawing.Size(196, 32);
             this.panel3.TabIndex = 83;
             // 
             // lbl_total_ganancias
@@ -136,7 +148,7 @@
             this.lbl_total_ganancias.AutoSize = true;
             this.lbl_total_ganancias.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_total_ganancias.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_total_ganancias.Location = new System.Drawing.Point(4, 9);
+            this.lbl_total_ganancias.Location = new System.Drawing.Point(0, 9);
             this.lbl_total_ganancias.Name = "lbl_total_ganancias";
             this.lbl_total_ganancias.Size = new System.Drawing.Size(90, 15);
             this.lbl_total_ganancias.TabIndex = 110;
@@ -146,9 +158,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel4.Controls.Add(this.lbl_total_ganancias_x_persona);
-            this.panel4.Location = new System.Drawing.Point(205, 158);
+            this.panel4.Location = new System.Drawing.Point(204, 234);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(155, 32);
+            this.panel4.Size = new System.Drawing.Size(196, 32);
             this.panel4.TabIndex = 84;
             // 
             // lbl_total_ganancias_x_persona
@@ -157,7 +169,7 @@
             this.lbl_total_ganancias_x_persona.AutoSize = true;
             this.lbl_total_ganancias_x_persona.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_total_ganancias_x_persona.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_total_ganancias_x_persona.Location = new System.Drawing.Point(3, 9);
+            this.lbl_total_ganancias_x_persona.Location = new System.Drawing.Point(-3, 9);
             this.lbl_total_ganancias_x_persona.Name = "lbl_total_ganancias_x_persona";
             this.lbl_total_ganancias_x_persona.Size = new System.Drawing.Size(147, 15);
             this.lbl_total_ganancias_x_persona.TabIndex = 110;
@@ -167,9 +179,9 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.lbl_total_saldo);
-            this.panel5.Location = new System.Drawing.Point(205, 196);
+            this.panel5.Location = new System.Drawing.Point(204, 272);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(155, 32);
+            this.panel5.Size = new System.Drawing.Size(196, 32);
             this.panel5.TabIndex = 85;
             // 
             // lbl_total_saldo
@@ -178,7 +190,7 @@
             this.lbl_total_saldo.AutoSize = true;
             this.lbl_total_saldo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_total_saldo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_total_saldo.Location = new System.Drawing.Point(3, 9);
+            this.lbl_total_saldo.Location = new System.Drawing.Point(0, 9);
             this.lbl_total_saldo.Name = "lbl_total_saldo";
             this.lbl_total_saldo.Size = new System.Drawing.Size(128, 15);
             this.lbl_total_saldo.TabIndex = 110;
@@ -188,7 +200,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel6.Controls.Add(this.lbl_t_p);
-            this.panel6.Location = new System.Drawing.Point(366, 6);
+            this.panel6.Location = new System.Drawing.Point(406, 6);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(210, 32);
             this.panel6.TabIndex = 86;
@@ -209,7 +221,7 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel7.Controls.Add(this.lbl_tga);
-            this.panel7.Location = new System.Drawing.Point(366, 120);
+            this.panel7.Location = new System.Drawing.Point(406, 196);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(210, 32);
             this.panel7.TabIndex = 87;
@@ -230,7 +242,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel8.Controls.Add(this.lbl_tgxp);
-            this.panel8.Location = new System.Drawing.Point(366, 158);
+            this.panel8.Location = new System.Drawing.Point(406, 234);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(210, 32);
             this.panel8.TabIndex = 88;
@@ -251,7 +263,7 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel9.Controls.Add(this.lbl_t_s_p);
-            this.panel9.Location = new System.Drawing.Point(366, 196);
+            this.panel9.Location = new System.Drawing.Point(406, 272);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(210, 32);
             this.panel9.TabIndex = 89;
@@ -272,7 +284,7 @@
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel10.Controls.Add(this.lbl_t_ab);
-            this.panel10.Location = new System.Drawing.Point(366, 82);
+            this.panel10.Location = new System.Drawing.Point(406, 120);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(210, 32);
             this.panel10.TabIndex = 91;
@@ -293,9 +305,9 @@
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel11.Controls.Add(this.lbl_total_abonos);
-            this.panel11.Location = new System.Drawing.Point(205, 82);
+            this.panel11.Location = new System.Drawing.Point(204, 120);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(155, 32);
+            this.panel11.Size = new System.Drawing.Size(196, 32);
             this.panel11.TabIndex = 90;
             // 
             // lbl_total_abonos
@@ -304,7 +316,7 @@
             this.lbl_total_abonos.AutoSize = true;
             this.lbl_total_abonos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_total_abonos.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_total_abonos.Location = new System.Drawing.Point(4, 9);
+            this.lbl_total_abonos.Location = new System.Drawing.Point(0, 9);
             this.lbl_total_abonos.Name = "lbl_total_abonos";
             this.lbl_total_abonos.Size = new System.Drawing.Size(81, 15);
             this.lbl_total_abonos.TabIndex = 110;
@@ -314,9 +326,9 @@
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel12.Controls.Add(this.lbl_total_intereses);
-            this.panel12.Location = new System.Drawing.Point(205, 44);
+            this.panel12.Location = new System.Drawing.Point(204, 44);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(155, 32);
+            this.panel12.Size = new System.Drawing.Size(196, 32);
             this.panel12.TabIndex = 92;
             // 
             // lbl_total_intereses
@@ -325,7 +337,7 @@
             this.lbl_total_intereses.AutoSize = true;
             this.lbl_total_intereses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_total_intereses.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_total_intereses.Location = new System.Drawing.Point(3, 9);
+            this.lbl_total_intereses.Location = new System.Drawing.Point(0, 9);
             this.lbl_total_intereses.Name = "lbl_total_intereses";
             this.lbl_total_intereses.Size = new System.Drawing.Size(91, 15);
             this.lbl_total_intereses.TabIndex = 110;
@@ -335,7 +347,7 @@
             // 
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel13.Controls.Add(this.lbl_t_in);
-            this.panel13.Location = new System.Drawing.Point(366, 44);
+            this.panel13.Location = new System.Drawing.Point(406, 44);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(210, 32);
             this.panel13.TabIndex = 93;
@@ -354,6 +366,10 @@
             // 
             // panel14
             // 
+            this.panel14.Controls.Add(this.panel18);
+            this.panel14.Controls.Add(this.panel19);
+            this.panel14.Controls.Add(this.panel16);
+            this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel2);
             this.panel14.Controls.Add(this.panel13);
             this.panel14.Controls.Add(this.panel3);
@@ -369,7 +385,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(0, 26);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(800, 238);
+            this.panel14.Size = new System.Drawing.Size(800, 309);
             this.panel14.TabIndex = 94;
             // 
             // panel15
@@ -378,7 +394,7 @@
             this.panel15.Controls.Add(this.btn_consultar);
             this.panel15.Controls.Add(this.txt_buscar);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 264);
+            this.panel15.Location = new System.Drawing.Point(0, 335);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(800, 36);
             this.panel15.TabIndex = 95;
@@ -423,12 +439,96 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg_reportes.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_reportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_reportes.Location = new System.Drawing.Point(0, 300);
+            this.dtg_reportes.Location = new System.Drawing.Point(0, 371);
             this.dtg_reportes.Name = "dtg_reportes";
             this.dtg_reportes.ReadOnly = true;
             this.dtg_reportes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_reportes.Size = new System.Drawing.Size(800, 249);
+            this.dtg_reportes.Size = new System.Drawing.Size(800, 178);
             this.dtg_reportes.TabIndex = 96;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel16.Controls.Add(this.lbl_tpmasti);
+            this.panel16.Location = new System.Drawing.Point(406, 82);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(210, 32);
+            this.panel16.TabIndex = 95;
+            // 
+            // lbl_tpmasti
+            // 
+            this.lbl_tpmasti.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_tpmasti.AutoSize = true;
+            this.lbl_tpmasti.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tpmasti.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_tpmasti.Location = new System.Drawing.Point(7, 9);
+            this.lbl_tpmasti.Name = "lbl_tpmasti";
+            this.lbl_tpmasti.Size = new System.Drawing.Size(14, 15);
+            this.lbl_tpmasti.TabIndex = 110;
+            this.lbl_tpmasti.Text = "0";
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel17.Controls.Add(this.label3);
+            this.panel17.Location = new System.Drawing.Point(204, 82);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(196, 32);
+            this.panel17.TabIndex = 94;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Window;
+            this.label3.Location = new System.Drawing.Point(3, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(182, 15);
+            this.label3.TabIndex = 110;
+            this.label3.Text = "Total prestado + Total intereses:";
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel18.Controls.Add(this.lbl_total_recuperado);
+            this.panel18.Location = new System.Drawing.Point(406, 158);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(210, 32);
+            this.panel18.TabIndex = 97;
+            // 
+            // lbl_total_recuperado
+            // 
+            this.lbl_total_recuperado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_total_recuperado.AutoSize = true;
+            this.lbl_total_recuperado.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_recuperado.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_total_recuperado.Location = new System.Drawing.Point(7, 9);
+            this.lbl_total_recuperado.Name = "lbl_total_recuperado";
+            this.lbl_total_recuperado.Size = new System.Drawing.Size(14, 15);
+            this.lbl_total_recuperado.TabIndex = 110;
+            this.lbl_total_recuperado.Text = "0";
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel19.Controls.Add(this.label4);
+            this.panel19.Location = new System.Drawing.Point(204, 158);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(196, 32);
+            this.panel19.TabIndex = 96;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(0, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 15);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "Total recuperado:";
             // 
             // frm_reporte
             // 
@@ -473,6 +573,14 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reportes)).EndInit();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -510,5 +618,13 @@
         private System.Windows.Forms.Button btn_consultar;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.DataGridView dtg_reportes;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label lbl_tpmasti;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Label lbl_total_recuperado;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label label4;
     }
 }

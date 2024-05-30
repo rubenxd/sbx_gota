@@ -61,6 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_identificacion = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_refinanciar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_pago_total = new System.Windows.Forms.Label();
             this.btn_pago_total = new System.Windows.Forms.Button();
@@ -195,6 +196,7 @@
             this.label12.Size = new System.Drawing.Size(57, 15);
             this.label12.TabIndex = 107;
             this.label12.Text = "Vlr  cuota";
+            this.label12.Visible = false;
             // 
             // txt_valor_cuota
             // 
@@ -205,6 +207,7 @@
             this.txt_valor_cuota.Name = "txt_valor_cuota";
             this.txt_valor_cuota.Size = new System.Drawing.Size(219, 20);
             this.txt_valor_cuota.TabIndex = 106;
+            this.txt_valor_cuota.Visible = false;
             // 
             // label11
             // 
@@ -445,6 +448,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_refinanciar);
             this.groupBox2.Controls.Add(this.panel1);
             this.groupBox2.Controls.Add(this.btn_pago_total);
             this.groupBox2.Controls.Add(this.dtg_plan_pagos);
@@ -454,6 +458,25 @@
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Plan de pagos";
+            // 
+            // btn_refinanciar
+            // 
+            this.btn_refinanciar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_refinanciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_refinanciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_refinanciar.FlatAppearance.BorderSize = 0;
+            this.btn_refinanciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_refinanciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_refinanciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refinanciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_refinanciar.ForeColor = System.Drawing.Color.White;
+            this.btn_refinanciar.Location = new System.Drawing.Point(717, 267);
+            this.btn_refinanciar.Name = "btn_refinanciar";
+            this.btn_refinanciar.Size = new System.Drawing.Size(126, 31);
+            this.btn_refinanciar.TabIndex = 82;
+            this.btn_refinanciar.Text = "Refinanciar";
+            this.btn_refinanciar.UseVisualStyleBackColor = false;
+            this.btn_refinanciar.Click += new System.EventHandler(this.btn_refinanciar_Click);
             // 
             // panel1
             // 
@@ -579,5 +602,6 @@
         public System.Windows.Forms.Label lbl_pago_total;
         public System.Windows.Forms.TextBox txt_cuentaCobro;
         public System.Windows.Forms.Button btn_buscar;
+        public System.Windows.Forms.Button btn_refinanciar;
     }
 }

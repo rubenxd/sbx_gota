@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_acciones = new System.Windows.Forms.Panel();
+            this.cbx_estado = new System.Windows.Forms.ComboBox();
             this.cbx_con_mora = new System.Windows.Forms.ComboBox();
             this.cbx_tipo_filtro = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@
             // pnl_acciones
             // 
             this.pnl_acciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_acciones.Controls.Add(this.cbx_estado);
             this.pnl_acciones.Controls.Add(this.cbx_con_mora);
             this.pnl_acciones.Controls.Add(this.cbx_tipo_filtro);
             this.pnl_acciones.Controls.Add(this.label2);
@@ -86,6 +88,26 @@
             this.pnl_acciones.Name = "pnl_acciones";
             this.pnl_acciones.Size = new System.Drawing.Size(844, 39);
             this.pnl_acciones.TabIndex = 11;
+            // 
+            // cbx_estado
+            // 
+            this.cbx_estado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_estado.AutoCompleteCustomSource.AddRange(new string[] {
+            "Cedula",
+            "Cedula Extranjera",
+            "Tarjeta de identidad"});
+            this.cbx_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_estado.FormattingEnabled = true;
+            this.cbx_estado.Items.AddRange(new object[] {
+            "Pendiente",
+            "Pago parcial",
+            "Pago superior",
+            "Pago",
+            "Todos"});
+            this.cbx_estado.Location = new System.Drawing.Point(75, 8);
+            this.cbx_estado.Name = "cbx_estado";
+            this.cbx_estado.Size = new System.Drawing.Size(108, 21);
+            this.cbx_estado.TabIndex = 16;
             // 
             // cbx_con_mora
             // 
@@ -271,5 +293,6 @@
         private System.Windows.Forms.DateTimePicker dtp_fecha_ini;
         private System.Windows.Forms.ComboBox cbx_tipo_filtro;
         private System.Windows.Forms.ComboBox cbx_con_mora;
+        private System.Windows.Forms.ComboBox cbx_estado;
     }
 }

@@ -103,6 +103,16 @@ namespace sbx_gota.MODEL
             Parametros[0].SqlValue = Estado;
         }
 
+        private void mtd_asignaParametros3()
+        {
+            Parametros = new SqlParameter[1];
+
+            Parametros[0] = new SqlParameter();
+            Parametros[0].ParameterName = "@VlrCuota";
+            Parametros[0].SqlDbType = SqlDbType.Money;
+            Parametros[0].SqlValue = VlrCuota;
+        }
+
         public Boolean mtd_registrar()
         {
             v_query = " INSERT INTO tbl_plan_pagos (Id_cuentaCobro,NumeroCuota,VlrCuota,FechaCuota,FechaRegistro,Estado)" +
@@ -134,6 +144,21 @@ namespace sbx_gota.MODEL
         {
             v_query = "DELETE FROM tbl_plan_pagos WHERE Id_cuentaCobro = '" + Id_cuentaCobro + "'";
             v_ok = cls_datos.mtd_eliminar(v_query);
+            return v_ok;
+        }
+        public Boolean mtd_eliminar_cuotas_plan_pago()
+        {
+            v_query = "DELETE FROM tbl_plan_pagos WHERE Id_cuentaCobro = " + Id_cuentaCobro + " and NumeroCuota > "+ NumeroCuota;
+            v_ok = cls_datos.mtd_eliminar(v_query);
+            return v_ok;
+        }
+        public Boolean mtd_Editar_valor_cuota()
+        {
+            v_query = " UPDATE tbl_plan_pagos SET VlrCuota = @VlrCuota  " +
+                      " WHERE Id = " + Id;
+
+            mtd_asignaParametros3();
+            v_ok = cls_datos.mtd_editar(Parametros, v_query);
             return v_ok;
         }
     }

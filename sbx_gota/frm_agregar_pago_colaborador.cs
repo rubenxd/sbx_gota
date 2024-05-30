@@ -38,7 +38,7 @@ namespace sbx_gota
             txt_nombres.Text = Nombre;
 
             dt = new DataTable();
-            dt = cls_Reportes.mtd_consultar_reporte();
+            dt = cls_Reportes.mtd_consultar_reporte2();
             double TotalGananciasxPersona = 0;
             foreach (DataRow rows in dt.Rows)
             {
@@ -128,7 +128,7 @@ namespace sbx_gota
             txt_nombres.Text = Nombre;
 
             dt = new DataTable();
-            dt = cls_Reportes.mtd_consultar_reporte();
+            dt = cls_Reportes.mtd_consultar_reporte2();
             double TotalGananciasxPersona = 0;
             foreach (DataRow rows in dt.Rows)
             {

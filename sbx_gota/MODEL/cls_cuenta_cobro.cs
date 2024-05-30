@@ -164,5 +164,13 @@ namespace sbx_gota.MODEL
             }
             return v_ok;
         }
+        public Boolean mtd_Editar_numero_cuotas()
+        {
+            v_query = " UPDATE tbl_cuenta_cobro SET numerocuotas = " + NumeroCuotas +
+                      " WHERE Id = " + Id;
+
+            v_ok = cls_datos.mtd_ejecutar(v_query);
+            return v_ok;
+        }
     }
 }

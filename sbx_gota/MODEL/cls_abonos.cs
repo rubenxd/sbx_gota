@@ -115,25 +115,25 @@ namespace sbx_gota.MODEL
         {
             v_query = "DELETE FROM tbl_abonos WHERE Id = " + Id + "";
             v_ok = cls_datos.mtd_eliminar(v_query);
-            if (v_ok)
-            {
-                v_query = " select count(*) CantidadAbonos,isnull(SUM(ValorAbono),0) totalAbonos,(select VlrCuota from tbl_plan_pagos where Id = 58) valorcuota  from tbl_abonos "+
-                          " where Id_plan_pagos = "+ Id_plan_pagos;
-                v_dt = cls_datos.mtd_consultar(v_query);
-                foreach (DataRow item in v_dt.Rows)
-                {
-                    if (Convert.ToInt32(item["CantidadAbonos"]) == 0 && Convert.ToDouble(item["totalAbonos"]) == 0)
-                    {
-                        v_query = "update tbl_plan_pagos set Estado = 'Pendiente' where Id = " + Id_plan_pagos;
-                    }
-                    else
-                    {
-                        v_query = "update tbl_plan_pagos set Estado = 'Pago parcial' where Id = " + Id_plan_pagos;
-                    }
-                }
+            //if (v_ok)
+            //{
+            //    v_query = " select count(*) CantidadAbonos,isnull(SUM(ValorAbono),0) totalAbonos,(select VlrCuota from tbl_plan_pagos where Id = "+ Id_plan_pagos + ") valorcuota  from tbl_abonos "+
+            //              " where Id_plan_pagos = "+ Id_plan_pagos;
+            //    v_dt = cls_datos.mtd_consultar(v_query);
+            //    foreach (DataRow item in v_dt.Rows)
+            //    {
+            //        if (Convert.ToInt32(item["CantidadAbonos"]) == 0 && Convert.ToDouble(item["totalAbonos"]) == 0)
+            //        {
+            //            v_query = "update tbl_plan_pagos set Estado = 'Pendiente' where Id = " + Id_plan_pagos;
+            //        }
+            //        else
+            //        {
+            //            v_query = "update tbl_plan_pagos set Estado = 'Pago parcial' where Id = " + Id_plan_pagos;
+            //        }
+            //    }
 
-                v_ok = cls_datos.mtd_ejecutar(v_query);
-            }
+            //    v_ok = cls_datos.mtd_ejecutar(v_query);
+            //}
             return v_ok;
         }
         public Boolean mtd_eliminarDesdeCuentaCobro()

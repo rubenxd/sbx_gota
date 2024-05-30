@@ -20,6 +20,7 @@ namespace sbx_gota.MODEL
         public string v_buscar { get; set; }
         public DateTime FechaIni { get; set; }
         public DateTime FechaFin { get; set; }
+        public string estado { get; set; }
 
         //getter and setter
         public string NumeroIdentificacion { get; set; }
@@ -41,14 +42,22 @@ namespace sbx_gota.MODEL
 
         public DataTable mtd_consultar_pagos_pendientes2()
         {
-            v_query = " EXECUTE sp_consultar_pagos_pendientes_2  '" + v_buscar + "', '" + FechaFin.ToString("yyyyMMdd") + "' ";
+            if (estado == "Todos")
+            {
+                estado = "";
+            }
+            v_query = " EXECUTE sp_consultar_pagos_pendientes_2  '" + v_buscar + "', '" + FechaFin.ToString("yyyyMMdd") + "', '"+ estado + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
 
         public DataTable mtd_consultar_pagos_pendientes3()
         {
-            v_query = " EXECUTE sp_consultar_pagos_pendientes_3  '" + v_buscar + "' ";
+            if (estado == "Todos")
+            {
+                estado = "";
+            }
+            v_query = " EXECUTE sp_consultar_pagos_pendientes_3  '" + v_buscar + "', '"+ estado + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

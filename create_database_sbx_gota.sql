@@ -126,7 +126,8 @@ create PROC sp_consultar_cuenta_cobro
 AS
 BEGIN
 	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente, REPLACE(FORMAT(c.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo, 
-	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente
+	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente,
+	c.FechaPrimerPago
 	FROM tbl_cuenta_cobro c 
 	INNER JOIN tbl_cliente cl on c.Id_cliente = cl.Id
 	WHERE (cl.NumeroIdentificacion LIKE @v_buscar+'%' OR cl.Nombres +' '+ cl.Apellidos LIKE @v_buscar+'%')
@@ -138,7 +139,8 @@ create PROC sp_consultar_cuenta_cobro_exacto
 AS
 BEGIN
 	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente,REPLACE(FORMAT(c.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo, 
-	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente
+	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente,
+	c.FechaPrimerPago
 	FROM tbl_cuenta_cobro c 
 	INNER JOIN tbl_cliente cl on c.Id_cliente = cl.Id
 	WHERE c.Id = @v_buscar		
@@ -150,10 +152,11 @@ AS
 BEGIN
 	SELECT pp.id,pp.Id_cuentaCobro,pp.NumeroCuota,REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota,pp.FechaCuota,pp.Estado,
 	REPLACE(FORMAT(isnull((select SUM(ta.ValorAbono) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id),0), '#,##0'), ',', '.') ValorAbono,
-	REPLACE(FORMAT(isnull(pp.VlrCuota - ((select isnull(SUM(ta.ValorAbono),0) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id)),0), '#,##0'), ',', '.') Saldo
+	REPLACE(FORMAT(isnull(pp.VlrCuota - ((select isnull(SUM(ta.ValorAbono),0) ValorAbono from tbl_abonos ta where Id_plan_pagos = pp.Id)),0), '#,##0'), ',', '.') Saldo,
+	(select ModoPago from tbl_cuenta_cobro where id = @v_buscar) ModoPago
 	--,pp.FechaRegistro
 	FROM tbl_plan_pagos pp 
-	WHERE Id_cuentaCobro = @v_buscar
+	WHERE Id_cuentaCobro =@v_buscar
 END
 GO
 create PROC sp_consultar_Abonos
@@ -209,10 +212,11 @@ AS
 BEGIN
 	select cc.Id,pp.NumeroCuota, (c.Nombres + ' ' + c.Apellidos) Cliente,
 	pp.VlrCuota, isnull(ab.ValorAbono,0) ValorAbono,(pp.VlrCuota - isnull(ab.ValorAbono,0)) Saldo,
-	REPLACE(FORMAT(isnull(ab.ValorAbono - (ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota),0), '#,##0'), ',', '.') ValorRecuperado,
-	REPLACE(FORMAT(isnull((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota),0), '#,##0'), ',', '.') Ganancia,
-	REPLACE(FORMAT(isnull((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / pp.VlrCuota)/ 2,0), '#,##0'), ',', '.') GananciaXPersona,
-	REPLACE(FORMAT(isnull(cc.MontoPrestamo,0), '#,##0'), ',', '.') MontoPrestamo,REPLACE(FORMAT(isnull(cc.ValorInteres,0), '#,##0'), ',', '.') ValorInteres
+	REPLACE(FORMAT(isnull(ab.ValorAbono - (ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / ((cc.MontoPrestamo+cc.ValorInteres)/cc.NumeroCuotas)),0), '#,##0'), ',', '.') ValorRecuperado,
+	REPLACE(FORMAT(isnull((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) /((cc.MontoPrestamo+cc.ValorInteres)/cc.NumeroCuotas)),0), '#,##0'), ',', '.') Ganancia,
+	REPLACE(FORMAT(isnull((ab.ValorAbono * (cc.ValorInteres/cc.NumeroCuotas) / ((cc.MontoPrestamo+cc.ValorInteres)/cc.NumeroCuotas))/ 2,0), '#,##0'), ',', '.') GananciaXPersona,
+	REPLACE(FORMAT(isnull(cc.MontoPrestamo,0), '#,##0'), ',', '.') MontoPrestamo,REPLACE(FORMAT(isnull(cc.ValorInteres,0), '#,##0'), ',', '.') ValorInteres,
+	cc.NumeroCuotas
 	from tbl_cuenta_cobro cc
 	inner join tbl_plan_pagos pp on cc.Id = pp.Id_cuentaCobro
 	inner join tbl_cliente c on c.Id = cc.Id_cliente
@@ -277,9 +281,10 @@ BEGIN
 	order by Id asc	
 END
 GO
-CREATE PROC sp_consultar_pagos_pendientes_2
+create PROC sp_consultar_pagos_pendientes_2
 	@v_buscar VARCHAR(300),
-	@FechaFin AS DATE
+	@FechaFin AS DATE,
+	@estado VARCHAR(300)
 	AS
 BEGIN
 select cc.ModoPago,cc.DiaPago,cc.DiasFechaPago,c.Nombres + ' ' + c.Apellidos Cliente, pp.NumeroCuota, 
@@ -290,14 +295,15 @@ pp.Id idPlanPagos, pp.Id_cuentaCobro,c.NumeroIdentificacion
 from tbl_plan_pagos pp
 inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
 inner join tbl_cliente c on c.Id = cc.Id_cliente
-where pp.Estado = 'Pendiente' and (c.Nombres + ' ' + c.Apellidos LIKE @v_buscar+'%' or c.NumeroIdentificacion LIKE @v_buscar+'%') 
+where pp.Estado LIKE @estado+'%' and (c.Nombres + ' ' + c.Apellidos LIKE @v_buscar+'%' or c.NumeroIdentificacion LIKE @v_buscar+'%') 
 and
 (CONVERT(date,pp.FechaCuota) = @FechaFin )
 order by pp.Id_cuentaCobro, pp.NumeroCuota
 END
 GO
-CREATE PROC sp_consultar_pagos_pendientes_3
-	@v_buscar VARCHAR(300)
+create PROC sp_consultar_pagos_pendientes_3
+	@v_buscar VARCHAR(300),
+	@estado VARCHAR(300)
 	AS
 BEGIN
 select cc.ModoPago,cc.DiaPago,cc.DiasFechaPago,c.Nombres + ' ' + c.Apellidos Cliente, pp.NumeroCuota, 
@@ -308,7 +314,7 @@ pp.Id idPlanPagos, pp.Id_cuentaCobro,c.NumeroIdentificacion
 from tbl_plan_pagos pp
 inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
 inner join tbl_cliente c on c.Id = cc.Id_cliente
-where pp.Estado = 'Pendiente' and (c.Nombres + ' ' + c.Apellidos LIKE @v_buscar+'%' or c.NumeroIdentificacion LIKE @v_buscar+'%') 
+where pp.Estado LIKE @estado+'%' and (c.Nombres + ' ' + c.Apellidos LIKE @v_buscar+'%' or c.NumeroIdentificacion LIKE @v_buscar+'%') 
 order by pp.Id_cuentaCobro, pp.NumeroCuota
 END
 GO

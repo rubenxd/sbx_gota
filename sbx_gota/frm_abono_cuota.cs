@@ -79,51 +79,64 @@ namespace sbx_gota
                
                 if (v_validado == 0)
                 {
-                    double vlrAbono = 0;
+                    //double vlrAbono = 0;
                     if (Convert.ToDouble(txt_valor_abono.Text) > Convert.ToDouble(txt_valor_cuota.Text))
                     {
-                        vlrAbono = Convert.ToDouble(txt_valor_abono.Text);
-                        foreach (DataRow item in v_dt4.Rows)
+                        cls_Abonos.Id_plan_pagos = Convert.ToInt32(txt_id_cuota.Text);
+                        cls_Abonos.ValorAbono = txt_valor_abono.Text;
+                        cls_Abonos.Nota = txt_nota.Text;
+                        cls_Abonos.FechaRegistro = DateTime.Now.ToString();
+                        v_ok = v_ok = cls_Abonos.mtd_registrar();
+                        if (v_ok)
                         {
-                            if (vlrAbono > 0)
-                            {
-                                cls_Abonos.Id_plan_pagos = Convert.ToInt32(item["Id"]);
-                                if (vlrAbono >= Convert.ToDouble(item["ValorFaltante"]))
-                                {
-                                    cls_Abonos.ValorAbono = item["ValorFaltante"].ToString();
-                                }
-                                else
-                                {
-                                    cls_Abonos.ValorAbono = vlrAbono.ToString();
-                                }
-                                
-                                cls_Abonos.Nota = "abono automatico";
-                                cls_Abonos.FechaRegistro = DateTime.Now.ToString();
-                                v_ok = v_ok = cls_Abonos.mtd_registrar();
-                                if (v_ok)
-                                {
-                                    cls_Plan_Pagos.Id = Convert.ToInt32(item["Id"]);
-                                    if (vlrAbono >= Convert.ToDouble(Convert.ToDouble(item["ValorFaltante"])))
-                                    {
-                                        cls_Plan_Pagos.Estado = "Pago";
-                                    }
-                                    else if (vlrAbono < Convert.ToDouble(Convert.ToDouble(item["ValorFaltante"])))
-                                    {
-                                        cls_Plan_Pagos.Estado = "Pago parcial";
-                                    }
-                                    correcto++;
-                                    vlrAbono = vlrAbono - Convert.ToDouble(item["ValorFaltante"]);
-                                    cls_Plan_Pagos.mtd_Editar_estado();
-                                }
-                                else
-                                {
-                                    error++;
-                                }
-                            }
+                            cls_Plan_Pagos.Id = Convert.ToInt32(txt_id_cuota.Text);
+                            cls_Plan_Pagos.Estado = "Pago superior";
+                            cls_Plan_Pagos.mtd_Editar_estado();
+                            MessageBox.Show("Abono registrado correctamente");
+                            Enviainfo("AbonoAplicado");
+                            this.Dispose();
                         }
-                        MessageBox.Show("Abono registrado correctamente, correcto: "+correcto+", error: "+error);
-                        Enviainfo("AbonoAplicado");
-                        this.Dispose();
+
+                        //vlrAbono = Convert.ToDouble(txt_valor_abono.Text);
+
+                        //foreach (DataRow item in v_dt4.Rows)
+                        //{
+                        //    if (vlrAbono > 0)
+                        //    {
+                        //        cls_Abonos.Id_plan_pagos = Convert.ToInt32(item["Id"]);
+                        //        if (vlrAbono >= Convert.ToDouble(item["ValorFaltante"]))
+                        //        {
+                        //            cls_Abonos.ValorAbono = item["ValorFaltante"].ToString();
+                        //        }
+                        //        else
+                        //        {
+                        //            cls_Abonos.ValorAbono = vlrAbono.ToString();
+                        //        }
+                                
+                        //        cls_Abonos.Nota = "abono automatico";
+                        //        cls_Abonos.FechaRegistro = DateTime.Now.ToString();
+                        //        v_ok = v_ok = cls_Abonos.mtd_registrar();
+                        //        if (v_ok)
+                        //        {
+                        //            cls_Plan_Pagos.Id = Convert.ToInt32(item["Id"]);
+                        //            if (vlrAbono >= Convert.ToDouble(Convert.ToDouble(item["ValorFaltante"])))
+                        //            {
+                        //                cls_Plan_Pagos.Estado = "Pago";
+                        //            }
+                        //            else if (vlrAbono < Convert.ToDouble(Convert.ToDouble(item["ValorFaltante"])))
+                        //            {
+                        //                cls_Plan_Pagos.Estado = "Pago parcial";
+                        //            }
+                        //            correcto++;
+                        //            vlrAbono = vlrAbono - Convert.ToDouble(item["ValorFaltante"]);
+                        //            cls_Plan_Pagos.mtd_Editar_estado();
+                        //        }
+                        //        else
+                        //        {
+                        //            error++;
+                        //        }
+                        //    }
+                        //}
                     }
                     else
                     {

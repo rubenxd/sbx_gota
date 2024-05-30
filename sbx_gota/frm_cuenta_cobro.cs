@@ -147,62 +147,55 @@ namespace sbx_gota
                     int exitosas = 0;
                     int errores = 0;
                     bool v_ok2 = false;
-                    int year = DateTime.Now.Year;
-                    int month = DateTime.Now.Month;
-                    int dias = ContarDiasDelMes(year, dtt_fecha_primer_pago.Value.Month);
+                    int year = 0;
+                    int mes = 0;
+                    int dias = 0;
+                    DateTime FechaPago;
+                    FechaPago = new DateTime();
                     for (int i = 1; i <= Convert.ToInt32(txt_num_cuotas.Text); i++)
                     {
                         cls_Plan_Pagos.Id_cuentaCobro = Convert.ToInt32(data["Id"]);
                         cls_Plan_Pagos.NumeroCuota = i;
                         cls_Plan_Pagos.VlrCuota = txt_valor_cuota.Text;
-                        DateTime FechaPago;
+
+                        if (i == 1)
+                        {
+                            FechaPago = dtt_fecha_primer_pago.Value;
+                        }
+                        
                         switch (cbx_modo_pago.Text)
                         {
                             case "Diario":
-                                FechaPago = new DateTime();
-                                FechaPago = dtt_fecha_primer_pago.Value;
                                 if (i > 1)
                                 {
-                                    FechaPago = FechaPago.AddDays(i - 1);
+                                    FechaPago = FechaPago.AddDays(1);
                                 }
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
                             case "Semanal":
-                                FechaPago = new DateTime();
-                                FechaPago = dtt_fecha_primer_pago.Value;
                                 if (i > 1)
                                 {
-                                    FechaPago = FechaPago.AddDays(7 * (i - 1));
-                                    if (dias == 31)
-                                    {
-                                        FechaPago = FechaPago.AddDays(1);
-                                    }
-                                    else if (dias == 29)
-                                    {
-                                        FechaPago = FechaPago.AddDays(-1);
-                                    }
-                                    else if (dias == 28)
-                                    {
-                                        FechaPago = FechaPago.AddDays(-2);
-                                    }
+                                    FechaPago = FechaPago.AddDays(7);                                  
                                 }
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
                             case "Quincenal":
-                                FechaPago = new DateTime();
-                                FechaPago = dtt_fecha_primer_pago.Value;
                                 if (i > 1)
                                 {
-                                    FechaPago = FechaPago.AddDays(15 * (i - 1));
-                                    if (dias == 31)
+                                    year = FechaPago.Year;
+                                    mes = FechaPago.Month;
+                                    dias = ContarDiasDelMes(year, FechaPago.Month);
+                                    FechaPago = FechaPago.AddDays(15);
+                                    
+                                    if (dias == 31 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(1);
                                     }
-                                    else if (dias == 29)
+                                    else if (dias == 29 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-1);
                                     }
-                                    else if (dias == 28)
+                                    else if (dias == 28 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-2);
                                     }
@@ -210,20 +203,22 @@ namespace sbx_gota
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
                             case "Mensual":
-                                FechaPago = new DateTime();
-                                FechaPago = dtt_fecha_primer_pago.Value;
                                 if (i > 1)
                                 {
-                                    FechaPago = FechaPago.AddDays(30 * (i - 1));
-                                    if (dias == 31)
+                                    year = FechaPago.Year;
+                                    mes = FechaPago.Month;
+                                    dias = ContarDiasDelMes(year, FechaPago.Month);
+                                    FechaPago = FechaPago.AddDays(30);
+
+                                    if (dias == 31 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(1);
                                     }
-                                    else if (dias == 29)
+                                    else if (dias == 29 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-1);
                                     }
-                                    else if (dias == 28)
+                                    else if (dias == 28 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-2);
                                     }
@@ -231,20 +226,22 @@ namespace sbx_gota
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
                             case "Semestral":
-                                FechaPago = new DateTime();
-                                FechaPago = dtt_fecha_primer_pago.Value;
                                 if (i > 1)
                                 {
-                                    FechaPago = FechaPago.AddDays(180 * (i - 1));
-                                    if (dias == 31)
+                                    year = FechaPago.Year;
+                                    mes = FechaPago.Month;
+                                    dias = ContarDiasDelMes(year, FechaPago.Month);
+                                    FechaPago = FechaPago.AddDays(180);
+
+                                    if (dias == 31 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(1);
                                     }
-                                    else if (dias == 29)
+                                    else if (dias == 29 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-1);
                                     }
-                                    else if (dias == 28)
+                                    else if (dias == 28 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-2);
                                     }
@@ -252,20 +249,22 @@ namespace sbx_gota
                                 cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                 break;
                             case "Anual":
-                                FechaPago = new DateTime();
-                                FechaPago = dtt_fecha_primer_pago.Value;
                                 if (i > 1)
                                 {
-                                    FechaPago = FechaPago.AddDays(365 * (i - 1));
-                                    if (dias == 31)
+                                    year = FechaPago.Year;
+                                    mes = FechaPago.Month;
+                                    dias = ContarDiasDelMes(year, FechaPago.Month);
+                                    FechaPago = FechaPago.AddDays(360);
+
+                                    if (dias == 31 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(1);
                                     }
-                                    else if (dias == 29)
+                                    else if (dias == 29 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-1);
                                     }
-                                    else if (dias == 28)
+                                    else if (dias == 28 && mes != FechaPago.Month)
                                     {
                                         FechaPago = FechaPago.AddDays(-2);
                                     }
@@ -363,69 +362,59 @@ namespace sbx_gota
                 {
                     MessageBox.Show("Cuenta cobro Editada correctamente");
                     bool v_ok2 = false;
-                    int year = DateTime.Now.Year;
-                    int month = DateTime.Now.Month;
-                    int dias = ContarDiasDelMes(year, month);
+                    int year = 0;
+                    int mes = 0;
+                    int dias = 0;
                     cls_Plan_Pagos.Id_cuentaCobro = Convert.ToInt32(lbl_id_cuenta_cobro.Text);
                     v_ok2 = cls_Plan_Pagos.mtd_eliminar_cuentaCobro();
                     if (v_ok2 == true)
                     {
                         int exitosas = 0;
                         int errores = 0;
-
+                        DateTime FechaPago;
+                        FechaPago = new DateTime();
                         for (int i = 1; i <= Convert.ToInt32(txt_num_cuotas.Text); i++)
                         {
                             cls_Plan_Pagos.Id_cuentaCobro = Convert.ToInt32(lbl_id_cuenta_cobro.Text);
                             cls_Plan_Pagos.NumeroCuota = i;
                             cls_Plan_Pagos.VlrCuota = txt_valor_cuota.Text;
-                            DateTime FechaPago;
+                            if (i == 1)
+                            {
+                                FechaPago = dtt_fecha_primer_pago.Value;
+                            }
                             switch (cbx_modo_pago.Text)
                             {
                                 case "Diario":
-                                    FechaPago = new DateTime();
-                                    FechaPago = dtt_fecha_primer_pago.Value;
                                     if (i > 1)
                                     {
-                                        FechaPago = FechaPago.AddDays(i - 1);
+                                        FechaPago = FechaPago.AddDays(1);
                                     }
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
                                 case "Semanal":
-                                    FechaPago = new DateTime();
-                                    FechaPago = dtt_fecha_primer_pago.Value;
                                     if (i > 1)
                                     {
-                                        FechaPago = FechaPago.AddDays(7 * (i - 1));
-                                        if (dias == 31)
-                                        {
-                                            FechaPago = FechaPago.AddDays(1);
-                                        }
-                                        else if (dias == 29)
-                                        {
-                                            FechaPago = FechaPago.AddDays(-1);
-                                        }
-                                        else if (dias == 28)
-                                        {
-                                            FechaPago = FechaPago.AddDays(-2);
-                                        }
+                                        FechaPago = FechaPago.AddDays(7);
                                     }
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
                                 case "Quincenal":
-                                    FechaPago = new DateTime();
-                                    FechaPago = dtt_fecha_primer_pago.Value;
                                     if (i > 1)
                                     {
-                                        FechaPago = FechaPago.AddDays(15 * (i - 1));
-                                        if (dias == 31)
+                                        year = FechaPago.Year;
+                                        mes = FechaPago.Month;
+                                        dias = ContarDiasDelMes(year, FechaPago.Month);
+                                        FechaPago = FechaPago.AddDays(15);
+
+                                        if (dias == 31 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(1);
                                         }
-                                        else if (dias == 29)
+                                        else if (dias == 29 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-1);
                                         }
-                                        else if (dias == 28)
+                                        else if (dias == 28 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-2);
                                         }
@@ -433,20 +422,22 @@ namespace sbx_gota
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
                                 case "Mensual":
-                                    FechaPago = new DateTime();
-                                    FechaPago = dtt_fecha_primer_pago.Value;
                                     if (i > 1)
                                     {
-                                        FechaPago = FechaPago.AddDays(30 * (i - 1));
-                                        if (dias == 31)
+                                        year = FechaPago.Year;
+                                        mes = FechaPago.Month;
+                                        dias = ContarDiasDelMes(year, FechaPago.Month);
+                                        FechaPago = FechaPago.AddDays(30);
+
+                                        if (dias == 31 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(1);
                                         }
-                                        else if (dias == 29)
+                                        else if (dias == 29 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-1);
                                         }
-                                        else if (dias == 28)
+                                        else if (dias == 28 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-2);
                                         }
@@ -454,20 +445,22 @@ namespace sbx_gota
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
                                 case "Semestral":
-                                    FechaPago = new DateTime();
-                                    FechaPago = dtt_fecha_primer_pago.Value;
                                     if (i > 1)
                                     {
-                                        FechaPago = FechaPago.AddDays(180 * (i - 1));
-                                        if (dias == 31)
+                                        year = FechaPago.Year;
+                                        mes = FechaPago.Month;
+                                        dias = ContarDiasDelMes(year, FechaPago.Month);
+                                        FechaPago = FechaPago.AddDays(180);
+
+                                        if (dias == 31 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(1);
                                         }
-                                        else if (dias == 29)
+                                        else if (dias == 29 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-1);
                                         }
-                                        else if (dias == 28)
+                                        else if (dias == 28 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-2);
                                         }
@@ -475,20 +468,22 @@ namespace sbx_gota
                                     cls_Plan_Pagos.FechaCuota = FechaPago.ToString();
                                     break;
                                 case "Anual":
-                                    FechaPago = new DateTime();
-                                    FechaPago = dtt_fecha_primer_pago.Value;
                                     if (i > 1)
                                     {
-                                        FechaPago = FechaPago.AddDays(365 * (i - 1));
-                                        if (dias == 31)
+                                        year = FechaPago.Year;
+                                        mes = FechaPago.Month;
+                                        dias = ContarDiasDelMes(year, FechaPago.Month);
+                                        FechaPago = FechaPago.AddDays(360);
+
+                                        if (dias == 31 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(1);
                                         }
-                                        else if (dias == 29)
+                                        else if (dias == 29 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-1);
                                         }
-                                        else if (dias == 28)
+                                        else if (dias == 28 && mes != FechaPago.Month)
                                         {
                                             FechaPago = FechaPago.AddDays(-2);
                                         }
@@ -602,6 +597,7 @@ namespace sbx_gota
                             cbx_dia_pago.Text = row.Cells["DiaPago"].Value.ToString();
                             txt_dia_fecha_pago.Text = row.Cells["DiasFechaPago"].Value.ToString();
                             txt_nota.Text = row.Cells["Nota"].Value.ToString();
+                            dtt_fecha_primer_pago.Text = row.Cells["FechaPrimerPago"].Value.ToString();
 
                             double valorTotal = Convert.ToDouble(txt_vlr_prestamo.Text) + Convert.ToDouble(txt_vlr_interes.Text);
                             txt_valor_total.Text = valorTotal.ToString("N0");
@@ -977,6 +973,40 @@ namespace sbx_gota
                     frm_Agregar_Abono.btn_pago_total.Enabled = true;
                 }
                 frm_Agregar_Abono.ShowDialog();
+            }
+        }
+
+        private void cbx_modo_pago_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbx_modo_pago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbx_modo_pago_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbx_modo_pago.Text == "Semanal")
+            {
+                cbx_dia_pago.SelectedIndex = 0;
+                cbx_dia_pago.Enabled = true;
+            }
+            else
+            {
+                cbx_dia_pago.SelectedIndex = 0;
+                cbx_dia_pago.Enabled = false;
+            }
+            if (cbx_modo_pago.Text == "Quincenal")
+            {
+                txt_dia_fecha_pago.Text = "";
+                txt_dia_fecha_pago.Enabled = true;
+            }
+            else
+            {
+                txt_dia_fecha_pago.Text = "";
+                txt_dia_fecha_pago.Enabled = false;
             }
         }
     }

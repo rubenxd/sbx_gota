@@ -91,6 +91,7 @@
             this.btn_eliminar.Size = new System.Drawing.Size(20, 20);
             this.btn_eliminar.TabIndex = 9;
             this.btn_eliminar.UseVisualStyleBackColor = false;
+            this.btn_eliminar.Visible = false;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_agregar

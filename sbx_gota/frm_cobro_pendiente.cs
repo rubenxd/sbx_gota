@@ -32,6 +32,7 @@ namespace sbx_gota
             cls_Pagos_Pendientes = new cls_pagos_pendientes();
             v_dt = new DataTable();
             cls_Pagos_Pendientes.v_buscar = txt_buscar.Text;
+            cls_Pagos_Pendientes.estado = cbx_estado.Text;
             if (cbx_tipo_filtro.Text == "Todos")
             {
                 v_dt = cls_Pagos_Pendientes.mtd_consultar_pagos_pendientes3();
@@ -174,6 +175,7 @@ namespace sbx_gota
             cls_Pagos_Pendientes = new cls_pagos_pendientes();
             v_dt = new DataTable();
             cls_Pagos_Pendientes.v_buscar = txt_buscar.Text;
+            cls_Pagos_Pendientes.estado = cbx_estado.Text;
             if (cbx_tipo_filtro.Text == "Todos")
             {
                 v_dt = cls_Pagos_Pendientes.mtd_consultar_pagos_pendientes3();
@@ -316,6 +318,7 @@ namespace sbx_gota
             cbx_dia_semana.SelectedIndex = 0;
             cbx_tipo_filtro.SelectedIndex = 0;
             cbx_con_mora.SelectedIndex = 0;
+            cbx_estado.SelectedIndex = 0;
         }
         
         private void dtg_cobro_pendiente_DoubleClick(object sender, EventArgs e)

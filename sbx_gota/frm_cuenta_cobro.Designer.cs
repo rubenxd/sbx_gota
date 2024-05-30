@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cuenta_cobro));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -294,6 +294,7 @@
             // txt_dia_fecha_pago
             // 
             this.txt_dia_fecha_pago.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_dia_fecha_pago.Enabled = false;
             this.txt_dia_fecha_pago.Location = new System.Drawing.Point(549, 94);
             this.txt_dia_fecha_pago.MaxLength = 200;
             this.txt_dia_fecha_pago.Name = "txt_dia_fecha_pago";
@@ -319,6 +320,7 @@
             "Cedula Extranjera",
             "Tarjeta de identidad"});
             this.cbx_dia_pago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_dia_pago.Enabled = false;
             this.cbx_dia_pago.FormattingEnabled = true;
             this.cbx_dia_pago.Items.AddRange(new object[] {
             "NA",
@@ -365,6 +367,9 @@
             this.cbx_modo_pago.Name = "cbx_modo_pago";
             this.cbx_modo_pago.Size = new System.Drawing.Size(219, 21);
             this.cbx_modo_pago.TabIndex = 71;
+            this.cbx_modo_pago.SelectedIndexChanged += new System.EventHandler(this.cbx_modo_pago_SelectedIndexChanged);
+            this.cbx_modo_pago.SelectionChangeCommitted += new System.EventHandler(this.cbx_modo_pago_SelectionChangeCommitted);
+            this.cbx_modo_pago.TextChanged += new System.EventHandler(this.cbx_modo_pago_TextChanged);
             // 
             // label6
             // 
@@ -572,14 +577,14 @@
             this.dtg_cuenta_cobro.AllowUserToAddRows = false;
             this.dtg_cuenta_cobro.AllowUserToDeleteRows = false;
             this.dtg_cuenta_cobro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_cuenta_cobro.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_cuenta_cobro.DefaultCellStyle = dataGridViewCellStyle5;
             this.dtg_cuenta_cobro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_cuenta_cobro.Location = new System.Drawing.Point(0, 295);
             this.dtg_cuenta_cobro.Name = "dtg_cuenta_cobro";

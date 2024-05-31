@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_exportar_excel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAAAB3RJ
+        TUUH4wEZFRUIb/b9lAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEWSURBVDhP
+        pdM/S0JRGMfxK0GQQygEbQ42iC+hMGoRXEIICvQFFLg0OzREtLY1tLYEbYJDkxD5BhqiIWpzcTEX0wjs
+        +4vnXOhyTjfowOfyPOfxnnv+GXlaDhUc4QqPWEew7eIUXQww99hC0WMV3heSGp4+mcJbSKrjBvfoW9yD
+        at+PT7xgaPmH5WPLN5HHPpoW1xAPIFUUoJfPsYRXqBZagsTBAxZwgRWcwdXcJh4YxXv4MYC0oC+XoA1y
+        /Tu4xK1R3IFq8Y/kEFmsYWJ98qcB7pDBNZZxDFdLXYKmW8a25SdYxJPlqZv4Dh3bm+Uzy0eWu2PUEQaP
+        8TfuIukSeS9SmtASNPP//5mSTZ1aXxua6jM24GlR9AVj1aWKvG+VCwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btn_buscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6

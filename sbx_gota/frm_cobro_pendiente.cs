@@ -390,5 +390,66 @@ namespace sbx_gota
                 frm_Agregar_Abono.ShowDialog();
             }
         }
+        DataTable v_dt5;
+        private void btn_exportar_excel_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            cls_plan_pagos cls_Plan_Pagos = new cls_plan_pagos();
+            DataTable v_dt4 = new DataTable();
+            v_dt5 = new DataTable();
+            if (dtg_cobro_pendiente.Rows.Count > 0)
+            {
+                if (cbx_tipo_filtro.Text == "Todos")
+                {
+                    foreach (DataRow rowaa in v_dt.Rows)
+                    {
+                        cls_Plan_Pagos.v_buscar = rowaa["Cliente"].ToString();
+                        cls_Plan_Pagos.Estado = cbx_estado.Text;
+                        v_dt4 = cls_Plan_Pagos.mtd_consultar_clientes_pendientes_a_excel();
+                        v_dt5.Merge(v_dt4);
+                    }
+                }
+                else
+                {
+                    foreach (DataRow rowaa in v_dt.Rows)
+                    {
+                        cls_Plan_Pagos.v_buscar = rowaa["Cliente"].ToString();
+                        cls_Plan_Pagos.Estado = cbx_estado.Text;
+                        cls_Plan_Pagos.FechaFin = Convert.ToDateTime(rowaa["FechaCuota"]);
+                        v_dt4 = cls_Plan_Pagos.mtd_consultar_clientes_pendientes_a_excel_fecha();
+                        v_dt5.Merge(v_dt4);
+                    }
+                }
+                mtd_exporta_excel();
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void mtd_exporta_excel()
+        {
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+            Excel.Application.Workbooks.Add(true);
+            int IndiceColumna = 0;
+
+            foreach (DataColumn columna in v_dt5.Columns)
+            {
+                    IndiceColumna++;
+                    Excel.Cells[1, IndiceColumna] = columna.ColumnName;
+            }
+            int IndiceFila = 0;
+
+            foreach (DataRow Row in v_dt5.Rows)
+            {
+                IndiceFila++;
+                IndiceColumna = 0;
+
+                foreach (DataColumn Columna in v_dt5.Columns)
+                {
+                        IndiceColumna++;
+                        Excel.Cells[IndiceFila + 1, IndiceColumna] = Row[Columna.ColumnName];
+                }
+            }
+            Excel.Visible = true;
+        }
     }
 }

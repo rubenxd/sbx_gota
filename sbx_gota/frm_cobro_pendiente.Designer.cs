@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cobro_pendiente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cobro_pendiente));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_acciones = new System.Windows.Forms.Panel();
@@ -44,6 +44,7 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dtg_cobro_pendiente = new System.Windows.Forms.DataGridView();
+            this.btn_exportar_excel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnl_acciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_cobro_pendiente)).BeginInit();
@@ -57,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 26);
+            this.panel1.Size = new System.Drawing.Size(919, 26);
             this.panel1.TabIndex = 3;
             // 
             // label1
@@ -73,6 +74,7 @@
             // pnl_acciones
             // 
             this.pnl_acciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_acciones.Controls.Add(this.btn_exportar_excel);
             this.pnl_acciones.Controls.Add(this.cbx_estado);
             this.pnl_acciones.Controls.Add(this.cbx_con_mora);
             this.pnl_acciones.Controls.Add(this.cbx_tipo_filtro);
@@ -86,7 +88,7 @@
             this.pnl_acciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_acciones.Location = new System.Drawing.Point(0, 26);
             this.pnl_acciones.Name = "pnl_acciones";
-            this.pnl_acciones.Size = new System.Drawing.Size(844, 39);
+            this.pnl_acciones.Size = new System.Drawing.Size(919, 39);
             this.pnl_acciones.TabIndex = 11;
             // 
             // cbx_estado
@@ -104,7 +106,7 @@
             "Pago superior",
             "Pago",
             "Todos"});
-            this.cbx_estado.Location = new System.Drawing.Point(75, 8);
+            this.cbx_estado.Location = new System.Drawing.Point(150, 8);
             this.cbx_estado.Name = "cbx_estado";
             this.cbx_estado.Size = new System.Drawing.Size(108, 21);
             this.cbx_estado.TabIndex = 16;
@@ -122,7 +124,7 @@
             "En mora",
             "Sin mora",
             "Todos"});
-            this.cbx_con_mora.Location = new System.Drawing.Point(189, 8);
+            this.cbx_con_mora.Location = new System.Drawing.Point(264, 8);
             this.cbx_con_mora.Name = "cbx_con_mora";
             this.cbx_con_mora.Size = new System.Drawing.Size(108, 21);
             this.cbx_con_mora.TabIndex = 15;
@@ -139,7 +141,7 @@
             this.cbx_tipo_filtro.Items.AddRange(new object[] {
             "Todos",
             "Por fecha"});
-            this.cbx_tipo_filtro.Location = new System.Drawing.Point(303, 8);
+            this.cbx_tipo_filtro.Location = new System.Drawing.Point(378, 8);
             this.cbx_tipo_filtro.Name = "cbx_tipo_filtro";
             this.cbx_tipo_filtro.Size = new System.Drawing.Size(108, 21);
             this.cbx_tipo_filtro.TabIndex = 14;
@@ -148,7 +150,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 12);
+            this.label2.Location = new System.Drawing.Point(39, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 13;
@@ -159,7 +161,7 @@
             // 
             this.Ffin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Ffin.AutoSize = true;
-            this.Ffin.Location = new System.Drawing.Point(417, 12);
+            this.Ffin.Location = new System.Drawing.Point(492, 12);
             this.Ffin.Name = "Ffin";
             this.Ffin.Size = new System.Drawing.Size(30, 13);
             this.Ffin.TabIndex = 12;
@@ -169,7 +171,7 @@
             // 
             this.dtp_fecha_fin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_fecha_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_fin.Location = new System.Drawing.Point(451, 9);
+            this.dtp_fecha_fin.Location = new System.Drawing.Point(526, 9);
             this.dtp_fecha_fin.Name = "dtp_fecha_fin";
             this.dtp_fecha_fin.Size = new System.Drawing.Size(129, 20);
             this.dtp_fecha_fin.TabIndex = 11;
@@ -178,7 +180,7 @@
             // 
             this.dtp_fecha_ini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_fecha_ini.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_ini.Location = new System.Drawing.Point(77, 8);
+            this.dtp_fecha_ini.Location = new System.Drawing.Point(152, 8);
             this.dtp_fecha_ini.Name = "dtp_fecha_ini";
             this.dtp_fecha_ini.Size = new System.Drawing.Size(23, 20);
             this.dtp_fecha_ini.TabIndex = 10;
@@ -202,7 +204,7 @@
             "Viernes",
             "Sabado",
             "Domingo"});
-            this.cbx_dia_semana.Location = new System.Drawing.Point(11, 8);
+            this.cbx_dia_semana.Location = new System.Drawing.Point(6, 8);
             this.cbx_dia_semana.Name = "cbx_dia_semana";
             this.cbx_dia_semana.Size = new System.Drawing.Size(27, 21);
             this.cbx_dia_semana.TabIndex = 9;
@@ -217,7 +219,7 @@
             this.btn_buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar.Image")));
-            this.btn_buscar.Location = new System.Drawing.Point(809, 7);
+            this.btn_buscar.Location = new System.Drawing.Point(884, 7);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(22, 22);
             this.btn_buscar.TabIndex = 8;
@@ -228,7 +230,7 @@
             // 
             this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
-            this.txt_buscar.Location = new System.Drawing.Point(606, 9);
+            this.txt_buscar.Location = new System.Drawing.Point(681, 9);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(197, 20);
             this.txt_buscar.TabIndex = 7;
@@ -252,15 +254,31 @@
             this.dtg_cobro_pendiente.Name = "dtg_cobro_pendiente";
             this.dtg_cobro_pendiente.ReadOnly = true;
             this.dtg_cobro_pendiente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_cobro_pendiente.Size = new System.Drawing.Size(844, 385);
+            this.dtg_cobro_pendiente.Size = new System.Drawing.Size(919, 385);
             this.dtg_cobro_pendiente.TabIndex = 12;
             this.dtg_cobro_pendiente.DoubleClick += new System.EventHandler(this.dtg_cobro_pendiente_DoubleClick);
+            // 
+            // btn_exportar_excel
+            // 
+            this.btn_exportar_excel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_exportar_excel.BackColor = System.Drawing.SystemColors.Menu;
+            this.btn_exportar_excel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exportar_excel.FlatAppearance.BorderSize = 0;
+            this.btn_exportar_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_exportar_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_exportar_excel.Image = ((System.Drawing.Image)(resources.GetObject("btn_exportar_excel.Image")));
+            this.btn_exportar_excel.Location = new System.Drawing.Point(114, 8);
+            this.btn_exportar_excel.Name = "btn_exportar_excel";
+            this.btn_exportar_excel.Size = new System.Drawing.Size(20, 20);
+            this.btn_exportar_excel.TabIndex = 17;
+            this.btn_exportar_excel.UseVisualStyleBackColor = false;
+            this.btn_exportar_excel.Click += new System.EventHandler(this.btn_exportar_excel_Click);
             // 
             // frm_cobro_pendiente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 450);
+            this.ClientSize = new System.Drawing.Size(919, 450);
             this.Controls.Add(this.dtg_cobro_pendiente);
             this.Controls.Add(this.pnl_acciones);
             this.Controls.Add(this.panel1);
@@ -294,5 +312,6 @@
         private System.Windows.Forms.ComboBox cbx_tipo_filtro;
         private System.Windows.Forms.ComboBox cbx_con_mora;
         private System.Windows.Forms.ComboBox cbx_estado;
+        private System.Windows.Forms.Button btn_exportar_excel;
     }
 }

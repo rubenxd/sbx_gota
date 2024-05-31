@@ -20,6 +20,7 @@ namespace sbx_gota.MODEL
         SqlParameter[] Parametros;
         bool v_ok;
         public string v_buscar { get; set; }
+        public DateTime FechaFin { get; set; }
 
         //getter and setter
         public int Id { get; set; }
@@ -54,6 +55,20 @@ namespace sbx_gota.MODEL
                         +"(select cc.Id from tbl_cuenta_cobro cc "
                         +"where cc.Id = (select ppp.Id_cuentaCobro from tbl_plan_pagos ppp where ppp.Id = "+Id+")) "
                         +"and(pp.Estado = 'Pendiente' or pp.Estado = 'Pago parcial') ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_clientes_pendientes_a_excel()
+        {
+            v_query = " EXECUTE sp_consultar_pendientes_a_excel  '" + v_buscar + "', '"+Estado+"' ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_clientes_pendientes_a_excel_fecha()
+        {
+            v_query = " EXECUTE sp_consultar_pendientes_a_excel_fecha  '" + v_buscar + "','"+ Estado + "', '" + FechaFin.ToString("yyyyMMdd") + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

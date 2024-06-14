@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cobro_pendiente));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_acciones = new System.Windows.Forms.Panel();
+            this.btn_exportar_excel = new System.Windows.Forms.Button();
             this.cbx_estado = new System.Windows.Forms.ComboBox();
             this.cbx_con_mora = new System.Windows.Forms.ComboBox();
             this.cbx_tipo_filtro = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dtg_cobro_pendiente = new System.Windows.Forms.DataGridView();
-            this.btn_exportar_excel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnl_acciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_cobro_pendiente)).BeginInit();
@@ -91,6 +91,22 @@
             this.pnl_acciones.Size = new System.Drawing.Size(919, 39);
             this.pnl_acciones.TabIndex = 11;
             // 
+            // btn_exportar_excel
+            // 
+            this.btn_exportar_excel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_exportar_excel.BackColor = System.Drawing.SystemColors.Menu;
+            this.btn_exportar_excel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exportar_excel.FlatAppearance.BorderSize = 0;
+            this.btn_exportar_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_exportar_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_exportar_excel.Image = ((System.Drawing.Image)(resources.GetObject("btn_exportar_excel.Image")));
+            this.btn_exportar_excel.Location = new System.Drawing.Point(114, 8);
+            this.btn_exportar_excel.Name = "btn_exportar_excel";
+            this.btn_exportar_excel.Size = new System.Drawing.Size(20, 20);
+            this.btn_exportar_excel.TabIndex = 17;
+            this.btn_exportar_excel.UseVisualStyleBackColor = false;
+            this.btn_exportar_excel.Click += new System.EventHandler(this.btn_exportar_excel_Click);
+            // 
             // cbx_estado
             // 
             this.cbx_estado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -121,9 +137,9 @@
             this.cbx_con_mora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_con_mora.FormattingEnabled = true;
             this.cbx_con_mora.Items.AddRange(new object[] {
+            "Todos",
             "En mora",
-            "Sin mora",
-            "Todos"});
+            "Sin mora"});
             this.cbx_con_mora.Location = new System.Drawing.Point(264, 8);
             this.cbx_con_mora.Name = "cbx_con_mora";
             this.cbx_con_mora.Size = new System.Drawing.Size(108, 21);
@@ -139,8 +155,8 @@
             this.cbx_tipo_filtro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_tipo_filtro.FormattingEnabled = true;
             this.cbx_tipo_filtro.Items.AddRange(new object[] {
-            "Todos",
-            "Por fecha"});
+            "Por fecha",
+            "Todos"});
             this.cbx_tipo_filtro.Location = new System.Drawing.Point(378, 8);
             this.cbx_tipo_filtro.Name = "cbx_tipo_filtro";
             this.cbx_tipo_filtro.Size = new System.Drawing.Size(108, 21);
@@ -241,14 +257,14 @@
             this.dtg_cobro_pendiente.AllowUserToAddRows = false;
             this.dtg_cobro_pendiente.AllowUserToDeleteRows = false;
             this.dtg_cobro_pendiente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_cobro_pendiente.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_cobro_pendiente.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_cobro_pendiente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_cobro_pendiente.Location = new System.Drawing.Point(0, 65);
             this.dtg_cobro_pendiente.Name = "dtg_cobro_pendiente";
@@ -257,22 +273,6 @@
             this.dtg_cobro_pendiente.Size = new System.Drawing.Size(919, 385);
             this.dtg_cobro_pendiente.TabIndex = 12;
             this.dtg_cobro_pendiente.DoubleClick += new System.EventHandler(this.dtg_cobro_pendiente_DoubleClick);
-            // 
-            // btn_exportar_excel
-            // 
-            this.btn_exportar_excel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_exportar_excel.BackColor = System.Drawing.SystemColors.Menu;
-            this.btn_exportar_excel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exportar_excel.FlatAppearance.BorderSize = 0;
-            this.btn_exportar_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_exportar_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_exportar_excel.Image = ((System.Drawing.Image)(resources.GetObject("btn_exportar_excel.Image")));
-            this.btn_exportar_excel.Location = new System.Drawing.Point(114, 8);
-            this.btn_exportar_excel.Name = "btn_exportar_excel";
-            this.btn_exportar_excel.Size = new System.Drawing.Size(20, 20);
-            this.btn_exportar_excel.TabIndex = 17;
-            this.btn_exportar_excel.UseVisualStyleBackColor = false;
-            this.btn_exportar_excel.Click += new System.EventHandler(this.btn_exportar_excel_Click);
             // 
             // frm_cobro_pendiente
             // 

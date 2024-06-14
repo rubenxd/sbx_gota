@@ -69,105 +69,6 @@ namespace sbx_gota
             {
                 dtg_cobro_pendiente.DataSource = v_dt;
             }
-
-            //if (cbx_dia_semana.Text == "Todos")
-            //{
-            //    dtg_cobro_pendiente.DataSource = v_dt;
-            //}
-            //else
-            //{
-            //    // Nombre del día de la semana a filtrar (en español)
-            //    string diaSemanaFiltrar = cbx_dia_semana.Text;
-            //    switch (diaSemanaFiltrar)
-            //    {
-            //        case "Lunes":
-            //            var filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Monday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Martes":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Tuesday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Miercoles":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Wednesday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Jueves":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Thursday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Viernes":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Friday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Sabado":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Saturday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Domingo":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Sunday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //}
         }
 
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
@@ -212,105 +113,6 @@ namespace sbx_gota
             {
                 dtg_cobro_pendiente.DataSource = v_dt;
             }
-
-            //if (cbx_dia_semana.Text == "Todos")
-            //{
-            //    dtg_cobro_pendiente.DataSource = v_dt;
-            //}
-            //else
-            //{
-            //    // Nombre del día de la semana a filtrar (en español)
-            //    string diaSemanaFiltrar = cbx_dia_semana.Text;
-            //    switch (diaSemanaFiltrar)
-            //    {
-            //        case "Lunes":
-            //            var filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Monday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Martes":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Tuesday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Miercoles":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Wednesday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Jueves":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Thursday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Viernes":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Friday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Sabado":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Saturday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        case "Domingo":
-            //            filasFiltradas = v_dt.AsEnumerable()
-            //            .Where(row => row.Field<DateTime>("FechaCuota").DayOfWeek == DayOfWeek.Sunday);
-            //            if (filasFiltradas.Any())
-            //            {
-            //                dtg_cobro_pendiente.DataSource = filasFiltradas.CopyToDataTable();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No hay eventos en el día especificado.");
-            //            }
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //}
         }
 
         private void frm_cobro_pendiente_Load(object sender, EventArgs e)
@@ -355,21 +157,10 @@ namespace sbx_gota
 
                 //carga plan de pagos
                 frm_Agregar_Abono.dtg_plan_pagos.DataSource = null;
-                //double VlrCuota = 0;
-                //double VlrAbono = 0;
-                //double vlrSaldo = 0;
+
                 cls_Plan_Pagos.v_buscar = frm_Agregar_Abono.txt_id_cuenta_cobro.Text;
                 v_dt2 = cls_Plan_Pagos.mtd_consultar_planPagos();
-                //for (int i = 0; i < v_dt2.Rows.Count; i++)
-                //{
-                //    DataRow fila = v_dt2.Rows[i];
-                //    VlrCuota = Convert.ToDouble(fila["VlrCuota"]);
-                //    fila["VlrCuota"] = VlrCuota.ToString();
-                //    VlrAbono = Convert.ToDouble(fila["ValorAbono"]);
-                //    fila["ValorAbono"] = VlrAbono.ToString();
-                //    vlrSaldo = Convert.ToDouble(fila["Saldo"]);
-                //    fila["Saldo"] = vlrSaldo.ToString();
-                //}
+
                 frm_Agregar_Abono.dtg_plan_pagos.DataSource = v_dt2;
                 double PagoTotal = 0;
                 int pagoPendientes = 0;
@@ -399,26 +190,11 @@ namespace sbx_gota
             v_dt5 = new DataTable();
             if (dtg_cobro_pendiente.Rows.Count > 0)
             {
-                if (cbx_tipo_filtro.Text == "Todos")
+                foreach (DataRow rowaa in v_dt.Rows)
                 {
-                    foreach (DataRow rowaa in v_dt.Rows)
-                    {
-                        cls_Plan_Pagos.v_buscar = rowaa["Cliente"].ToString();
-                        cls_Plan_Pagos.Estado = cbx_estado.Text;
-                        v_dt4 = cls_Plan_Pagos.mtd_consultar_clientes_pendientes_a_excel();
-                        v_dt5.Merge(v_dt4);
-                    }
-                }
-                else
-                {
-                    foreach (DataRow rowaa in v_dt.Rows)
-                    {
-                        cls_Plan_Pagos.v_buscar = rowaa["Cliente"].ToString();
-                        cls_Plan_Pagos.Estado = cbx_estado.Text;
-                        cls_Plan_Pagos.FechaFin = Convert.ToDateTime(rowaa["FechaCuota"]);
-                        v_dt4 = cls_Plan_Pagos.mtd_consultar_clientes_pendientes_a_excel_fecha();
-                        v_dt5.Merge(v_dt4);
-                    }
+                    cls_Plan_Pagos.Id = Convert.ToInt32(rowaa["idPlanPagos"]);
+                    v_dt4 = cls_Plan_Pagos.mtd_consultar_clientes_pendientes_a_excel();
+                    v_dt5.Merge(v_dt4);
                 }
                 mtd_exporta_excel();
             }

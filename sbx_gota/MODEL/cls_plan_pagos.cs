@@ -61,7 +61,7 @@ namespace sbx_gota.MODEL
 
         public DataTable mtd_consultar_clientes_pendientes_a_excel()
         {
-            v_query = " EXECUTE sp_consultar_pendientes_a_excel  '" + v_buscar + "', '"+Estado+"' ";
+            v_query = " EXECUTE sp_consultar_pendientes_a_excel " + Id + " ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

@@ -321,36 +321,16 @@ order by pp.Id_cuentaCobro, pp.NumeroCuota
 END
 GO
 create PROC sp_consultar_pendientes_a_excel
-	@v_buscar VARCHAR(300),
-	@estado VARCHAR(300)
+	@v_buscar int
 	AS
 BEGIN
 select c.Nombres + ' ' + c.Apellidos Cliente,c.Celular,c.Direccion,pp.NumeroCuota,
-REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota, 
+pp.VlrCuota, 
 CAST(pp.FechaCuota as date) FechaCuota, 
 CASE WHEN DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) < 0 THEN 0 ELSE DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) END AS DiasMora
 from tbl_plan_pagos pp
 inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
 inner join tbl_cliente c on c.Id = cc.Id_cliente
-where (c.Nombres + ' ' + c.Apellidos) = @v_buscar and pp.Estado = @estado
-order by pp.Id_cuentaCobro, pp.NumeroCuota
-end
-GO
-create PROC sp_consultar_pendientes_a_excel_fecha
-	@v_buscar VARCHAR(300),
-	@estado VARCHAR(300),
-	@FechaFin AS DATE
-	AS
-BEGIN
-select c.Nombres + ' ' + c.Apellidos Cliente,c.Celular,c.Direccion,pp.NumeroCuota,
-REPLACE(FORMAT(pp.VlrCuota, '#,##0'), ',', '.') VlrCuota, 
-CAST(pp.FechaCuota as date) FechaCuota, 
-CASE WHEN DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) < 0 THEN 0 ELSE DATEDIFF(day,CAST(pp.FechaCuota as datetime),CAST(GETDATE() as datetime)) END AS DiasMora
-from tbl_plan_pagos pp
-inner join tbl_cuenta_cobro cc on cc.Id = pp.Id_cuentaCobro
-inner join tbl_cliente c on c.Id = cc.Id_cliente
-where (c.Nombres + ' ' + c.Apellidos) = @v_buscar and pp.Estado = @estado
-and
-(CONVERT(date,pp.FechaCuota) = @FechaFin )
+where pp.Id = @v_buscar
 order by pp.Id_cuentaCobro, pp.NumeroCuota
 end

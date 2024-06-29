@@ -60,6 +60,7 @@ namespace sbx_gota
             txt_dia_fecha_pago.Text = row["DiasFechaPago"].ToString();
             txt_nota.Text = row["Nota"].ToString();
             txt_porcentaje_interes.Text = row["PorcentajeInteres"].ToString();
+            txt_mora.Text = row["Mora"].ToString();
 
             //carga plan de pagos
             dtg_plan_pagos.DataSource = null;
@@ -974,12 +975,132 @@ namespace sbx_gota
 
         private void frm_agregar_abono_Load(object sender, EventArgs e)
         {
+            cls_mora cls_Mora = new cls_mora();
+            cls_Mora.Id_cuenta_cobro = Convert.ToInt32(txt_id_cuenta_cobro.Text);
+            v_dt = cls_Mora.mtd_consultar_pagos_mora();
+            double TotalPagos = 0;
+            foreach (DataRow rows in v_dt.Rows)
+            {
+                TotalPagos += Convert.ToDouble(rows["ValorPago"]);
+            }
+            cls_cuenta_cobro cls_Cuenta_Cobro = new cls_cuenta_cobro();
+            cls_Cuenta_Cobro.Id = Convert.ToInt32(txt_id_cuenta_cobro.Text);
+            v_dt2 = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro_mora();
+            double Mora = 0;
+            foreach (DataRow rows in v_dt2.Rows)
+            {
+                Mora = Convert.ToDouble(rows["mora"]);
+            }
 
+            double TotalMoraActual = Mora - TotalPagos;
+            txt_mora.Text = TotalMoraActual.ToString("N0");
+            txt_pago_mora.Text = TotalPagos.ToString("N0");
         }
 
         private void btn_refinanciar_Click(object sender, EventArgs e)
         {
             mtd_refinanciacion();
+        }
+
+        private void btn_guardar_valor_mora_Click(object sender, EventArgs e)
+        {
+            bool v_ok = false;
+            DataTable dt1;
+            if (Convert.ToDouble(txt_mora.Text) >= 0)
+            {
+                cls_mora cls_Mora = new cls_mora();
+                cls_Mora.Id_cuenta_cobro = Convert.ToInt32(txt_id_cuenta_cobro.Text);
+                dt1 = cls_Mora.mtd_consultar_pagos_mora();
+                double vlr_pagos_mora = 0;
+                foreach (DataRow item in dt1.Rows)
+                {
+                    vlr_pagos_mora += Convert.ToDouble(item["ValorPago"]);
+                }
+
+                if (Convert.ToDouble(txt_mora.Text) >= vlr_pagos_mora)
+                {
+                    cls_Cuenta_Cobro.Id = Convert.ToInt32(txt_id_cuenta_cobro.Text);
+                    cls_Cuenta_Cobro.Mora = Convert.ToDouble(txt_mora.Text);
+                    v_ok = cls_Cuenta_Cobro.mtd_editar_mora();
+                    if (v_ok)
+                    {
+                        MessageBox.Show("Valor Mora Actualizado correctamente");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor de mora debe ser mayor o igual al valor de pagos realizados");
+                }               
+            }
+            else
+            {
+                MessageBox.Show("Valor Mora debe ser mayor o igual a cero (0)");
+            }
+        }
+
+        private void txt_mora_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_mora.Text))
+            {
+                if (!double.TryParse(txt_mora.Text, out double numero))
+                {
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    txt_mora.Clear();
+                }
+            }
+        }
+
+        private void txt_mora_KeyUp(object sender, KeyEventArgs e)
+        {
+            double vlr = 0;
+            string vF = "";
+            if (txt_mora.Text != "")
+            {
+                vlr = Convert.ToDouble(txt_mora.Text);
+                vF = vlr.ToString("N0");
+                txt_mora.Text = vF;
+                txt_mora.SelectionStart = txt_mora.Text.Length;
+            }
+        }
+
+        frm_mora frm_Mora;
+        private void btn_agregar_pago_Click(object sender, EventArgs e)
+        {
+            if (frm_Mora == null || frm_Mora.IsDisposed)
+            {
+                frm_Mora = new frm_mora(txt_id_cuenta_cobro.Text);
+                frm_Mora.Enviainfo += new frm_mora.EnviarInfo(mtd_dato_);
+                frm_Mora.Show();
+            }
+            else
+            {
+                frm_Ayuda.BringToFront();
+                frm_Ayuda.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void mtd_dato_(string Item)
+        {
+            cls_mora cls_Mora = new cls_mora();
+            cls_Mora.Id_cuenta_cobro = Convert.ToInt32(Item);
+            v_dt = cls_Mora.mtd_consultar_pagos_mora();
+            double TotalPagos = 0;
+            foreach (DataRow rows in v_dt.Rows)
+            {
+                TotalPagos += Convert.ToDouble(rows["ValorPago"]);
+            }
+            cls_cuenta_cobro cls_Cuenta_Cobro = new cls_cuenta_cobro();
+            cls_Cuenta_Cobro.Id = Convert.ToInt32(Item);
+            v_dt2 = cls_Cuenta_Cobro.mtd_consultar_cuenta_cobro_mora();
+            double Mora = 0;
+            foreach (DataRow rows in v_dt2.Rows)
+            {
+                Mora = Convert.ToDouble(rows["mora"]);
+            }
+
+            double TotalMoraActual = Mora - TotalPagos;
+            txt_mora.Text = TotalMoraActual.ToString("N0");
+            txt_pago_mora.Text = TotalPagos.ToString("N0");
         }
     }
 }

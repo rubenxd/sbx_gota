@@ -129,6 +129,27 @@ namespace sbx_gota
             lbl_t_s_p.Text = TotalSaldoPendiente.ToString("N0");
 
             dtg_reportes.DataSource = dt;
+
+            //dato mora
+            DataTable dt_m = new DataTable();
+            dt_m = cls_Reportes.mtd_consultar_resultado_mora();
+            double tValorPago = 0;
+            double GxPersonaMora = 0;
+            double Pendiente = 0;
+            foreach (DataRow item in dt_m.Rows)
+            {
+                tValorPago += Convert.ToDouble(item["TValorPago"]);
+                Pendiente += Convert.ToDouble(item["Pendiente"]);
+            }
+            lbl_gxMora.Text = tValorPago.ToString("N0");
+            lbl_mora_pendiente.Text = Pendiente.ToString("N0");
+            GxPersonaMora = tValorPago / 2;
+            lbl_g_m_x_p.Text = GxPersonaMora.ToString("N0");
+            double tgmasmora = 0;
+            tgmasmora = TotalGanancias + tValorPago;
+            lbl_g_mas_mora.Text = tgmasmora.ToString("N0");
+            double ped_saldo_mas_mora = TotalSaldoPendiente + Pendiente;
+            lbl_ped_saldo_mas_mora.Text = ped_saldo_mas_mora.ToString("N0");
         }
 
         static void CambiarTipoDeColumna(DataTable table, string columnName, Type newType)

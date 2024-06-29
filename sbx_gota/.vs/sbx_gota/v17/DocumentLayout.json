@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\model\\cls_reportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:model\\cls_reportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_cobro_pendiente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|c:\\users\\ruben\\documents\\sbxgota\\sbx_gota\\frm_reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E6AA0677-7933-40EF-9B72-BF03B48BBE0B}|sbx_gota.csproj|solutionrelative:frm_reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,26 +27,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frm_cobro_pendiente.cs",
-              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs",
-              "RelativeDocumentMoniker": "frm_cobro_pendiente.cs",
-              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs",
-              "RelativeToolTip": "frm_cobro_pendiente.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAApwCUAAAA7AAAA",
+              "Title": "cls_reportes.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\MODEL\\cls_reportes.cs",
+              "RelativeDocumentMoniker": "MODEL\\cls_reportes.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\MODEL\\cls_reportes.cs",
+              "RelativeToolTip": "MODEL\\cls_reportes.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAiwCUAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T15:16:33.389Z",
+              "WhenOpened": "2024-06-29T14:06:52.406Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frm_cobro_pendiente.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs",
-              "RelativeDocumentMoniker": "frm_cobro_pendiente.cs",
-              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_cobro_pendiente.cs [Dise\u00F1o]",
-              "RelativeToolTip": "frm_cobro_pendiente.cs [Dise\u00F1o]",
+              "Title": "frm_reporte.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_reporte.cs",
+              "RelativeDocumentMoniker": "frm_reporte.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_reporte.cs",
+              "RelativeToolTip": "frm_reporte.cs",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAiwIYAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T15:16:30.927Z",
+              "WhenOpened": "2024-06-29T14:06:15.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frm_reporte.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_reporte.cs",
+              "RelativeDocumentMoniker": "frm_reporte.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBXGOTA\\sbx_gota\\frm_reporte.cs [Dise\u00F1o]",
+              "RelativeToolTip": "frm_reporte.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T14:06:12.793Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

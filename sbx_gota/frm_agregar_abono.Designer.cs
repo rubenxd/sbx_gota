@@ -34,6 +34,10 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_guardar_valor_mora = new System.Windows.Forms.Button();
+            this.btn_agregar_pago = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_mora = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_nombres = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -66,6 +70,8 @@
             this.lbl_pago_total = new System.Windows.Forms.Label();
             this.btn_pago_total = new System.Windows.Forms.Button();
             this.dtg_plan_pagos = new System.Windows.Forms.DataGridView();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txt_pago_mora = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -111,6 +117,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.txt_pago_mora);
+            this.groupBox1.Controls.Add(this.btn_guardar_valor_mora);
+            this.groupBox1.Controls.Add(this.btn_agregar_pago);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.txt_mora);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txt_nombres);
             this.groupBox1.Controls.Add(this.label13);
@@ -143,6 +155,60 @@
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info Cuenta cobro";
+            // 
+            // btn_guardar_valor_mora
+            // 
+            this.btn_guardar_valor_mora.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_guardar_valor_mora.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_guardar_valor_mora.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_guardar_valor_mora.FlatAppearance.BorderSize = 0;
+            this.btn_guardar_valor_mora.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_guardar_valor_mora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_guardar_valor_mora.Image = ((System.Drawing.Image)(resources.GetObject("btn_guardar_valor_mora.Image")));
+            this.btn_guardar_valor_mora.Location = new System.Drawing.Point(740, 147);
+            this.btn_guardar_valor_mora.Name = "btn_guardar_valor_mora";
+            this.btn_guardar_valor_mora.Size = new System.Drawing.Size(20, 20);
+            this.btn_guardar_valor_mora.TabIndex = 115;
+            this.btn_guardar_valor_mora.UseVisualStyleBackColor = false;
+            this.btn_guardar_valor_mora.Click += new System.EventHandler(this.btn_guardar_valor_mora_Click);
+            // 
+            // btn_agregar_pago
+            // 
+            this.btn_agregar_pago.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_agregar_pago.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_agregar_pago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_agregar_pago.FlatAppearance.BorderSize = 0;
+            this.btn_agregar_pago.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_agregar_pago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_pago.Image = ((System.Drawing.Image)(resources.GetObject("btn_agregar_pago.Image")));
+            this.btn_agregar_pago.Location = new System.Drawing.Point(773, 147);
+            this.btn_agregar_pago.Name = "btn_agregar_pago";
+            this.btn_agregar_pago.Size = new System.Drawing.Size(20, 20);
+            this.btn_agregar_pago.TabIndex = 114;
+            this.btn_agregar_pago.UseVisualStyleBackColor = false;
+            this.btn_agregar_pago.Click += new System.EventHandler(this.btn_agregar_pago_Click);
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(501, 150);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(34, 15);
+            this.label15.TabIndex = 113;
+            this.label15.Text = "Mora";
+            // 
+            // txt_mora
+            // 
+            this.txt_mora.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_mora.Location = new System.Drawing.Point(541, 148);
+            this.txt_mora.MaxLength = 200;
+            this.txt_mora.Name = "txt_mora";
+            this.txt_mora.Size = new System.Drawing.Size(191, 20);
+            this.txt_mora.TabIndex = 112;
+            this.txt_mora.TextChanged += new System.EventHandler(this.txt_mora_TextChanged);
+            this.txt_mora.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_mora_KeyUp);
             // 
             // label14
             // 
@@ -540,6 +606,27 @@
             this.dtg_plan_pagos.TabIndex = 0;
             this.dtg_plan_pagos.DoubleClick += new System.EventHandler(this.dtg_plan_pagos_DoubleClick);
             // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(499, 179);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(36, 15);
+            this.label16.TabIndex = 117;
+            this.label16.Text = "Pago";
+            // 
+            // txt_pago_mora
+            // 
+            this.txt_pago_mora.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_pago_mora.Enabled = false;
+            this.txt_pago_mora.Location = new System.Drawing.Point(541, 176);
+            this.txt_pago_mora.MaxLength = 200;
+            this.txt_pago_mora.Name = "txt_pago_mora";
+            this.txt_pago_mora.Size = new System.Drawing.Size(219, 20);
+            this.txt_pago_mora.TabIndex = 116;
+            // 
             // frm_agregar_abono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,5 +690,11 @@
         public System.Windows.Forms.TextBox txt_cuentaCobro;
         public System.Windows.Forms.Button btn_buscar;
         public System.Windows.Forms.Button btn_refinanciar;
+        private System.Windows.Forms.Button btn_agregar_pago;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btn_guardar_valor_mora;
+        public System.Windows.Forms.TextBox txt_mora;
+        private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.TextBox txt_pago_mora;
     }
 }

@@ -35,6 +35,7 @@ namespace sbx_gota.MODEL
         public string Estado { get; set; }
         public string Nota { get; set; }
         public string FechaRegistros { get; set; }
+        public double Mora { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_cuenta_cobro()
@@ -61,6 +62,13 @@ namespace sbx_gota.MODEL
         public DataTable mtd_consultar_cuenta_cobro_en_plan_pagos()
         {
             v_query = " select * from tbl_plan_pagos where Id_cuentaCobro = " + v_buscar + " ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_cuenta_cobro_mora()
+        {
+            v_query = " select cc.Id, cc.mora, c.Nombres + ' ' + c.apellidos cliente from tbl_cuenta_cobro cc inner join tbl_cliente c on c.Id = cc.Id_cliente where cc.Id = " + Id + " ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -168,6 +176,13 @@ namespace sbx_gota.MODEL
         {
             v_query = " UPDATE tbl_cuenta_cobro SET numerocuotas = " + NumeroCuotas +
                       " WHERE Id = " + Id;
+
+            v_ok = cls_datos.mtd_ejecutar(v_query);
+            return v_ok;
+        }
+        public Boolean mtd_editar_mora()
+        {
+            v_query = " UPDATE tbl_cuenta_cobro SET Mora = " + Mora + " WHERE Id = " + Id;
 
             v_ok = cls_datos.mtd_ejecutar(v_query);
             return v_ok;

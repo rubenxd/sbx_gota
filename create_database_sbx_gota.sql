@@ -104,6 +104,20 @@ Valor varchar(max),
 Descripcion varchar(100) 
 )
 GO
+CREATE TABLE tbl_pago_mora(
+Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+Id_cuenta_cobro int,
+ValorPago money,
+Nota varchar(100),
+FechaRegistro datetime,
+foreign key(Id_cuenta_cobro) references tbl_cuenta_cobro(Id)
+)
+GO 
+ALTER TABLE tbl_cuenta_cobro 
+ADD Mora MONEY
+GO
+ UPDATE tbl_cuenta_cobro SET Mora = 0
+GO
 Insert into tbl_rol(Nombre, Descripcion) values('Administrador','Control Total')
 GO
 insert into tbl_usuario(Usuario,contraseña,IdRol) values('admin',ENCRYPTBYPASSPHRASE('password','admin'),1) 
@@ -140,7 +154,7 @@ AS
 BEGIN
 	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente,REPLACE(FORMAT(c.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo, 
 	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente,
-	c.FechaPrimerPago
+	c.FechaPrimerPago, c.Mora
 	FROM tbl_cuenta_cobro c 
 	INNER JOIN tbl_cliente cl on c.Id_cliente = cl.Id
 	WHERE c.Id = @v_buscar		

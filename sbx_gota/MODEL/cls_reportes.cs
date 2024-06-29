@@ -44,5 +44,11 @@ namespace sbx_gota.MODEL
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
+        public DataTable mtd_consultar_resultado_mora()
+        {
+            v_query = " select isnull(sum(ValorPago),0) TValorPago, (select isnull(sum(Mora),0) from tbl_cuenta_cobro) TMora, (select isnull(sum(Mora),0) from tbl_cuenta_cobro) - isnull(sum(ValorPago),0) Pendiente from tbl_pago_mora ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
     }
 }

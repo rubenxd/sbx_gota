@@ -22,3 +22,4 @@ C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_cobro_pendiente
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_ajustes.resources
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_pagos_pendientes_2.resources
 C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_editar_abonos.resources
+C:\Users\Ruben\Documents\SBXGOTA\sbx_gota\obj\Debug\sbx_gota.frm_mora.resources

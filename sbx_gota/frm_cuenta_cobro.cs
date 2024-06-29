@@ -937,6 +937,8 @@ namespace sbx_gota
                 frm_Agregar_Abono.txt_dia_fecha_pago.Text = row["DiasFechaPago"].ToString();
                 frm_Agregar_Abono.txt_nota.Text = row["Nota"].ToString();
                 frm_Agregar_Abono.txt_porcentaje_interes.Text = row["PorcentajeInteres"].ToString();
+                double vlrMora = Convert.ToDouble(row["Mora"]);
+                frm_Agregar_Abono.txt_mora.Text = vlrMora.ToString("N0");
 
                 //carga plan de pagos
                 frm_Agregar_Abono.dtg_plan_pagos.DataSource = null;
@@ -1008,6 +1010,12 @@ namespace sbx_gota
                 txt_dia_fecha_pago.Text = "";
                 txt_dia_fecha_pago.Enabled = false;
             }
+        }
+
+        private void btn_agregar_pago_Click(object sender, EventArgs e)
+        {
+            frm_mora frm_Mora = new frm_mora();
+            frm_Mora.ShowDialog();
         }
     }
 }

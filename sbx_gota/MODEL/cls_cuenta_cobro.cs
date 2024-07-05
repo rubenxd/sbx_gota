@@ -68,7 +68,7 @@ namespace sbx_gota.MODEL
 
         public DataTable mtd_consultar_cuenta_cobro_mora()
         {
-            v_query = " select cc.Id, cc.mora, c.Nombres + ' ' + c.apellidos cliente from tbl_cuenta_cobro cc inner join tbl_cliente c on c.Id = cc.Id_cliente where cc.Id = " + Id + " ";
+            v_query = " select cc.Id, isnull(cc.mora,0) mora, c.Nombres + ' ' + c.apellidos cliente from tbl_cuenta_cobro cc inner join tbl_cliente c on c.Id = cc.Id_cliente where cc.Id = " + Id + " ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

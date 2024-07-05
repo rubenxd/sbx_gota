@@ -939,6 +939,7 @@ namespace sbx_gota
                 frm_Agregar_Abono.txt_porcentaje_interes.Text = row["PorcentajeInteres"].ToString();
                 double vlrMora = Convert.ToDouble(row["Mora"]);
                 frm_Agregar_Abono.txt_mora.Text = vlrMora.ToString("N0");
+                frm_Agregar_Abono.txt_fecha_registro.Text = row["FechaRegistros"].ToString();
 
                 //carga plan de pagos
                 frm_Agregar_Abono.dtg_plan_pagos.DataSource = null;

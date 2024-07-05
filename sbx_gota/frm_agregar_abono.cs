@@ -61,6 +61,7 @@ namespace sbx_gota
             txt_nota.Text = row["Nota"].ToString();
             txt_porcentaje_interes.Text = row["PorcentajeInteres"].ToString();
             txt_mora.Text = row["Mora"].ToString();
+            txt_fecha_registro.Text = row["FechaRegistros"].ToString();
 
             //carga plan de pagos
             dtg_plan_pagos.DataSource = null;

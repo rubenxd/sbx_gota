@@ -135,13 +135,13 @@ BEGIN
 	WHERE (NumeroIdentificacion LIKE @v_buscar+'%' OR c.Nombres LIKE @v_buscar+'%' OR c.Apellidos LIKE @v_buscar+'%')		
 END
 GO
-create PROC sp_consultar_cuenta_cobro
+CREATE PROC sp_consultar_cuenta_cobro
 	@v_buscar VARCHAR(300)
 AS
 BEGIN
 	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente, REPLACE(FORMAT(c.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo, 
 	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente,
-	c.FechaPrimerPago
+	c.FechaPrimerPago, c.FechaRegistros
 	FROM tbl_cuenta_cobro c 
 	INNER JOIN tbl_cliente cl on c.Id_cliente = cl.Id
 	WHERE (cl.NumeroIdentificacion LIKE @v_buscar+'%' OR cl.Nombres +' '+ cl.Apellidos LIKE @v_buscar+'%')
@@ -154,7 +154,7 @@ AS
 BEGIN
 	SELECT c.Id IdCuentaCobro, cl.NumeroIdentificacion, cl.Nombres +' ' + cl.Apellidos Cliente,REPLACE(FORMAT(c.MontoPrestamo, '#,##0'), ',', '.') MontoPrestamo, 
 	REPLACE(FORMAT(c.ValorInteres, '#,##0'), ',', '.') ValorInteres,c.PorcentajeInteres, c.NumeroCuotas,c.ModoPago, c.DiaPago,c.DiasFechaPago,c.Nota, c.Id_cliente,
-	c.FechaPrimerPago, c.Mora
+	c.FechaPrimerPago, isnull(c.Mora,0) Mora, c.FechaRegistros
 	FROM tbl_cuenta_cobro c 
 	INNER JOIN tbl_cliente cl on c.Id_cliente = cl.Id
 	WHERE c.Id = @v_buscar		
@@ -173,19 +173,36 @@ BEGIN
 	WHERE Id_cuentaCobro =@v_buscar
 END
 GO
-create PROC sp_consultar_Abonos
+CREATE PROC sp_consultar_Abonos
 	@v_buscar VARCHAR(300)
 AS
-BEGIN
+DECLARE 
+	@v_variable AS INT
+	SET @v_variable = (SELECT ISNUMERIC(@v_buscar))
+	IF(@v_variable = 1)
+	BEGIN
+		BEGIN
+			SELECT ta.Id IdAbono,REPLACE(FORMAT(ta.ValorAbono, '#,##0'), ',', '.') ValorAbono,pp.NumeroCuota,ta.FechaRegistro,pp.Id_cuentaCobro,pp.Id IdPago, tc.NumeroIdentificacion, tc.Nombres, tc.Apellidos,
+			ta.Nota,pp.Id Id_plan_pagos 
+			FROM tbl_abonos ta 
+			INNER JOIN tbl_plan_pagos pp ON ta.Id_plan_pagos = pp.Id
+			INNER JOIN tbl_cuenta_cobro cc ON cc.Id = pp.Id_cuentaCobro
+			INNER JOIN tbl_cliente tc ON tc.Id = cc.Id_cliente
+			WHERE pp.Id_cuentaCobro = CONVERT(numeric,@v_buscar)	 
+			ORDER BY ta.Id desc
+		END
+	END
+	ELSE
+	BEGIN
 	SELECT ta.Id IdAbono,REPLACE(FORMAT(ta.ValorAbono, '#,##0'), ',', '.') ValorAbono,pp.NumeroCuota,ta.FechaRegistro,pp.Id_cuentaCobro,pp.Id IdPago, tc.NumeroIdentificacion, tc.Nombres, tc.Apellidos,
-	ta.Nota,pp.Id Id_plan_pagos 
-	FROM tbl_abonos ta 
-	INNER JOIN tbl_plan_pagos pp ON ta.Id_plan_pagos = pp.Id
-	INNER JOIN tbl_cuenta_cobro cc ON cc.Id = pp.Id_cuentaCobro
-	INNER JOIN tbl_cliente tc ON tc.Id = cc.Id_cliente
-	WHERE (tc.NumeroIdentificacion LIKE @v_buscar+'%' OR tc.Nombres +' '+ tc.Apellidos LIKE @v_buscar+'%')	 
-	ORDER BY ta.Id desc
-END
+			ta.Nota,pp.Id Id_plan_pagos 
+			FROM tbl_abonos ta 
+			INNER JOIN tbl_plan_pagos pp ON ta.Id_plan_pagos = pp.Id
+			INNER JOIN tbl_cuenta_cobro cc ON cc.Id = pp.Id_cuentaCobro
+			INNER JOIN tbl_cliente tc ON tc.Id = cc.Id_cliente
+			WHERE (tc.NumeroIdentificacion LIKE @v_buscar+'%' OR tc.Nombres +' '+ tc.Apellidos LIKE @v_buscar+'%') 
+			ORDER BY ta.Id desc
+	END
 GO
 create PROC sp_consultar_resultados
 	@v_buscar VARCHAR(300)

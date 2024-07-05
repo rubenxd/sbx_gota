@@ -125,7 +125,7 @@ namespace sbx_gota
                 frm_Agregar_Abono.txt_dia_fecha_pago.Text = row["DiasFechaPago"].ToString();
                 frm_Agregar_Abono.txt_nota.Text = row["Nota"].ToString();
                 frm_Agregar_Abono.txt_porcentaje_interes.Text = row["PorcentajeInteres"].ToString();
-
+                frm_Agregar_Abono.txt_fecha_registro.Text = row["FechaRegistros"].ToString();
                 //carga plan de pagos
                 frm_Agregar_Abono.dtg_plan_pagos.DataSource = null;
                 //double VlrCuota = 0;

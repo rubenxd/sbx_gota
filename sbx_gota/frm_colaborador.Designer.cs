@@ -388,8 +388,9 @@
             this.Controls.Add(this.dtg_clientes);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(816, 576);
             this.Name = "frm_colaborador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_colaborador";
             this.Load += new System.EventHandler(this.frm_colaborador_Load);
             this.panel1.ResumeLayout(false);

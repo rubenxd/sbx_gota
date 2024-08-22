@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cobro_pendiente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_acciones = new System.Windows.Forms.Panel();
@@ -58,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(919, 26);
+            this.panel1.Size = new System.Drawing.Size(1076, 26);
             this.panel1.TabIndex = 3;
             // 
             // label1
@@ -88,7 +88,7 @@
             this.pnl_acciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_acciones.Location = new System.Drawing.Point(0, 26);
             this.pnl_acciones.Name = "pnl_acciones";
-            this.pnl_acciones.Size = new System.Drawing.Size(919, 39);
+            this.pnl_acciones.Size = new System.Drawing.Size(1076, 41);
             this.pnl_acciones.TabIndex = 11;
             // 
             // btn_exportar_excel
@@ -100,7 +100,7 @@
             this.btn_exportar_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_exportar_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_exportar_excel.Image = ((System.Drawing.Image)(resources.GetObject("btn_exportar_excel.Image")));
-            this.btn_exportar_excel.Location = new System.Drawing.Point(114, 8);
+            this.btn_exportar_excel.Location = new System.Drawing.Point(70, 9);
             this.btn_exportar_excel.Name = "btn_exportar_excel";
             this.btn_exportar_excel.Size = new System.Drawing.Size(20, 20);
             this.btn_exportar_excel.TabIndex = 17;
@@ -122,7 +122,7 @@
             "Pago superior",
             "Pago",
             "Todos"});
-            this.cbx_estado.Location = new System.Drawing.Point(150, 8);
+            this.cbx_estado.Location = new System.Drawing.Point(96, 9);
             this.cbx_estado.Name = "cbx_estado";
             this.cbx_estado.Size = new System.Drawing.Size(108, 21);
             this.cbx_estado.TabIndex = 16;
@@ -140,7 +140,7 @@
             "Todos",
             "En mora",
             "Sin mora"});
-            this.cbx_con_mora.Location = new System.Drawing.Point(264, 8);
+            this.cbx_con_mora.Location = new System.Drawing.Point(210, 9);
             this.cbx_con_mora.Name = "cbx_con_mora";
             this.cbx_con_mora.Size = new System.Drawing.Size(108, 21);
             this.cbx_con_mora.TabIndex = 15;
@@ -157,7 +157,7 @@
             this.cbx_tipo_filtro.Items.AddRange(new object[] {
             "Por fecha",
             "Todos"});
-            this.cbx_tipo_filtro.Location = new System.Drawing.Point(378, 8);
+            this.cbx_tipo_filtro.Location = new System.Drawing.Point(324, 8);
             this.cbx_tipo_filtro.Name = "cbx_tipo_filtro";
             this.cbx_tipo_filtro.Size = new System.Drawing.Size(108, 21);
             this.cbx_tipo_filtro.TabIndex = 14;
@@ -166,18 +166,17 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 12);
+            this.label2.Location = new System.Drawing.Point(438, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "F.Ini";
-            this.label2.Visible = false;
             // 
             // Ffin
             // 
             this.Ffin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Ffin.AutoSize = true;
-            this.Ffin.Location = new System.Drawing.Point(492, 12);
+            this.Ffin.Location = new System.Drawing.Point(629, 12);
             this.Ffin.Name = "Ffin";
             this.Ffin.Size = new System.Drawing.Size(30, 13);
             this.Ffin.TabIndex = 12;
@@ -187,7 +186,7 @@
             // 
             this.dtp_fecha_fin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_fecha_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_fin.Location = new System.Drawing.Point(526, 9);
+            this.dtp_fecha_fin.Location = new System.Drawing.Point(663, 9);
             this.dtp_fecha_fin.Name = "dtp_fecha_fin";
             this.dtp_fecha_fin.Size = new System.Drawing.Size(129, 20);
             this.dtp_fecha_fin.TabIndex = 11;
@@ -196,11 +195,10 @@
             // 
             this.dtp_fecha_ini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_fecha_ini.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_ini.Location = new System.Drawing.Point(152, 8);
+            this.dtp_fecha_ini.Location = new System.Drawing.Point(471, 9);
             this.dtp_fecha_ini.Name = "dtp_fecha_ini";
-            this.dtp_fecha_ini.Size = new System.Drawing.Size(23, 20);
+            this.dtp_fecha_ini.Size = new System.Drawing.Size(152, 20);
             this.dtp_fecha_ini.TabIndex = 10;
-            this.dtp_fecha_ini.Visible = false;
             // 
             // cbx_dia_semana
             // 
@@ -220,9 +218,9 @@
             "Viernes",
             "Sabado",
             "Domingo"});
-            this.cbx_dia_semana.Location = new System.Drawing.Point(6, 8);
+            this.cbx_dia_semana.Location = new System.Drawing.Point(-1, 32);
             this.cbx_dia_semana.Name = "cbx_dia_semana";
-            this.cbx_dia_semana.Size = new System.Drawing.Size(27, 21);
+            this.cbx_dia_semana.Size = new System.Drawing.Size(26, 21);
             this.cbx_dia_semana.TabIndex = 9;
             this.cbx_dia_semana.Visible = false;
             // 
@@ -235,7 +233,7 @@
             this.btn_buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar.Image")));
-            this.btn_buscar.Location = new System.Drawing.Point(884, 7);
+            this.btn_buscar.Location = new System.Drawing.Point(1001, 6);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(22, 22);
             this.btn_buscar.TabIndex = 8;
@@ -246,7 +244,7 @@
             // 
             this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
-            this.txt_buscar.Location = new System.Drawing.Point(681, 9);
+            this.txt_buscar.Location = new System.Drawing.Point(798, 8);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(197, 20);
             this.txt_buscar.TabIndex = 7;
@@ -257,20 +255,20 @@
             this.dtg_cobro_pendiente.AllowUserToAddRows = false;
             this.dtg_cobro_pendiente.AllowUserToDeleteRows = false;
             this.dtg_cobro_pendiente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_cobro_pendiente.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_cobro_pendiente.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_cobro_pendiente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_cobro_pendiente.Location = new System.Drawing.Point(0, 65);
+            this.dtg_cobro_pendiente.Location = new System.Drawing.Point(0, 67);
             this.dtg_cobro_pendiente.Name = "dtg_cobro_pendiente";
             this.dtg_cobro_pendiente.ReadOnly = true;
             this.dtg_cobro_pendiente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_cobro_pendiente.Size = new System.Drawing.Size(919, 385);
+            this.dtg_cobro_pendiente.Size = new System.Drawing.Size(1076, 383);
             this.dtg_cobro_pendiente.TabIndex = 12;
             this.dtg_cobro_pendiente.DoubleClick += new System.EventHandler(this.dtg_cobro_pendiente_DoubleClick);
             // 
@@ -278,11 +276,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 450);
+            this.ClientSize = new System.Drawing.Size(1076, 450);
             this.Controls.Add(this.dtg_cobro_pendiente);
             this.Controls.Add(this.pnl_acciones);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1092, 489);
             this.Name = "frm_cobro_pendiente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_cobro_pendiente";

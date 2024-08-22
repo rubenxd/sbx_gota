@@ -57,6 +57,26 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.lbl_t_in = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.lbl_ped_saldo_mas_mora = new System.Windows.Forms.Label();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.lbl_mora_pendiente = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.lbl_g_mas_mora = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.lbl_g_m_x_p = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.lbl_gxMora = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.lbl_total_recuperado = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -69,26 +89,6 @@
             this.btn_consultar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dtg_reportes = new System.Windows.Forms.DataGridView();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.lbl_gxMora = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.lbl_g_m_x_p = new System.Windows.Forms.Label();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.lbl_g_mas_mora = new System.Windows.Forms.Label();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.lbl_mora_pendiente = new System.Windows.Forms.Label();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.lbl_ped_saldo_mas_mora = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -103,22 +103,22 @@
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reportes)).BeginInit();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel28.SuspendLayout();
-            this.panel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -428,6 +428,216 @@
             this.panel14.Size = new System.Drawing.Size(867, 273);
             this.panel14.TabIndex = 94;
             // 
+            // panel28
+            // 
+            this.panel28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel28.Controls.Add(this.label7);
+            this.panel28.Location = new System.Drawing.Point(228, 234);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(196, 32);
+            this.panel28.TabIndex = 106;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Window;
+            this.label7.Location = new System.Drawing.Point(0, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(171, 15);
+            this.label7.TabIndex = 110;
+            this.label7.Text = "Total Pendiente saldo + mora:";
+            // 
+            // panel29
+            // 
+            this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel29.Controls.Add(this.lbl_ped_saldo_mas_mora);
+            this.panel29.Location = new System.Drawing.Point(430, 234);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(210, 32);
+            this.panel29.TabIndex = 107;
+            // 
+            // lbl_ped_saldo_mas_mora
+            // 
+            this.lbl_ped_saldo_mas_mora.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_ped_saldo_mas_mora.AutoSize = true;
+            this.lbl_ped_saldo_mas_mora.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ped_saldo_mas_mora.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_ped_saldo_mas_mora.Location = new System.Drawing.Point(7, 9);
+            this.lbl_ped_saldo_mas_mora.Name = "lbl_ped_saldo_mas_mora";
+            this.lbl_ped_saldo_mas_mora.Size = new System.Drawing.Size(14, 15);
+            this.lbl_ped_saldo_mas_mora.TabIndex = 110;
+            this.lbl_ped_saldo_mas_mora.Text = "0";
+            // 
+            // panel26
+            // 
+            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel26.Controls.Add(this.label5);
+            this.panel26.Location = new System.Drawing.Point(12, 196);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(196, 32);
+            this.panel26.TabIndex = 104;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Window;
+            this.label5.Location = new System.Drawing.Point(0, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(158, 15);
+            this.label5.TabIndex = 110;
+            this.label5.Text = "Total saldo pendiente Mora:";
+            // 
+            // panel27
+            // 
+            this.panel27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel27.Controls.Add(this.lbl_mora_pendiente);
+            this.panel27.Location = new System.Drawing.Point(214, 196);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(210, 32);
+            this.panel27.TabIndex = 105;
+            // 
+            // lbl_mora_pendiente
+            // 
+            this.lbl_mora_pendiente.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_mora_pendiente.AutoSize = true;
+            this.lbl_mora_pendiente.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_mora_pendiente.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_mora_pendiente.Location = new System.Drawing.Point(7, 9);
+            this.lbl_mora_pendiente.Name = "lbl_mora_pendiente";
+            this.lbl_mora_pendiente.Size = new System.Drawing.Size(14, 15);
+            this.lbl_mora_pendiente.TabIndex = 110;
+            this.lbl_mora_pendiente.Text = "0";
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel24.Controls.Add(this.label8);
+            this.panel24.Location = new System.Drawing.Point(439, 158);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(196, 32);
+            this.panel24.TabIndex = 102;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Window;
+            this.label8.Location = new System.Drawing.Point(0, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(130, 15);
+            this.label8.TabIndex = 110;
+            this.label8.Text = "Total ganacias + Mora:";
+            // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel25.Controls.Add(this.lbl_g_mas_mora);
+            this.panel25.Location = new System.Drawing.Point(641, 158);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(210, 32);
+            this.panel25.TabIndex = 103;
+            // 
+            // lbl_g_mas_mora
+            // 
+            this.lbl_g_mas_mora.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_g_mas_mora.AutoSize = true;
+            this.lbl_g_mas_mora.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_g_mas_mora.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_g_mas_mora.Location = new System.Drawing.Point(7, 9);
+            this.lbl_g_mas_mora.Name = "lbl_g_mas_mora";
+            this.lbl_g_mas_mora.Size = new System.Drawing.Size(14, 15);
+            this.lbl_g_mas_mora.TabIndex = 110;
+            this.lbl_g_mas_mora.Text = "0";
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel22.Controls.Add(this.label6);
+            this.panel22.Location = new System.Drawing.Point(439, 120);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(196, 32);
+            this.panel22.TabIndex = 100;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Window;
+            this.label6.Location = new System.Drawing.Point(-3, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(177, 15);
+            this.label6.TabIndex = 110;
+            this.label6.Text = "Total ganacias Mora x persona:";
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel23.Controls.Add(this.lbl_g_m_x_p);
+            this.panel23.Location = new System.Drawing.Point(641, 120);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(210, 32);
+            this.panel23.TabIndex = 101;
+            // 
+            // lbl_g_m_x_p
+            // 
+            this.lbl_g_m_x_p.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_g_m_x_p.AutoSize = true;
+            this.lbl_g_m_x_p.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_g_m_x_p.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_g_m_x_p.Location = new System.Drawing.Point(7, 9);
+            this.lbl_g_m_x_p.Name = "lbl_g_m_x_p";
+            this.lbl_g_m_x_p.Size = new System.Drawing.Size(14, 15);
+            this.lbl_g_m_x_p.TabIndex = 110;
+            this.lbl_g_m_x_p.Text = "0";
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel20.Controls.Add(this.label2);
+            this.panel20.Location = new System.Drawing.Point(439, 82);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(196, 32);
+            this.panel20.TabIndex = 98;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(0, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 15);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Total Ganancia x Mora:";
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel21.Controls.Add(this.lbl_gxMora);
+            this.panel21.Location = new System.Drawing.Point(641, 82);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(210, 32);
+            this.panel21.TabIndex = 99;
+            // 
+            // lbl_gxMora
+            // 
+            this.lbl_gxMora.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_gxMora.AutoSize = true;
+            this.lbl_gxMora.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_gxMora.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_gxMora.Location = new System.Drawing.Point(7, 9);
+            this.lbl_gxMora.Name = "lbl_gxMora";
+            this.lbl_gxMora.Size = new System.Drawing.Size(14, 15);
+            this.lbl_gxMora.TabIndex = 110;
+            this.lbl_gxMora.Text = "0";
+            // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -570,216 +780,6 @@
             this.dtg_reportes.Size = new System.Drawing.Size(867, 214);
             this.dtg_reportes.TabIndex = 96;
             // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel20.Controls.Add(this.label2);
-            this.panel20.Location = new System.Drawing.Point(439, 82);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(196, 32);
-            this.panel20.TabIndex = 98;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(0, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 15);
-            this.label2.TabIndex = 110;
-            this.label2.Text = "Total Ganancia x Mora:";
-            // 
-            // panel21
-            // 
-            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel21.Controls.Add(this.lbl_gxMora);
-            this.panel21.Location = new System.Drawing.Point(641, 82);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(210, 32);
-            this.panel21.TabIndex = 99;
-            // 
-            // lbl_gxMora
-            // 
-            this.lbl_gxMora.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_gxMora.AutoSize = true;
-            this.lbl_gxMora.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_gxMora.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_gxMora.Location = new System.Drawing.Point(7, 9);
-            this.lbl_gxMora.Name = "lbl_gxMora";
-            this.lbl_gxMora.Size = new System.Drawing.Size(14, 15);
-            this.lbl_gxMora.TabIndex = 110;
-            this.lbl_gxMora.Text = "0";
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel22.Controls.Add(this.label6);
-            this.panel22.Location = new System.Drawing.Point(439, 120);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(196, 32);
-            this.panel22.TabIndex = 100;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Window;
-            this.label6.Location = new System.Drawing.Point(-3, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(177, 15);
-            this.label6.TabIndex = 110;
-            this.label6.Text = "Total ganacias Mora x persona:";
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel23.Controls.Add(this.lbl_g_m_x_p);
-            this.panel23.Location = new System.Drawing.Point(641, 120);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(210, 32);
-            this.panel23.TabIndex = 101;
-            // 
-            // lbl_g_m_x_p
-            // 
-            this.lbl_g_m_x_p.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_g_m_x_p.AutoSize = true;
-            this.lbl_g_m_x_p.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_g_m_x_p.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_g_m_x_p.Location = new System.Drawing.Point(7, 9);
-            this.lbl_g_m_x_p.Name = "lbl_g_m_x_p";
-            this.lbl_g_m_x_p.Size = new System.Drawing.Size(14, 15);
-            this.lbl_g_m_x_p.TabIndex = 110;
-            this.lbl_g_m_x_p.Text = "0";
-            // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel24.Controls.Add(this.label8);
-            this.panel24.Location = new System.Drawing.Point(439, 158);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(196, 32);
-            this.panel24.TabIndex = 102;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.Window;
-            this.label8.Location = new System.Drawing.Point(0, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(130, 15);
-            this.label8.TabIndex = 110;
-            this.label8.Text = "Total ganacias + Mora:";
-            // 
-            // panel25
-            // 
-            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel25.Controls.Add(this.lbl_g_mas_mora);
-            this.panel25.Location = new System.Drawing.Point(641, 158);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(210, 32);
-            this.panel25.TabIndex = 103;
-            // 
-            // lbl_g_mas_mora
-            // 
-            this.lbl_g_mas_mora.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_g_mas_mora.AutoSize = true;
-            this.lbl_g_mas_mora.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_g_mas_mora.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_g_mas_mora.Location = new System.Drawing.Point(7, 9);
-            this.lbl_g_mas_mora.Name = "lbl_g_mas_mora";
-            this.lbl_g_mas_mora.Size = new System.Drawing.Size(14, 15);
-            this.lbl_g_mas_mora.TabIndex = 110;
-            this.lbl_g_mas_mora.Text = "0";
-            // 
-            // panel26
-            // 
-            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel26.Controls.Add(this.label5);
-            this.panel26.Location = new System.Drawing.Point(12, 196);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(196, 32);
-            this.panel26.TabIndex = 104;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Window;
-            this.label5.Location = new System.Drawing.Point(0, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 15);
-            this.label5.TabIndex = 110;
-            this.label5.Text = "Total saldo pendiente Mora:";
-            // 
-            // panel27
-            // 
-            this.panel27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel27.Controls.Add(this.lbl_mora_pendiente);
-            this.panel27.Location = new System.Drawing.Point(214, 196);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(210, 32);
-            this.panel27.TabIndex = 105;
-            // 
-            // lbl_mora_pendiente
-            // 
-            this.lbl_mora_pendiente.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_mora_pendiente.AutoSize = true;
-            this.lbl_mora_pendiente.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_mora_pendiente.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_mora_pendiente.Location = new System.Drawing.Point(7, 9);
-            this.lbl_mora_pendiente.Name = "lbl_mora_pendiente";
-            this.lbl_mora_pendiente.Size = new System.Drawing.Size(14, 15);
-            this.lbl_mora_pendiente.TabIndex = 110;
-            this.lbl_mora_pendiente.Text = "0";
-            // 
-            // panel28
-            // 
-            this.panel28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel28.Controls.Add(this.label7);
-            this.panel28.Location = new System.Drawing.Point(228, 234);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(196, 32);
-            this.panel28.TabIndex = 106;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Window;
-            this.label7.Location = new System.Drawing.Point(0, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(171, 15);
-            this.label7.TabIndex = 110;
-            this.label7.Text = "Total Pendiente saldo + mora:";
-            // 
-            // panel29
-            // 
-            this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel29.Controls.Add(this.lbl_ped_saldo_mas_mora);
-            this.panel29.Location = new System.Drawing.Point(430, 234);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(210, 32);
-            this.panel29.TabIndex = 107;
-            // 
-            // lbl_ped_saldo_mas_mora
-            // 
-            this.lbl_ped_saldo_mas_mora.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_ped_saldo_mas_mora.AutoSize = true;
-            this.lbl_ped_saldo_mas_mora.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ped_saldo_mas_mora.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_ped_saldo_mas_mora.Location = new System.Drawing.Point(7, 9);
-            this.lbl_ped_saldo_mas_mora.Name = "lbl_ped_saldo_mas_mora";
-            this.lbl_ped_saldo_mas_mora.Size = new System.Drawing.Size(14, 15);
-            this.lbl_ped_saldo_mas_mora.TabIndex = 110;
-            this.lbl_ped_saldo_mas_mora.Text = "0";
-            // 
             // frm_reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -789,8 +789,9 @@
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(867, 549);
             this.Name = "frm_reporte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_reporte";
             this.Load += new System.EventHandler(this.frm_reporte_Load);
             this.panel1.ResumeLayout(false);
@@ -820,6 +821,26 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel28.PerformLayout();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             this.panel19.ResumeLayout(false);
@@ -831,26 +852,6 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reportes)).EndInit();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
-            this.panel25.ResumeLayout(false);
-            this.panel25.PerformLayout();
-            this.panel26.ResumeLayout(false);
-            this.panel26.PerformLayout();
-            this.panel27.ResumeLayout(false);
-            this.panel27.PerformLayout();
-            this.panel28.ResumeLayout(false);
-            this.panel28.PerformLayout();
-            this.panel29.ResumeLayout(false);
-            this.panel29.PerformLayout();
             this.ResumeLayout(false);
 
         }

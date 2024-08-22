@@ -155,8 +155,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_ruta_backup);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "frm_ajustes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_ajustes";
             this.Load += new System.EventHandler(this.frm_ajustes_Load);
             this.panel1.ResumeLayout(false);

@@ -383,8 +383,9 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(816, 704);
             this.Name = "frm_cliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_cliente";
             this.Load += new System.EventHandler(this.frm_cliente_Load);
             this.panel1.ResumeLayout(false);

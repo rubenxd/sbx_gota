@@ -24,11 +24,21 @@ namespace sbx_gota
 
         private void btn_cliente_Click(object sender, EventArgs e)
         {
-            formul.Dispose();
-            frm_cliente frm_Cliente = new frm_cliente();
-            ColoresBotones("btn_cliente");
-            AbrirFormularioEnPanel(frm_Cliente);
-            btn_cliente.BackColor = Color.DarkSeaGreen;
+            //formul.Dispose();
+            //frm_cliente frm_Cliente = new frm_cliente();
+            //ColoresBotones("btn_cliente");
+            //AbrirFormularioEnPanel(frm_Cliente);
+            //btn_cliente.BackColor = Color.DarkSeaGreen;
+            frm_cliente frm = Application.OpenForms["frm_cliente"] as frm_cliente;
+            if (frm == null)
+            {
+                frm = new frm_cliente();
+                frm.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         public void AbrirFormularioEnPanel(object FormularioHijo)
@@ -77,29 +87,59 @@ namespace sbx_gota
 
         private void btn_cuenta_cobro_Click(object sender, EventArgs e)
         {
-            formul.Dispose();
-            frm_cuenta_cobro frm_Cuenta_Cobro = new frm_cuenta_cobro();
-            ColoresBotones("btn_cuenta_cobro");
-            AbrirFormularioEnPanel(frm_Cuenta_Cobro);
-            btn_cuenta_cobro.BackColor = Color.DarkSeaGreen;
+            //formul.Dispose();
+            //frm_cuenta_cobro frm_Cuenta_Cobro = new frm_cuenta_cobro();
+            //ColoresBotones("btn_cuenta_cobro");
+            //AbrirFormularioEnPanel(frm_Cuenta_Cobro);
+            //btn_cuenta_cobro.BackColor = Color.DarkSeaGreen;
+            frm_cuenta_cobro frm = Application.OpenForms["frm_cuenta_cobro"] as frm_cuenta_cobro;
+            if (frm == null)
+            {
+                frm = new frm_cuenta_cobro();
+                frm.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void btn_reporte_Click(object sender, EventArgs e)
         {
-            formul.Dispose();
-            frm_reporte frm_Reporte = new frm_reporte();
-            ColoresBotones("btn_reporte");
-            AbrirFormularioEnPanel(frm_Reporte);
-            btn_reporte.BackColor = Color.DarkSeaGreen;
+            //formul.Dispose();
+            //frm_reporte frm_Reporte = new frm_reporte();
+            //ColoresBotones("btn_reporte");
+            //AbrirFormularioEnPanel(frm_Reporte);
+            //btn_reporte.BackColor = Color.DarkSeaGreen;
+            frm_reporte frm = Application.OpenForms["frm_reporte"] as frm_reporte;
+            if (frm == null)
+            {
+                frm = new frm_reporte();
+                frm.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void btn_abonos_Click(object sender, EventArgs e)
         {
-            formul.Dispose();
-            frm_abonos frm_Abonos = new frm_abonos();
-            ColoresBotones("btn_abonos");
-            AbrirFormularioEnPanel(frm_Abonos);
-            btn_abonos.BackColor = Color.DarkSeaGreen;
+            //formul.Dispose();
+            //frm_abonos frm_Abonos = new frm_abonos();
+            //ColoresBotones("btn_abonos");
+            //AbrirFormularioEnPanel(frm_Abonos);
+            //btn_abonos.BackColor = Color.DarkSeaGreen;
+            frm_abonos frm = Application.OpenForms["frm_abonos"] as frm_abonos;
+            if (frm == null)
+            {
+                frm = new frm_abonos();
+                frm.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
         DataTable v_dt;
         private void frm_inicio_FormClosing(object sender, FormClosingEventArgs e)
@@ -181,29 +221,59 @@ namespace sbx_gota
 
         private void btn_colaborador_Click(object sender, EventArgs e)
         {
-            formul.Dispose();
-            frm_colaborador frm_Colaborador = new frm_colaborador();
-            ColoresBotones("btn_colaborador");
-            AbrirFormularioEnPanel(frm_Colaborador);
-            btn_colaborador.BackColor = Color.DarkSeaGreen;
+            //formul.Dispose();
+            //frm_colaborador frm_Colaborador = new frm_colaborador();
+            //ColoresBotones("btn_colaborador");
+            //AbrirFormularioEnPanel(frm_Colaborador);
+            //btn_colaborador.BackColor = Color.DarkSeaGreen;
+            frm_colaborador frm = Application.OpenForms["frm_colaborador"] as frm_colaborador;
+            if (frm == null)
+            {
+                frm = new frm_colaborador();
+                frm.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void btn_pendiente_pago_Click(object sender, EventArgs e)
         {
-            formul.Dispose();
-            frm_cobro_pendiente frm_Cobro_Pendiente = new frm_cobro_pendiente();
-            ColoresBotones("btn_pendiente_pago");
-            AbrirFormularioEnPanel(frm_Cobro_Pendiente);
-            btn_pendiente_pago.BackColor = Color.DarkSeaGreen;
+            //formul.Dispose();
+            //frm_cobro_pendiente frm_Cobro_Pendiente = new frm_cobro_pendiente();
+            //ColoresBotones("btn_pendiente_pago");
+            //AbrirFormularioEnPanel(frm_Cobro_Pendiente);
+            //btn_pendiente_pago.BackColor = Color.DarkSeaGreen;
+            frm_cobro_pendiente frm = Application.OpenForms["frm_cobro_pendiente"] as frm_cobro_pendiente;
+            if (frm == null)
+            {
+                frm = new frm_cobro_pendiente();
+                frm.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void btn_ajustes_Click(object sender, EventArgs e)
         {
-            formul.Dispose();
-            frm_ajustes frm_Ajustes = new frm_ajustes();
-            ColoresBotones("btn_ajustes");
-            AbrirFormularioEnPanel(frm_Ajustes);
-            btn_ajustes.BackColor = Color.DarkSeaGreen;
+            //formul.Dispose();
+            //frm_ajustes frm_Ajustes = new frm_ajustes();
+            //ColoresBotones("btn_ajustes");
+            //AbrirFormularioEnPanel(frm_Ajustes);
+            //btn_ajustes.BackColor = Color.DarkSeaGreen;
+            frm_ajustes frm = Application.OpenForms["frm_ajustes"] as frm_ajustes;
+            if (frm == null)
+            {
+                frm = new frm_ajustes();
+                frm.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
     }
 }

@@ -166,7 +166,7 @@
             this.Controls.Add(this.dtg_abonos);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "frm_abonos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_abonos";

@@ -55,7 +55,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 609);
+            this.panel1.Size = new System.Drawing.Size(134, 418);
             this.panel1.TabIndex = 0;
             // 
             // btn_ajustes
@@ -210,17 +210,17 @@
             this.pnl_centro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centro.Location = new System.Drawing.Point(134, 0);
             this.pnl_centro.Name = "pnl_centro";
-            this.pnl_centro.Size = new System.Drawing.Size(1032, 609);
+            this.pnl_centro.Size = new System.Drawing.Size(364, 418);
             this.pnl_centro.TabIndex = 1;
             // 
             // frm_inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 609);
+            this.ClientSize = new System.Drawing.Size(498, 418);
             this.Controls.Add(this.pnl_centro);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(1182, 648);
+            this.MinimumSize = new System.Drawing.Size(514, 457);
             this.Name = "frm_inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_inicio";

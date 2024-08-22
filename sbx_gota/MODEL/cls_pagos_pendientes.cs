@@ -46,7 +46,7 @@ namespace sbx_gota.MODEL
             {
                 estado = "";
             }
-            v_query = " EXECUTE sp_consultar_pagos_pendientes_2  '" + v_buscar + "', '" + FechaFin.ToString("yyyyMMdd") + "', '"+ estado + "' ";
+            v_query = " EXECUTE sp_consultar_pagos_pendientes_2  '" + v_buscar + "','"+ FechaIni.ToString("yyyyMMdd") +"', '" + FechaFin.ToString("yyyyMMdd") + "', '"+ estado + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
